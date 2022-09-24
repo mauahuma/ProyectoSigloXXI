@@ -76,9 +76,9 @@ WSGI_APPLICATION = 'RestaurantSigloXXI.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.oracle',
-        'NAME': 'orcl',
-        'USER': 'admin',
-        'PASSWORD': 'Whitecontrol12',
+        'NAME': 'XE',
+        'USER': 'desarrollo',
+        'PASSWORD': "RestauranteSXXI",
         'HOST': 'localhost',
         'PORT': '1521',
     }
