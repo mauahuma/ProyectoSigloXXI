@@ -6,6 +6,7 @@ const routes = [
   ...routesWorkers,
   ...routesClients,
   {
+    path: "*",
     layout: BasicLayout,
     component: Error404,
   },
