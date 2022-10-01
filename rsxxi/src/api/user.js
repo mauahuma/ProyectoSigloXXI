@@ -12,6 +12,7 @@ export async function loginApi(formValue) {
     };
 
     const response = await fetch(url, params);
+
     if (response.status !== 200) {
       throw new Error("Usuario o contraseña incorrectos");
     }
@@ -33,6 +34,22 @@ export async function getMeApi(token) {
       },
     };
 
+    const response = await fetch(url, params);
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export async function getUsersApi(token) {
+  try {
+    const url = `${BASE_API}/api/users`;
+    const params = {
+      headers: {
+        Authorization: `${token}`,
+      },
+    };
     const response = await fetch(url, params);
     const result = await response.json();
     return result;

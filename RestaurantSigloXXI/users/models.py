@@ -12,9 +12,9 @@ CargosEnum = (
 
 
 class User(AbstractUser):
-    pass
+
     email = models.EmailField(unique=True)
-    cargo = models.CharField(max_length=100, choices=CargosEnum, null=True)
+    cargo = models.CharField(max_length=100,  null=True)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []

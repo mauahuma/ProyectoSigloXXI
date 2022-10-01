@@ -70,6 +70,17 @@ function MenuLeft(props) {
         <Icon name="home" />
         Reportes
       </Menu.Item>
+
+      {/* final  */}
+
+      <Menu.Item
+        as={Link}
+        to={"/workers/Usuarios"}
+        active={pathname === "/workers/Usuarios"}
+      >
+        <Icon name="users" />
+        Usuarios
+      </Menu.Item>
     </Menu>
   );
 }
