@@ -1,4 +1,3 @@
-from asyncio.windows_events import NULL
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAdminUser, IsAuthenticated
@@ -10,7 +9,7 @@ from users.api.serializers import UserSerializer
 
 
 class UserApiViewSet (ModelViewSet):
-    ##permission_classes = [User.cargo == ""]
+
     serializer_class = UserSerializer
     queryset = User.objects.all()
 
