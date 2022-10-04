@@ -8,3 +8,5 @@ export * from "./Users";
 export * from "./Producs";
 
 export * from "./Mesas";
+
+export * from "./Preparaciones";

@@ -1,5 +1,5 @@
 import { WorkersLayout } from "../layouts";
-import { HomeAdmin, UsersWorker, MesasWorker } from "../Pages/Workers";
+import { HomeAdmin, UsersWorker, MesasWorker, PreparacionesWorker } from "../Pages/Workers";
 const routesWorkers = [
   {
     path: "/Workers",
@@ -17,6 +17,12 @@ const routesWorkers = [
     path: "/Workers/Mesas",
     layout: WorkersLayout,
     component: MesasWorker,
+    exact: true,
+  },
+  {
+    path: "/Workers/Preparaciones",
+    layout: WorkersLayout,
+    component: PreparacionesWorker,
     exact: true,
   },
 ];
