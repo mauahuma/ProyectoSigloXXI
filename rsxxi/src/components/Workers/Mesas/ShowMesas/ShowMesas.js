@@ -1,15 +1,16 @@
 import React from "react";
-import { Grid, Segment } from "semantic-ui-react";
+import { Grid, Segment, Button, ButtonGroup } from "semantic-ui-react";
 import { map } from "lodash";
-
+import "./ShowMesas.scss";
+import { SegmentoMesas } from "../SegmentoMesas";
 export function ShowMesas(props) {
-  const { mesas, updateMesa, onDeleteMesa } = props;
+  const { mesas, onRefetch } = props;
   return (
-    <div>
-      <Grid stackable columns={4}>
+    <div className="Show-Mesas">
+      <Grid stackable columns={3}>
         {map(mesas, (mesa, index) => (
           <Grid.Column key={index}>
-            <Segment>Mesa</Segment>
+            <SegmentoMesas mesa={mesa} onRefetch={onRefetch} />
           </Grid.Column>
         ))}
       </Grid>

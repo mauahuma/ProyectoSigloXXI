@@ -30,12 +30,12 @@ export function MesasWorker() {
   };
 
   const updateMesa = (data) => {
-    setTitleModal("Actualizar mesa");
+    setTitleModal(`Actualizar mesa ${data.numero_mesa}`);
     setContentModal(
       <AddEditMesasForm
         onRefetch={onRefetch}
         onClose={openCloseModal}
-        mesas={data}
+        mesa={data}
       />
     );
     openCloseModal();
@@ -54,7 +54,7 @@ export function MesasWorker() {
   };
 
   switch (auth.me.cargo) {
-    case "Administrador":
+    case "Administrador" || "Bodega":
       return (
         <>
           <HeaderPage title="Mesas" btnTitle="Nueva Mesa" btnClick={addMesa} />
@@ -80,6 +80,6 @@ export function MesasWorker() {
       );
 
     default:
-      return <ShowMesas mesas={mesas} />;
+      return <ShowMesas mesas={mesas} onRefetch={onRefetch} />;
   }
 }
