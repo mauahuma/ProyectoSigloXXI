@@ -4,7 +4,12 @@ import "./AddEditMesasForm.scss";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useMesas } from "../../../../hooks";
-
+const estados = [
+  { key: "d", text: "Disponible", value: "Disponible" },
+  { key: "r", text: "Reservado", value: "Reservado" },
+  { key: "o", text: "Ocupado", value: "Ocupado" },
+  { key: "n", text: "Deshabilitado", Value: "Deshabilitado" },
+];
 export function AddEditMesasForm(props) {
   const { onClose, onRefetch, mesa } = props;
   const { addMesa, updateMesa } = useMesas();
@@ -34,13 +39,15 @@ export function AddEditMesasForm(props) {
         onChange={formik.handleChange}
         error={formik.errors.numero_mesa}
       ></Form.Input>
-      <Form.Input
-        name="estado"
+
+      <Form.Select
+        selection
         placeholder="Estado"
+        options={estados}
         value={formik.values.estado}
-        onChange={formik.handleChange}
         error={formik.errors.estado}
-      ></Form.Input>
+        onChange={(_, data) => formik.setFieldValue("estado", data.value)}
+      ></Form.Select>
 
       <Button
         type="submit"
@@ -55,7 +62,7 @@ export function AddEditMesasForm(props) {
 function initialValues(data) {
   return {
     numero_mesa: data?.numero_mesa || "",
-    email: data?.estado || "",
+    estado: data?.estado || "",
   };
 }
 

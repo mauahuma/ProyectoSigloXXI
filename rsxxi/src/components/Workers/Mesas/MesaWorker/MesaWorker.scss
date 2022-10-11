@@ -1,0 +1,19 @@
+.mesa-worker{
+    position: relative;
+    flex: 0 1 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 25px;
+    margin-left: 10px;
+    margin-right: 10px;
+    &:hover{
+        opacity: 0.5;
+        cursor: pointer;
+    }
+    svg{
+        height: 150px;
+        width: 150px;
+
+    }
+}
