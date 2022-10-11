@@ -2,14 +2,14 @@ import React from "react";
 import { Grid, Segment } from "semantic-ui-react";
 import { map } from "lodash";
 
-export function ShowPreparaciones(props) {
-  const { preparaciones, updatePreparacion, onDeletePreparacion } = props;
+export function ShowIngredientes(props) {
+  const { ingredientes, updateIngrediente, onDeleteIngrediente } = props;
   return (
     <div>
       <Grid stackable columns={4}>
-        {map(preparaciones, (preparacion, index) => (
+        {map(ingredientes, (ingrediente, index) => (
           <Grid.Column key={index}>
-            <Segment>Preparacion</Segment>
+            <Segment>Ingrediente</Segment>
           </Grid.Column>
         ))}
       </Grid>

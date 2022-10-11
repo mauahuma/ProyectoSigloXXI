@@ -1,57 +1,54 @@
 import React, { useState, useEffect } from "react";
-import { usePreparaciones, useAuth } from "../../hooks";
+import { useAuth, useIngredientes } from "../../hooks";
 import { Loader } from "semantic-ui-react";
 import {
   HeaderPage,
-  TablePreparaciones,
-  AddEditPreparacionesForm,
-  ShowPreparaciones,
+  TableIngredientes,
+  AddEditIngredientesForm,
+  ShowIngredientes,
 } from "../../components/Workers";
 import { ModalBasic } from "../../components/Common";
 
-export function PreparacionesWorker() {
+export function IngredientesWorker() {
   const [showModal, setShowModal] = useState(false);
   const [titleModal, setTitleModal] = useState(null);
   const [contentModal, setContentModal] = useState(null);
   const [refetch, setRefetch] = useState(false);
-  const { loading, preparaciones, getPreparaciones, deletePreparacion } =
-    usePreparaciones();
+  const { loading, ingredientes, getIngredientes, deleteIngrediente } =
+    useIngredientes();
   const { auth } = useAuth();
-  useEffect(() => getPreparaciones(), [refetch]);
+  useEffect(() => getIngredientes(), [refetch]);
 
   const openCloseModal = () => setShowModal((prev) => !prev);
   const onRefetch = () => setRefetch((prev) => !prev);
 
-  const addPreparacion = () => {
-    setTitleModal("Nueva Preparación");
+  const addIngrediente = () => {
+    setTitleModal("Nuevo Ingrediente");
     setContentModal(
-      <AddEditPreparacionesForm
-        onClose={openCloseModal}
+      <AddEditIngredientesForm onClose={openCloseModal} onRefetch={onRefetch} />
+    );
+    openCloseModal();
+  };
+
+  const updateIngrediente = (data) => {
+    setTitleModal("Actualizar Ingrediente");
+    setContentModal(
+      <AddEditIngredientesForm
         onRefetch={onRefetch}
+        onClose={openCloseModal}
+        ingredientes={data}
       />
     );
     openCloseModal();
   };
 
-  const updatePreparacion = (data) => {
-    setTitleModal("Actualizar Preparación");
-    setContentModal(
-      <AddEditPreparacionesForm
-        onRefetch={onRefetch}
-        onClose={openCloseModal}
-        preparaciones={data}
-      />
-    );
-    openCloseModal();
-  };
-
-  const onDeletePreparaciones = async (data) => {
+  const onDeleteIngredientes = async (data) => {
     const result = window.confirm(
-      `¿Eliminar Preparación ${data.id_preparacion}`
+      `¿Eliminar Ingrediente ${data.id_ingrediente}`
     );
     if (result) {
       try {
-        await deletePreparacion(data.id);
+        await deleteIngrediente(data.id);
         onRefetch();
       } catch (error) {
         console.error(error);
@@ -64,19 +61,19 @@ export function PreparacionesWorker() {
       return (
         <>
           <HeaderPage
-            title="Preparaciones"
-            btnTitle="Nueva Preparación"
-            btnClick={addPreparacion}
+            title="Ingredientes"
+            btnTitle="Nuevo Ingrediente"
+            btnClick={addIngrediente}
           />
           {loading ? (
             <Loader active inline="centered">
               Cargando...
             </Loader>
           ) : (
-            <TablePreparaciones
-              preparaciones={preparaciones}
-              updatePreparacion={updatePreparacion}
-              onDeletePreparaciones={onDeletePreparaciones}
+            <TableIngredientes
+              ingredientes={ingredientes}
+              updateIngrediente={updateIngrediente}
+              onDeleteIngredientes={onDeleteIngredientes}
             />
           )}
 
@@ -90,6 +87,6 @@ export function PreparacionesWorker() {
       );
 
     default:
-      return <ShowPreparaciones preparaciones={preparaciones} />;
+      return <ShowIngredientes ingredientes={ingredientes} />;
   }
 }

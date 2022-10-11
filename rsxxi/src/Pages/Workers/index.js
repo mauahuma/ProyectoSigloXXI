@@ -3,3 +3,4 @@ export * from "./HomeAdmin";
 export * from "./UsersWorker";
 export * from "./MesasWorker";
 export * from "./PreparacionesWorker";
+export * from "./IngredientesWorker";

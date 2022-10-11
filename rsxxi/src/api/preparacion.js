@@ -2,7 +2,7 @@ import { BASE_API } from "../utils/constants";
 
 export async function getPreparacionesApi(token) {
   try {
-    const url = `${BASE_API}/api/mesas/`;
+    const url = `${BASE_API}/api/preparaciones/`;
     const params = {
       headers: {
         Authorization: `${token}`,
@@ -19,7 +19,7 @@ export async function getPreparacionesApi(token) {
 
 export async function addPreparacionApi(data, token) {
   try {
-    const url = `${BASE_API}/api/mesas/`;
+    const url = `${BASE_API}/api/preparaciones/`;
     const params = {
       method: "POST",
       headers: {
@@ -39,7 +39,7 @@ export async function addPreparacionApi(data, token) {
 
 export async function updatePreparacionApi(id, data, token) {
   try {
-    const url = `${BASE_API}/api/mesas/${id}/`;
+    const url = `${BASE_API}/api/preparaciones/${id}/`;
     const params = {
       method: "PATCH",
       headers: {
@@ -59,7 +59,7 @@ export async function updatePreparacionApi(id, data, token) {
 
 export async function deletePreparacionApi(id, token) {
   try {
-    const url = `${BASE_API}/api/mesas/${id}/`;
+    const url = `${BASE_API}/api/preparaciones/${id}/`;
     const params = {
       method: "DELETE",
       headers: {
@@ -77,7 +77,7 @@ export async function deletePreparacionApi(id, token) {
 
 export async function getPreparacionApi(id) {
   try {
-    const url = `${BASE_API}/api/mesas/${id}/`;
+    const url = `${BASE_API}/api/preparaciones/${id}/`;
     const response = await fetch(url);
     const result = await response.json();
     return result;
