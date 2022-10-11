@@ -1,0 +1,21 @@
+.mesas-list-worker{
+    display: flex;
+    flex-wrap: wrap; 
+
+    &__reload{
+        margin: 0;
+        position: absolute;
+        top: 30px;
+        right: 70px;
+    }
+    &__reload-toggle{
+        position: absolute !important;
+        top: 38px;
+        right: 150px;
+        display: flex;
+        align-items: center;
+    }
+    span{
+        margin-right: 20px;
+    }
+}
