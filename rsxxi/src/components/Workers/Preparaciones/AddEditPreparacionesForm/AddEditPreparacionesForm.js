@@ -38,40 +38,20 @@ export function AddEditPreparacionesForm(props) {
         error={formik.errors.id_preparacion}
       ></Form.Input>
       <Form.Input
-        name="nombre"
-        placeholder="Nombre Preparación"
-        value={formik.values.nombre}
-        onChange={formik.handleChange}
-        error={formik.errors.nombre}
-      ></Form.Input>
-      <Form.Input
-        name="id_ingrediente"
-        placeholder="Ingredientes"
-        value={formik.values.id_ingrediente}
-        onChange={formik.handleChange}
-        error={formik.errors.id_ingrediente}
-      ></Form.Input>
-      <Form.Input
-        name="cantidad"
-        placeholder="Cantidad"
-        value={formik.values.cantidad}
-        onChange={formik.handleChange}
-        error={formik.errors.cantidad}
-      ></Form.Input>
-      <Form.Input
-        name="procedimiento"
-        placeholder="Procedimiento"
-        value={formik.values.procedimiento}
-        onChange={formik.handleChange}
-        error={formik.errors.procedimiento}
-      ></Form.Input>
-      <Form.Input
         name="tiempo"
         placeholder="Tiempo Preparacion"
         value={formik.values.tiempo}
         onChange={formik.handleChange}
         error={formik.errors.tiempo}
       ></Form.Input>
+      <Form.Input
+        name="receta"
+        placeholder="Receta"
+        value={formik.values.receta}
+        onChange={formik.handleChange}
+        error={formik.errors.receta}
+      ></Form.Input>
+      
 
       <Button
         type="submit"
@@ -86,31 +66,22 @@ export function AddEditPreparacionesForm(props) {
 function initialValues(data) {
   return {
     id_preparacion: data?.id_preparacion || "",
-    nombre: data?.nombre || "",
-    id_ingrediente: data?.id_ingrediente || "",
-    cantidad: data?.cantidad || "",
-    procedimiento: data?.procedimiento || "",
     tiempo: data?.tiempo || "",
+    receta: data?.receta || "",
   };
 }
 
 function newSchema() {
   return {
     id_preparacion: Yup.number().required(true),
-    nombre: Yup.string().required(true),
-    id_ingrediente: Yup.number().required(true),
-    cantidad: Yup.number().required(true),
-    procedimiento: Yup.string().required(true),
     tiempo: Yup.number().required(true),
+    receta: Yup.string().required(true),
   };
 }
 function updateSchema() {
   return {
     id_preparacion: Yup.number().required(true),
-    nombre: Yup.string().required(true),
-    id_ingrediente: Yup.number().required(true),
-    cantidad: Yup.number().required(true),
-    procedimiento: Yup.string().required(true),
     tiempo: Yup.number().required(true),
+    receta: Yup.string().required(true),
   };
 }

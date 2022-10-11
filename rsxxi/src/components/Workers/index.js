@@ -11,5 +11,4 @@ export * from "./Mesas";
 
 export * from "./Preparaciones";
 
-
-
+export * from "./Ingredientes";
