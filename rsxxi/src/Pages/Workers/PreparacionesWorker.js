@@ -39,7 +39,7 @@ export function PreparacionesWorker() {
       <AddEditPreparacionesForm
         onRefetch={onRefetch}
         onClose={openCloseModal}
-        preparaciones={data}
+        preparacion={data}
       />
     );
     openCloseModal();

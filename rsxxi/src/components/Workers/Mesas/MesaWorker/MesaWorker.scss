@@ -11,9 +11,32 @@
         opacity: 0.5;
         cursor: pointer;
     }
+   
+
+    &__pending{
+        margin: 0;
+        font-size: 20px;
+        position: absolute;
+    }
+
+    &__preparing{
+        margin: 0;
+        font-size: 20px;
+        position: absolute;
+    }
     svg{
         height: 150px;
         width: 150px;
+        &.ocupada{
+            fill: gray;
+        }
+        &.pending{
+            fill: #0094e3
+        }
+        &.preparing{
+            fill: green
+        }
 
+        
     }
 }

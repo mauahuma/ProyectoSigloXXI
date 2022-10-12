@@ -10,17 +10,20 @@ export function TablePreparaciones(props) {
       <Table className="table-preparaciones-workers ">
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell>ID Preparacion</Table.HeaderCell>
+            <Table.HeaderCell>Nombre</Table.HeaderCell>
             <Table.HeaderCell>Tiempo de Preparación</Table.HeaderCell>
             <Table.HeaderCell>Receta</Table.HeaderCell>
+            <Table.HeaderCell>Stock</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
         <Table.Body>
           {map(preparaciones, (preparacion, index) => (
             <Table.Row key={index}>
-              <Table.Cell>{preparacion.id_preparacion}</Table.Cell>
-              <Table.Cell>{preparacion.tiempo}</Table.Cell>
+              <Table.Cell>{preparacion.nombre}</Table.Cell>
+              <Table.Cell>{preparacion.tiempo_preparacion}</Table.Cell>
               <Table.Cell>{preparacion.receta}</Table.Cell>
+              <Table.Cell>{preparacion.stock}</Table.Cell>
+
               <Actions
                 preparacion={preparacion}
                 updatePreparacion={updatePreparacion}

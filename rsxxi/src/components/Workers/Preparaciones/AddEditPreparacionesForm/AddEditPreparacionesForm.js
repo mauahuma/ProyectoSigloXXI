@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Button } from "semantic-ui-react";
+import { Form, Button, Checkbox } from "semantic-ui-react";
 import "./AddEditPreparacionesForm.scss";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -31,14 +31,14 @@ export function AddEditPreparacionesForm(props) {
       onSubmit={formik.handleSubmit}
     >
       <Form.Input
-        name="id_preparacion"
-        placeholder="ID Preparacion"
-        value={formik.values.id_preparacion}
+        name="nombre"
+        placeholder="Nombre Preparacion"
+        value={formik.values.nombre}
         onChange={formik.handleChange}
-        error={formik.errors.id_preparacion}
+        error={formik.errors.nombre}
       ></Form.Input>
       <Form.Input
-        name="tiempo"
+        name="tiempo_preparacion"
         placeholder="Tiempo Preparacion"
         value={formik.values.tiempo}
         onChange={formik.handleChange}
@@ -51,7 +51,22 @@ export function AddEditPreparacionesForm(props) {
         onChange={formik.handleChange}
         error={formik.errors.receta}
       ></Form.Input>
-      
+      <Form.Input
+        name="stock"
+        placeholder="stock Preparacion"
+        value={formik.values.stock}
+        onChange={formik.handleChange}
+        error={formik.errors.stock}
+      ></Form.Input>
+
+      <div className="add-edit-preparaciones-form__active">
+        <Checkbox
+          toggle
+          checked={formik.values.activo}
+          onChange={(_, data) => formik.setFieldValue("activo", data.checked)}
+        />
+        Activo
+      </div>
 
       <Button
         type="submit"
@@ -65,23 +80,29 @@ export function AddEditPreparacionesForm(props) {
 
 function initialValues(data) {
   return {
-    id_preparacion: data?.id_preparacion || "",
-    tiempo: data?.tiempo || "",
+    nombre: data?.nombre || "",
+    tiempo_preparacion: data?.tiempo_preparacion || "",
+    stock: data?.stock || 0,
     receta: data?.receta || "",
+    activo: data?.activo ? true : true,
   };
 }
 
 function newSchema() {
   return {
-    id_preparacion: Yup.number().required(true),
-    tiempo: Yup.number().required(true),
+    nombre: Yup.string().required(true),
+    tiempo_preparacion: Yup.number().required(false),
+    stock: Yup.number().required(false),
     receta: Yup.string().required(true),
+    activo: Yup.bool().required(true),
   };
 }
 function updateSchema() {
   return {
-    id_preparacion: Yup.number().required(true),
-    tiempo: Yup.number().required(true),
+    nombre: Yup.string().required(true),
+    tiempo_preparacion: Yup.number().required(false),
+    stock: Yup.number().required(false),
     receta: Yup.string().required(true),
+    activo: Yup.bool().required(true),
   };
 }
