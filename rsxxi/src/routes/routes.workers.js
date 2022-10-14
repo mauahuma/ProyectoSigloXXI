@@ -1,5 +1,13 @@
 import { WorkersLayout } from "../layouts";
-import { HomeAdmin, UsersWorker, MesasWorker } from "../Pages/Workers";
+import {
+  HomeAdmin,
+  UsersWorker,
+  MesasWorker,
+  PreparacionesWorker,
+  IngredientesWorker,
+  PedidosWorker,
+  DetallesMesaWorker,
+} from "../Pages/Workers";
 const routesWorkers = [
   {
     path: "/Workers",
@@ -17,6 +25,30 @@ const routesWorkers = [
     path: "/Workers/Mesas",
     layout: WorkersLayout,
     component: MesasWorker,
+    exact: true,
+  },
+  {
+    path: "/Workers/Preparaciones",
+    layout: WorkersLayout,
+    component: PreparacionesWorker,
+    exact: true,
+  },
+  {
+    path: "/Workers/Ingredientes",
+    layout: WorkersLayout,
+    component: IngredientesWorker,
+    exact: true,
+  },
+  {
+    path: "/Workers/Pedidos",
+    layout: WorkersLayout,
+    component: PedidosWorker,
+    exact: true,
+  },
+  {
+    path: "/Workers/Mesa/:id",
+    layout: WorkersLayout,
+    component: DetallesMesaWorker,
     exact: true,
   },
 ];
