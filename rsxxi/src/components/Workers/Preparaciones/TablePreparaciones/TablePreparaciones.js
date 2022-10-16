@@ -4,7 +4,12 @@ import { map } from "lodash";
 import "./TablePreparaciones.scss";
 
 export function TablePreparaciones(props) {
-  const { preparaciones, updatePreparacion, onDeletePreparacion } = props;
+  const {
+    preparaciones,
+    updatePreparacion,
+    onDeletePreparacion,
+    addIngredient,
+  } = props;
   return (
     <div>
       <Table className="table-preparaciones-workers ">
@@ -14,6 +19,8 @@ export function TablePreparaciones(props) {
             <Table.HeaderCell>Tiempo de Preparación</Table.HeaderCell>
             <Table.HeaderCell>Receta</Table.HeaderCell>
             <Table.HeaderCell>Stock</Table.HeaderCell>
+            <Table.HeaderCell>¿Ingredientes Agregados?</Table.HeaderCell>
+            <Table.HeaderCell></Table.HeaderCell>
           </Table.Row>
         </Table.Header>
         <Table.Body>
@@ -23,11 +30,13 @@ export function TablePreparaciones(props) {
               <Table.Cell>{preparacion.tiempo_preparacion}</Table.Cell>
               <Table.Cell>{preparacion.receta}</Table.Cell>
               <Table.Cell>{preparacion.stock}</Table.Cell>
+              <Table.Cell>{preparacion.stock}</Table.Cell>
 
               <Actions
                 preparacion={preparacion}
                 updatePreparacion={updatePreparacion}
                 onDeletePreparacion={onDeletePreparacion}
+                addIngredient={addIngredient}
               />
             </Table.Row>
           ))}
@@ -38,11 +47,15 @@ export function TablePreparaciones(props) {
 }
 
 function Actions(props) {
-  const { preparacion, updatePreparacion, onDeletePreparacion } = props;
+  const { preparacion, updatePreparacion, onDeletePreparacion, addIngredient } =
+    props;
   return (
     <Table.Cell textAlign="right">
       <Button icon onClick={() => updatePreparacion(preparacion)}>
         <Icon name="pencil" />
+      </Button>
+      <Button icon onClick={() => addIngredient(preparacion)}>
+        <Icon name="plus square outline" />
       </Button>
       <Button icon negative onClick={() => onDeletePreparacion(preparacion)}>
         <Icon name="close" />

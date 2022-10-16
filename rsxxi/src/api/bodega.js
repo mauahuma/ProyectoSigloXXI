@@ -1,8 +1,8 @@
 import { BASE_API } from "../utils/constants";
 
-export async function getMesasApi(token) {
+export async function getProductosApi(token) {
   try {
-    const url = `${BASE_API}/api/mesas/`;
+    const url = `${BASE_API}/api/productos/`;
     const params = {
       headers: {
         Authorization: `${token}`,
@@ -10,15 +10,16 @@ export async function getMesasApi(token) {
     };
     const response = await fetch(url, params);
     const result = await response.json();
+    console.log(result);
     return result;
   } catch (error) {
     throw error;
   }
 }
 
-export async function addMesaApi(data, token) {
+export async function addProductoApi(data, token) {
   try {
-    const url = `${BASE_API}/api/mesas/`;
+    const url = `${BASE_API}/api/productos/`;
     const params = {
       method: "POST",
       headers: {
@@ -36,9 +37,9 @@ export async function addMesaApi(data, token) {
   }
 }
 
-export async function updateMesaApi(id, data, token) {
+export async function updateProductoApi(id, data, token) {
   try {
-    const url = `${BASE_API}/api/mesas/${id}/`;
+    const url = `${BASE_API}/api/productos/${id}/`;
     const params = {
       method: "PATCH",
       headers: {
@@ -56,9 +57,9 @@ export async function updateMesaApi(id, data, token) {
   }
 }
 
-export async function deleteMesaApi(id, token) {
+export async function deleteProductoApi(id, token) {
   try {
-    const url = `${BASE_API}/api/mesas/${id}/`;
+    const url = `${BASE_API}/api/productos/${id}/`;
     const params = {
       method: "DELETE",
       headers: {
@@ -74,22 +75,9 @@ export async function deleteMesaApi(id, token) {
   }
 }
 
-export async function getMesaApi(id) {
+export async function getProductoApi(id) {
   try {
-    const url = `${BASE_API}/api/mesas/${id}/`;
-    const response = await fetch(url);
-    const result = await response.json();
-    return result;
-  } catch (error) {
-    throw error;
-  }
-}
-
-export async function getMesaByNumeroApi(numeroMesa) {
-  try {
-    const tableFilter = `numero_mesa=${numeroMesa}`;
-
-    const url = `${BASE_API}/api/mesas/?${tableFilter}`;
+    const url = `${BASE_API}/api/productos/${id}/`;
     const response = await fetch(url);
     const result = await response.json();
     return result;

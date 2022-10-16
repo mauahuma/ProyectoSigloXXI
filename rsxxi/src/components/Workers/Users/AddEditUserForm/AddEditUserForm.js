@@ -9,6 +9,10 @@ const cargos = [
   { key: "c", text: "Cliente", value: "Cliente" },
   { key: "a", text: "Administrador", value: "Administrador" },
   { key: "b", text: "Bodega", value: "Bodega" },
+  { key: "r", text: "Recepcion", value: "Recepcion" },
+  { key: "k", text: "Cocina", value: "Cocina" },
+  { key: "g", text: "Garzon", value: "Garzon" },
+  { key: "f", text: "Finanzas", value: "Finanzas" },
 ];
 export function AddEditUserForm(props) {
   const { onClose, onRefetch, user } = props;

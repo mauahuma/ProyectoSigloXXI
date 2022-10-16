@@ -6,6 +6,7 @@ import {
   TablePreparaciones,
   AddEditPreparacionesForm,
   ShowPreparaciones,
+  AddIngredienteForm,
 } from "../../components/Workers";
 import { ModalBasic } from "../../components/Common";
 
@@ -37,6 +38,17 @@ export function PreparacionesWorker() {
     setTitleModal("Actualizar Preparación");
     setContentModal(
       <AddEditPreparacionesForm
+        onRefetch={onRefetch}
+        onClose={openCloseModal}
+        preparacion={data}
+      />
+    );
+    openCloseModal();
+  };
+  const addIngredient = (data) => {
+    setTitleModal("Agregar Ingredientes");
+    setContentModal(
+      <AddIngredienteForm
         onRefetch={onRefetch}
         onClose={openCloseModal}
         preparacion={data}
@@ -77,6 +89,7 @@ export function PreparacionesWorker() {
               preparaciones={preparaciones}
               updatePreparacion={updatePreparacion}
               onDeletePreparaciones={onDeletePreparaciones}
+              addIngredient={addIngredient}
             />
           )}
 

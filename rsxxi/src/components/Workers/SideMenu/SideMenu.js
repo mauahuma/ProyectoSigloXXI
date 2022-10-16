@@ -75,7 +75,14 @@ function MenuLeft(props) {
             <Icon name="home" />
             Reportes
           </Menu.Item>
-
+          <Menu.Item
+            as={Link}
+            to={"/workers/Bodega"}
+            active={pathname === "/workers/Bodega"}
+          >
+            <Icon name="users" />
+            Bodega
+          </Menu.Item>
           <Menu.Item
             as={Link}
             to={"/workers/Usuarios"}

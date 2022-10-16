@@ -7,6 +7,7 @@ import {
   IngredientesWorker,
   PedidosWorker,
   DetallesMesaWorker,
+  BodegaWorker,
 } from "../Pages/Workers";
 const routesWorkers = [
   {
@@ -43,6 +44,12 @@ const routesWorkers = [
     path: "/Workers/Pedidos",
     layout: WorkersLayout,
     component: PedidosWorker,
+    exact: true,
+  },
+  {
+    path: "/Workers/Bodega",
+    layout: WorkersLayout,
+    component: BodegaWorker,
     exact: true,
   },
   {

@@ -9,4 +9,4 @@ class IngredientesPreparacion(models.Model):
     cantidad_ingrediente = models.IntegerField()
 
     def __str__(self):
-        return self.Preparacion + ' ' + self. ingrediente
+        return str(self.id)

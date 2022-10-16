@@ -5,8 +5,10 @@ import {
   updateMesaApi,
   deleteMesaApi,
   getMesaApi,
+  getMesaByNumeroApi,
 } from "../api/mesas";
 import { useAuth } from ".";
+import { size } from "lodash";
 
 export function useMesas() {
   const [loading, setLoading] = useState(true);
@@ -73,6 +75,16 @@ export function useMesas() {
       setError(error);
     }
   };
+
+  const isExistMesa = async (numeroMesa) => {
+    try {
+      const response = await getMesaByNumeroApi(numeroMesa);
+      if (size(response) === 0) throw Error();
+      return true;
+    } catch (error) {
+      setError(error);
+    }
+  };
   return {
     loading,
     error,
@@ -82,5 +94,6 @@ export function useMesas() {
     updateMesa,
     deleteMesa,
     getMesa,
+    isExistMesa,
   };
 }
