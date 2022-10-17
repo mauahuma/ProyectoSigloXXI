@@ -2,10 +2,11 @@ import { useState } from "react";
 import { useAuth } from ".";
 import {
   getIngredientesApi,
-  addIngredienteApi,
+  addIngredientesApi,
   updateIngredienteApi,
   deleteIngredienteApi,
   getIngredienteApi,
+  getIngredientesByPreparacionApi,
 } from "../api/ingrediente";
 
 export function useIngredientes() {
@@ -31,15 +32,11 @@ export function useIngredientes() {
 
   const addIngrediente = async (data) => {
     try {
-      setLoading(true);
-      await addIngredienteApi(data, auth.token);
-      setLoading(false);
+      await addIngredientesApi(data, auth.token);
     } catch (error) {
-      setLoading(false);
       setError(error);
     }
   };
-
   const updateIngrediente = async (id, data) => {
     try {
       setLoading(true);
@@ -73,6 +70,14 @@ export function useIngredientes() {
       setError(error);
     }
   };
+  const getIngredientesByPreparacion = async (preparacion) => {
+    try {
+      const response = await getIngredientesByPreparacionApi(preparacion);
+      setIngrediente(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return {
     loading,
     error,
@@ -82,5 +87,6 @@ export function useIngredientes() {
     updateIngrediente,
     deleteIngrediente,
     getIngrediente,
+    getIngredientesByPreparacion,
   };
 }

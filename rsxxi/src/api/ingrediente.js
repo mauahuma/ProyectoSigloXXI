@@ -17,7 +17,7 @@ export async function getIngredientesApi(token) {
   }
 }
 
-export async function addIngredienteApi(data, token) {
+export async function addIngredientesApi(data, token) {
   try {
     const url = `${BASE_API}/api/ingredientespreparacion/`;
     const params = {
@@ -78,6 +78,19 @@ export async function deleteIngredienteApi(id, token) {
 export async function getIngredienteApi(id) {
   try {
     const url = `${BASE_API}/api/ingredientespreparacion/${id}/`;
+    const response = await fetch(url);
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export async function getIngredientesByPreparacionApi(preparacion) {
+  try {
+    const tableFilter = `Preparacion=${preparacion}`;
+
+    const url = `${BASE_API}/api/ingredientespreparacion/?${tableFilter}`;
     const response = await fetch(url);
     const result = await response.json();
     return result;
