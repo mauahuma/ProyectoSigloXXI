@@ -1,0 +1,17 @@
+.Carta{
+    width: 100%;
+    display: grid;
+    grid: 55px / 1fr;
+    grid-template-areas: 
+        "menu"
+        "content"
+    ;
+    min-height: 100vh;
+
+    &__Navbar{
+        grid-area: menu;
+    }
+    &__Content{
+        grid-area: content;
+    }
+}

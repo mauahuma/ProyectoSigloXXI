@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'mesas',
     'finanzas',
     'pedidos',
-    'IngredientePreparacion'
+    'IngredientePreparacion',
+    'Proveedores'
 ]
 
 MIDDLEWARE = [

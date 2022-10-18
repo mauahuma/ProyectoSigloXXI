@@ -1,4 +1,3 @@
-from email.policy import default
 from django.db import models
 
 # Create your models here.
@@ -10,6 +9,7 @@ class Preparacion(models.Model):
     activo = models.BooleanField()
     receta = models.CharField(max_length=255, default="")
     tiempo_preparacion = models.IntegerField(default=0)
+    Valor = models.IntegerField(default=0)
 
     def __str__(self):
         return self.nombre

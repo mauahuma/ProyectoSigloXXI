@@ -12,3 +12,7 @@ export * from "./Mesas";
 export * from "./Preparaciones";
 
 export * from "./Ingredientes";
+
+export * from "./DetallesMesa";
+
+export * from "./Pedidos";

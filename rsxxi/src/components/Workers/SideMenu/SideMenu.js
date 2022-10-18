@@ -21,6 +21,9 @@ function MenuLeft(props) {
 
   switch (auth.me.cargo) {
     default:
+      return <h1></h1>;
+
+    case "Administrador":
       return (
         <Menu fixed="left" borderless className="side" vertical>
           <Menu.Item as={Link} to={"/workers"} active={pathname === "/workers"}>
@@ -90,6 +93,77 @@ function MenuLeft(props) {
           >
             <Icon name="users" />
             Usuarios
+          </Menu.Item>
+        </Menu>
+      );
+
+    case "Bodega":
+      return (
+        <Menu fixed="left" borderless className="side" vertical>
+          <Menu.Item as={Link} to={"/workers"} active={pathname === "/workers"}>
+            <Icon name="home" />
+            Home
+          </Menu.Item>
+          <Menu.Item
+            as={Link}
+            to={"/workers/Bodega"}
+            active={pathname === "/workers/Bodega"}
+          >
+            <Icon name="users" />
+            Bodega
+          </Menu.Item>
+        </Menu>
+      );
+    case "Recepcion":
+      return (
+        <Menu fixed="left" borderless className="side" vertical>
+          <Menu.Item as={Link} to={"/workers"} active={pathname === "/workers"}>
+            <Icon name="home" />
+            Home
+          </Menu.Item>
+          <Menu.Item
+            as={Link}
+            to={"/workers/Mesas"}
+            active={pathname === "/workers/Mesas"}
+          >
+            <Icon name="home" />
+            Mesas
+          </Menu.Item>
+        </Menu>
+      );
+    case "Cocina":
+      return (
+        <Menu fixed="left" borderless className="side" vertical>
+          <Menu.Item as={Link} to={"/workers"} active={pathname === "/workers"}>
+            <Icon name="home" />
+            Home
+          </Menu.Item>
+
+          <Menu.Item
+            as={Link}
+            to={"/workers/Preparaciones"}
+            active={pathname === "/workers/Preparaciones"}
+          >
+            <Icon name="home" />
+            Preparaciones
+          </Menu.Item>
+        </Menu>
+      );
+    case "Garzon":
+      return (
+        <Menu fixed="left" borderless className="side" vertical>
+          <Menu.Item as={Link} to={"/workers"} active={pathname === "/workers"}>
+            <Icon name="home" />
+            Home
+          </Menu.Item>
+
+          <Menu.Item
+            as={Link}
+            to={"/workers/Pedidos"}
+            active={pathname === "/workers/Pedidos"}
+          >
+            <Icon name="home" />
+            Pedidos
           </Menu.Item>
         </Menu>
       );

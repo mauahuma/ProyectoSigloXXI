@@ -85,15 +85,26 @@ export function useMesas() {
       setError(error);
     }
   };
+
+  const getMesaPorNumero = async (numeromesa) => {
+    try {
+      const response = await getMesaByNumeroApi(numeromesa);
+      return response;
+    } catch (error) {
+      setError(error);
+    }
+  };
   return {
     loading,
     error,
     mesas,
+    mesa,
     getMesas,
     addMesa,
     updateMesa,
     deleteMesa,
     getMesa,
     isExistMesa,
+    getMesaPorNumero,
   };
 }

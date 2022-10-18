@@ -28,7 +28,7 @@ export function MesaWorker(props) {
   }, [reload]);
 
   return (
-    <Link className="mesa-worker" to={`/Workers/Mesa/{mesa.id}`}>
+    <Link className="mesa-worker" to={`/Workers/Mesa/${mesa.id}`}>
       {size(ordersPending) > 0 ? (
         <Label circular color="orange" className="mesa-worker__pending">
           {size(ordersPending)}

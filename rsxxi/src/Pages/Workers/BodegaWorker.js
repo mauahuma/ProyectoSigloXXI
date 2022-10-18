@@ -54,6 +54,7 @@ export function BodegaWorker() {
 
   switch (auth.me.cargo) {
     case "Administrador":
+    case "Bodega":
       return (
         <>
           <HeaderPage

@@ -1,21 +1,28 @@
 import React, { useEffect } from "react";
 import { Loader } from "semantic-ui-react";
 import { HeaderPage, TableListMesas } from "../../components/Workers";
-import { useMesas } from "../../hooks";
+import { useMesas, useAuth } from "../../hooks";
 export function PedidosWorker() {
   const { loading, mesas, getMesas } = useMesas();
-  useEffect(() => getMesas(), []);
+  const { auth } = useAuth();
 
-  return (
-    <>
-      <HeaderPage title="Pedidos" />
-      {loading ? (
-        <Loader active inline="centered">
-          Cargando...
-        </Loader>
-      ) : (
-        <TableListMesas mesas={mesas} />
-      )}
-    </>
-  );
+  useEffect(() => getMesas(), []);
+  switch (auth.me.cargo) {
+    case "Administrador":
+    case "Garzon":
+      return (
+        <>
+          <HeaderPage title="Pedidos" />
+          {loading ? (
+            <Loader active inline="centered">
+              Cargando...
+            </Loader>
+          ) : (
+            <TableListMesas mesas={mesas} />
+          )}
+        </>
+      );
+    default:
+      return <h1>Error 404</h1>;
+  }
 }
