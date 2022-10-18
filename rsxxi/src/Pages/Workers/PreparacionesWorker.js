@@ -58,9 +58,7 @@ export function PreparacionesWorker() {
   };
 
   const onDeletePreparaciones = async (data) => {
-    const result = window.confirm(
-      `¿Eliminar Preparación ${data.id_preparacion}`
-    );
+    const result = window.confirm(`¿Eliminar Preparación ${data.id}`);
     if (result) {
       try {
         await deletePreparacion(data.id);
@@ -73,6 +71,7 @@ export function PreparacionesWorker() {
 
   switch (auth.me.cargo) {
     case "Administrador":
+    case "Cocina":
       return (
         <>
           <HeaderPage
@@ -103,6 +102,6 @@ export function PreparacionesWorker() {
       );
 
     default:
-      return <ShowPreparaciones preparaciones={preparaciones} />;
+      return <h1>Error 404</h1>;
   }
 }

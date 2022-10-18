@@ -73,6 +73,14 @@ export function usePreparaciones() {
       setError(error);
     }
   };
+  const getPreparacionById = async (id) => {
+    try {
+      const product = await getPreparacionApi(id);
+      return product;
+    } catch (error) {
+      setError(error);
+    }
+  };
   return {
     loading,
     error,
@@ -82,5 +90,6 @@ export function usePreparaciones() {
     updatePreparacion,
     deletePreparacion,
     getPreparacion,
+    getPreparacionById,
   };
 }

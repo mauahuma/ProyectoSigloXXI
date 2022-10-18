@@ -40,9 +40,9 @@ export function AddEditPreparacionesForm(props) {
       <Form.Input
         name="tiempo_preparacion"
         placeholder="Tiempo Preparacion"
-        value={formik.values.tiempo}
+        value={formik.values.tiempo_preparacion}
         onChange={formik.handleChange}
-        error={formik.errors.tiempo}
+        error={formik.errors.tiempo_preparacion}
       ></Form.Input>
       <Form.Input
         name="receta"
@@ -58,7 +58,13 @@ export function AddEditPreparacionesForm(props) {
         onChange={formik.handleChange}
         error={formik.errors.stock}
       ></Form.Input>
-
+      <Form.Input
+        name="Valor"
+        placeholder="Valor de Preparacion"
+        value={formik.values.Valor}
+        onChange={formik.handleChange}
+        error={formik.errors.Valor}
+      ></Form.Input>
       <div className="add-edit-preparaciones-form__active">
         <Checkbox
           toggle
@@ -82,9 +88,10 @@ function initialValues(data) {
   return {
     nombre: data?.nombre || "",
     tiempo_preparacion: data?.tiempo_preparacion || "",
-    stock: data?.stock || 0,
+    stock: data?.stock || "",
     receta: data?.receta || "",
     activo: data?.activo ? true : true,
+    Valor: data?.Valor || "",
   };
 }
 
@@ -95,6 +102,7 @@ function newSchema() {
     stock: Yup.number().required(false),
     receta: Yup.string().required(true),
     activo: Yup.bool().required(true),
+    Valor: Yup.number().required(true),
   };
 }
 function updateSchema() {
@@ -104,5 +112,6 @@ function updateSchema() {
     stock: Yup.number().required(false),
     receta: Yup.string().required(true),
     activo: Yup.bool().required(true),
+    Valor: Yup.number().required(true),
   };
 }

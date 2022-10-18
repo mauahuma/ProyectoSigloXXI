@@ -6,3 +6,8 @@ export const ORDER_STATUS = {
   PREPARANDO: "PREPARANDO",
   ENTREGADO: "ENTREGADO",
 };
+
+export const PAYMENT_STATUS = {
+  PENDIENTE: "PENDIENTE",
+  PAGADO: "PAGADO",
+};

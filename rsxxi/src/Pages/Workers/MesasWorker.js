@@ -54,7 +54,7 @@ export function MesasWorker() {
   };
 
   switch (auth.me.cargo) {
-    case "Administrador" || "Bodega":
+    case "Administrador":
       return (
         <>
           <HeaderPage title="Mesas" btnTitle="Nueva Mesa" btnClick={addMesa} />
@@ -78,8 +78,10 @@ export function MesasWorker() {
           />
         </>
       );
+    case "Recepcion":
+      return <ShowMesas mesas={mesas} onRefetch={onRefetch} />;
 
     default:
-      return <ShowMesas mesas={mesas} onRefetch={onRefetch} />;
+      return <h1>Error 404</h1>;
   }
 }

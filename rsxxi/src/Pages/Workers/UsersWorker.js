@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useUser } from "../../hooks";
+import { useUser, useAuth } from "../../hooks";
 import { Loader } from "semantic-ui-react";
 import {
   HeaderPage,
@@ -14,6 +14,7 @@ export function UsersWorker() {
   const [contentModal, setContentModal] = useState(null);
   const [refetch, setRefetch] = useState(false);
   const { loading, users, getUsers, deleteUser } = useUser();
+  const { auth } = useAuth();
 
   useEffect(() => getUsers(), [refetch]);
 
@@ -51,32 +52,36 @@ export function UsersWorker() {
       }
     }
   };
+  switch (auth.me.cargo) {
+    case "Administrador":
+      return (
+        <>
+          <HeaderPage
+            title="Usuarios"
+            btnTitle="Nuevo usuario"
+            btnClick={addUser}
+          />
+          {loading ? (
+            <Loader active inline="centered">
+              Cargando...
+            </Loader>
+          ) : (
+            <TableUsers
+              users={users}
+              updateUser={updateUser}
+              onDeleteUser={onDeleteUser}
+            />
+          )}
 
-  return (
-    <>
-      <HeaderPage
-        title="Usuarios"
-        btnTitle="Nuevo usuario"
-        btnClick={addUser}
-      />
-      {loading ? (
-        <Loader active inline="centered">
-          Cargando...
-        </Loader>
-      ) : (
-        <TableUsers
-          users={users}
-          updateUser={updateUser}
-          onDeleteUser={onDeleteUser}
-        />
-      )}
-
-      <ModalBasic
-        show={showModal}
-        onClose={openCloseModal}
-        title={titleModal}
-        children={contentModal}
-      />
-    </>
-  );
+          <ModalBasic
+            show={showModal}
+            onClose={openCloseModal}
+            title={titleModal}
+            children={contentModal}
+          />
+        </>
+      );
+    default:
+      return <h1>Error 404</h1>;
+  }
 }
