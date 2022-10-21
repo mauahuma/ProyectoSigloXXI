@@ -26,7 +26,8 @@ from preparaciones.api.router import router_preparacion
 from mesas.api.router import router_mesa
 from finanzas.api.router import router_pago
 from pedidos.api.router import router_pedido
-
+from IngredientePreparacion.api.router import ingrediente_router
+from Proveedores.api.router import router_proveedor
 schema_view = get_schema_view(
     openapi.Info(
         title="RSXXI - ApiDoc",
@@ -52,5 +53,9 @@ urlpatterns = [
     path('api/', include(router_pago.urls)),
     path('api/', include('users.api.router')),
     path('api/', include(router_pedido.urls)),
+    path('api/', include(ingrediente_router.urls)),
+    path('api/', include(router_proveedor.urls)),
+
+
 
 ]

@@ -1,10 +1,19 @@
 import React from "react";
 import { Form, Button, Checkbox } from "semantic-ui-react";
-import "./AddEditUserForm";
+import "./AddEditUserForm.scss";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useUser } from "../../../../hooks";
 
+const cargos = [
+  { key: "c", text: "Cliente", value: "Cliente" },
+  { key: "a", text: "Administrador", value: "Administrador" },
+  { key: "b", text: "Bodega", value: "Bodega" },
+  { key: "r", text: "Recepcion", value: "Recepcion" },
+  { key: "k", text: "Cocina", value: "Cocina" },
+  { key: "g", text: "Garzon", value: "Garzon" },
+  { key: "f", text: "Finanzas", value: "Finanzas" },
+];
 export function AddEditUserForm(props) {
   const { onClose, onRefetch, user } = props;
   const { addUser, updateUser } = useUser();
@@ -63,13 +72,14 @@ export function AddEditUserForm(props) {
         onChange={formik.handleChange}
         error={formik.errors.password}
       ></Form.Input>
-      <Form.Input
-        name="cargo"
+      <Form.Select
+        selection
         placeholder="Cargo"
+        options={cargos}
         value={formik.values.cargo}
-        onChange={formik.handleChange}
         error={formik.errors.cargo}
-      ></Form.Input>
+        onChange={(_, data) => formik.setFieldValue("cargo", data.value)}
+      ></Form.Select>
 
       <div className="add-edit-user-form__active">
         <Checkbox

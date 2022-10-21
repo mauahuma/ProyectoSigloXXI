@@ -1,5 +1,5 @@
 import React from "react";
-import { Table, Button, Icon, Tab } from "semantic-ui-react";
+import { Table, Button, Icon } from "semantic-ui-react";
 import { map } from "lodash";
 import "./TableUsers.scss";
 

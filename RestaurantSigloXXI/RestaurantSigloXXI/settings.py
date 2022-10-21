@@ -46,7 +46,9 @@ INSTALLED_APPS = [
     'preparaciones',
     'mesas',
     'finanzas',
-    'pedidos'
+    'pedidos',
+    'IngredientePreparacion',
+    'Proveedores'
 ]
 
 MIDDLEWARE = [
@@ -84,6 +86,16 @@ WSGI_APPLICATION = 'RestaurantSigloXXI.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.oracle',
+#         'NAME': 'XE',
+#         'USER': 'system',
+#         'PASSWORD': 'maumau1221',
+#         'HOST': 'localhost',
+#         'PORT': '1521',
+#     }
+# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',

@@ -5,8 +5,8 @@ from django.db import models
 
 EstadoEnum = (
     ("PENDIENTE", "pendiente"),
-    ("EN PROCESO", "en proceso"),
-    ("ENTREGADO","entregado")
+    ("PREPARANDO", "preparando"),
+    ("ENTREGADO", "entregado")
 )
 
 
