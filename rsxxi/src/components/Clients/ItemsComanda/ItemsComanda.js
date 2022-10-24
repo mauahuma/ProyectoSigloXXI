@@ -17,7 +17,13 @@ export function ItemsComanda(props) {
         <GridColumn>
           <Item.Group divided>
             <Item>
-              <Item.Image src={Preparacion.Imagen} />
+              <Item.Image
+                src={
+                  Preparacion.Imagen
+                    ? Preparacion.Imagen
+                    : require("../../../assets/Imagenes/Mantencion.jpg").default
+                }
+              />
 
               <Item.Content>
                 <Item.Header as="a">{Preparacion.nombre}</Item.Header>

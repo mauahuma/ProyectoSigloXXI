@@ -94,6 +94,22 @@ function MenuLeft(props) {
             <Icon name="users" />
             Usuarios
           </Menu.Item>
+          <Menu.Item
+            as={Link}
+            to={"/workers/Proveedores"}
+            active={pathname === "/workers/Proveedores"}
+          >
+            <Icon name="users" />
+            Proveedores
+          </Menu.Item>
+          <Menu.Item
+            as={Link}
+            to={"/workers/Cocina"}
+            active={pathname === "/workers/Cocina"}
+          >
+            <Icon name="users" />
+            Cocina
+          </Menu.Item>
         </Menu>
       );
 
