@@ -1,13 +1,17 @@
 import React from "react";
 import { Icon, Menu } from "semantic-ui-react";
 import "./SideB.scss";
+import { useParams, useNavigate, Link } from "react-router-dom";
 
 export function SideB(props) {
+  const { children, numero_mesa } = props;
   return (
     <div className="Side-B">
       <Menu fixed="left" borderless className="side" vertical inverted>
         <Menu.Item>
-          <h1>Comanda</h1>
+          <Link to={`/client/${numero_mesa}`}>
+            <h1>Carta</h1>
+          </Link>
         </Menu.Item>
         <Menu.Item />
         <Menu.Item as="a">
@@ -27,6 +31,7 @@ export function SideB(props) {
           Bebestibles
         </Menu.Item>
       </Menu>
+      <div className="content">{children}</div>
     </div>
   );
 }

@@ -1,0 +1,11 @@
+.Registrarse{
+    background-color: darkgrey;
+    grid-template-areas: 
+        "content"
+    ;
+    
+    &__Content{
+    background-color: darkgrey;
+    grid-template-areas: content;
+    }
+}

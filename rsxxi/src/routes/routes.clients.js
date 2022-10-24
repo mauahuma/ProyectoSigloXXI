@@ -1,17 +1,35 @@
-import { ClientLayout } from "../layouts";
+import { ClientLayout, HomeLayout, PedidosLayout } from "../layouts";
 import {
   Home,
   Preparaciones,
   Carrito,
   HistorialPedidos,
+  Registrarse,
+  Ingresar,
+  Contactanos,
 } from "../Pages/Clients";
 import { Carta } from "../Pages/Clients/Carta";
 import { ComandCa } from "../Pages/Clients/ComandCa";
 const routesClients = [
   {
     path: "/",
-    layout: ClientLayout,
+    layout: HomeLayout,
     component: Home,
+  },
+  {
+    path: "/Registrarse",
+    layout: HomeLayout,
+    component: Registrarse,
+  },
+  {
+    path: "/Ingresar",
+    layout: HomeLayout,
+    component: Ingresar,
+  },
+  {
+    path: "/Contactanos",
+    layout: HomeLayout,
+    component: Contactanos,
   },
   {
     path: "/Carta",
@@ -19,24 +37,19 @@ const routesClients = [
     component: Carta,
   },
   {
-    path: "/Comand",
-    layout: ClientLayout,
+    path: "/Client/:numero_mesa",
+    layout: PedidosLayout,
     component: ComandCa,
   },
   {
-    path: "/Client/:numero_mesa",
-    layout: ClientLayout,
-    component: Preparaciones,
-  },
-  {
     path: "/client/:numero_mesa/carrito",
-    layout: ClientLayout,
+    layout: PedidosLayout,
     component: Carrito,
     exact: true,
   },
   {
     path: "/client/:numero_mesa/pedidos",
-    layout: ClientLayout,
+    layout: PedidosLayout,
     component: HistorialPedidos,
     exact: true,
   },

@@ -6,6 +6,7 @@ import {
   deleteMesaApi,
   getMesaApi,
   getMesaByNumeroApi,
+  setMesaDisponibleApi,
 } from "../api/mesas";
 import { useAuth } from ".";
 import { size } from "lodash";
@@ -94,6 +95,15 @@ export function useMesas() {
       setError(error);
     }
   };
+
+  const setMesaDisponible = async (id) => {
+    try {
+      const response = await setMesaDisponibleApi(id, auth.token);
+      return response;
+    } catch (error) {
+      setError(error);
+    }
+  };
   return {
     loading,
     error,
@@ -106,5 +116,6 @@ export function useMesas() {
     getMesa,
     isExistMesa,
     getMesaPorNumero,
+    setMesaDisponible,
   };
 }

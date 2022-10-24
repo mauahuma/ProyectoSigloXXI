@@ -19,14 +19,22 @@ export async function getPreparacionesApi(token) {
 
 export async function addPreparacionApi(data, token) {
   try {
+    const formData = new FormData();
+    formData.append("nombre", data.nombre);
+    formData.append("stock", data.stock);
+    formData.append("activo", data.activo);
+    formData.append("receta", data.receta);
+    formData.append("tiempo_preparacion", data.tiempo_preparacion);
+    formData.append("Valor", data.Valor);
+    formData.append("Imagen", data.Imagen);
+
     const url = `${BASE_API}/api/preparaciones/`;
     const params = {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: formData,
     };
 
     const response = await fetch(url, params);
@@ -39,14 +47,22 @@ export async function addPreparacionApi(data, token) {
 
 export async function updatePreparacionApi(id, data, token) {
   try {
+    const formData = new FormData();
+    formData.append("nombre", data.nombre);
+    formData.append("stock", data.stock);
+    formData.append("activo", data.activo);
+    formData.append("receta", data.receta);
+    formData.append("tiempo_preparacion", data.tiempo_preparacion);
+    formData.append("Valor", data.Valor);
+    if (data.Imagen) formData.append("Imagen", data.Imagen);
+
     const url = `${BASE_API}/api/preparaciones/${id}/`;
     const params = {
       method: "PATCH",
       headers: {
         Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: formData,
     };
 
     const response = await fetch(url, params);

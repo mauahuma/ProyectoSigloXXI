@@ -9,7 +9,7 @@ import "./PedidoItem.scss";
 
 export function PedidoItem(props) {
   const { pedido, onReloadPedidos } = props;
-  //const { nombre } = pedido.preparacion_Data;
+  const { nombre, Imagen } = pedido.preparacion_Data;
   const { checkPedidoEntregado } = usePedidos();
 
   const onCheckPedidoEntregado = async () => {
@@ -29,14 +29,17 @@ export function PedidoItem(props) {
       </div>
 
       <div className="order-item-admin__product">
-        <Image
-          src={require("../../../../assets/Imagenes/Mantencion.jpg").default}
-        />
-        <p>{pedido.preparacion_Data.nombre}</p>
+        <Image src={Imagen} />
+        <p>{nombre}</p>
       </div>
 
-      {pedido.estado === ORDER_STATUS.PENDIENTE && (
+      {pedido.estado === ORDER_STATUS.PREPARADO && (
         <Button primary onClick={onCheckPedidoEntregado}>
+          Marcar entregado
+        </Button>
+      )}
+      {pedido.estado != ORDER_STATUS.PREPARADO && (
+        <Button disabled primary onClick={onCheckPedidoEntregado}>
           Marcar entregado
         </Button>
       )}

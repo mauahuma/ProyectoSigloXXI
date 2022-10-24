@@ -1,3 +1,4 @@
+
 from django.db import models
 
 # Create your models here.
@@ -8,6 +9,7 @@ class Proveedor(models.Model):
     numero_Contacto = models.IntegerField()
     email = models.CharField(max_length=255, default="")
     Empresa = models.CharField(max_length=255, default="")
+    direccion = models.CharField(max_length=100, default="")
 
     def __str__(self):
         return self.nombre

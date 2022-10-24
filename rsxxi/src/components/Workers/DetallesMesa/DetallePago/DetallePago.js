@@ -1,13 +1,13 @@
 import React from "react";
 import { Table, Button, Icon } from "semantic-ui-react";
-import { usePagos, usePedidos } from "../../../../hooks";
+import { usePagos, usePedidos, useMesas } from "../../../../hooks";
 import "./DetallePago.scss";
 
 export function DetallePago(props) {
   const { pago, pedidos, openCloseModal, onReloadPedidos } = props;
   const { cerrarPagos } = usePagos();
   const { cerrarPedido } = usePedidos();
-
+  const { setMesaDisponible } = useMesas();
   const getIconPayment = (key) => {
     if (key === "TARJETA") return "credit card outline";
     if (key === "EFECTIVO") return "money bill alternate outline";
@@ -17,6 +17,7 @@ export function DetallePago(props) {
   const onCloseTable = async () => {
     const result = window.confirm("¿Cerrar mesa para nuevos clientes?");
     if (result) {
+      await setMesaDisponible(pago.mesa);
       await cerrarPagos(pago.id);
 
       for await (const pedido of pedidos) {

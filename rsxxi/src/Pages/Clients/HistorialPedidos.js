@@ -39,7 +39,7 @@ export function HistorialPedidos() {
 
     let totalPayment = 0;
     forEach(pedidos, (pedido) => {
-      totalPayment += Number(pedido.product_data.Valor);
+      totalPayment += Number(pedido.preparacion_Data.Valor);
     });
 
     const paymentData = {

@@ -1,0 +1,14 @@
+.table-proveedores-workers{
+    td{
+      &.status{
+        .icon{
+            &.close{
+                color: #f00;
+            }
+            &.check{
+                color: #008000;
+            }
+        }
+      }  
+    }
+}

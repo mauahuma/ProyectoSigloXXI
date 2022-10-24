@@ -6,6 +6,7 @@ from django.db import models
 EstadoEnum = (
     ("PENDIENTE", "pendiente"),
     ("PREPARANDO", "preparando"),
+    ("PREPARADO", "preparado"),
     ("ENTREGADO", "entregado")
 )
 
@@ -14,7 +15,7 @@ class pedidos(models.Model):
     Mesa = models.ForeignKey(
         'mesas.Mesa', on_delete=models.SET_NULL, null=True, blank=True)
     preparacion = models.ForeignKey(
-        'preparaciones.Preparacion', on_delete=models.SET_NULL, null=True, blank=True
+        'preparaciones.Preparacion', on_delete=models.CASCADE, null=True, blank=True
     )
     pago = models.ForeignKey(
         'finanzas.Pago', on_delete=models.CASCADE, null=True, blank=True

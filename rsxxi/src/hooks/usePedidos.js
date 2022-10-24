@@ -6,6 +6,9 @@ import {
   addPagoToPedidoApi,
   cerrarPedidoApi,
   getPedidosbyPagoApi,
+  getPedidosApi,
+  checkPedidoPreparandoApi,
+  checkPedidoPreparadoApi,
 } from "../api/pedidos";
 
 export function usePedidos() {
@@ -32,7 +35,20 @@ export function usePedidos() {
       setError(error);
     }
   };
-
+  const checkPedidoPreparando = async (idPedido) => {
+    try {
+      await checkPedidoPreparandoApi(idPedido);
+    } catch (error) {
+      setError(error);
+    }
+  };
+  const checkPedidoPreparado = async (idPedido) => {
+    try {
+      await checkPedidoPreparadoApi(idPedido);
+    } catch (error) {
+      setError(error);
+    }
+  };
   const addPedidoaMesa = async (idMesa, idPreparacion) => {
     try {
       await addPedidoaMesaapi(idMesa, idPreparacion);
@@ -65,6 +81,17 @@ export function usePedidos() {
       setError(error);
     }
   };
+  const getPedidos = async (estado, orden) => {
+    try {
+      setLoading(true);
+      const response = await getPedidosApi(estado, orden);
+      setLoading(false);
+      setPedidos(response);
+    } catch (error) {
+      setLoading(false);
+      setError(error);
+    }
+  };
 
   return {
     loading,
@@ -76,5 +103,8 @@ export function usePedidos() {
     addPagoToPedido,
     cerrarPedido,
     getPedidosbyPago,
+    getPedidos,
+    checkPedidoPreparando,
+    checkPedidoPreparado,
   };
 }
