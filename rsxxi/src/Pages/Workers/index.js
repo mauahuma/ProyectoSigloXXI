@@ -9,3 +9,4 @@ export * from "./DetallesMesaWorker";
 export * from "./BodegaWorker";
 export * from "./PagosWorker";
 export * from "./CocinaWorker";
+export * from "./ProveedoresWorker";

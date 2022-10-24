@@ -9,7 +9,7 @@ import "./PedidoItem.scss";
 
 export function PedidoItem(props) {
   const { pedido, onReloadPedidos } = props;
-  const { nombre } = pedido.preparacion_Data;
+  const { nombre, Imagen } = pedido.preparacion_Data;
   const { checkPedidoPreparado, checkPedidoPreparando } = usePedidos();
 
   const onCheckPedidoPreparando = async () => {
@@ -32,9 +32,7 @@ export function PedidoItem(props) {
       </div>
 
       <div className="order-item-admin__product">
-        <Image
-          src={require("../../../../assets/Imagenes/Mantencion.jpg").default}
-        />
+        <Image src={Imagen} />
         <p>
           {nombre} - Mesa: {pedido.mesa_Data.numero_mesa}
         </p>

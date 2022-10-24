@@ -1,8 +1,9 @@
 import React from "react";
-import { Image, Button, Icon } from "semantic-ui-react";
 import { map } from "lodash";
 import { toast } from "react-toastify";
 import { addProductCart } from "../../../../api/carrito";
+import { ItemsComanda, TitleItems } from "../../";
+
 export function PreparacionCarta(props) {
   const { Preparaciones } = props;
 
@@ -12,21 +13,23 @@ export function PreparacionCarta(props) {
   };
   return (
     <div className="Preparacion-carta">
+      {/* <TitleItems Titulo="Entradas" />
+
       {map(Preparaciones, (Preparacion) => (
-        <div key={Preparacion.id} className="Preparacion-carta__preparacion">
-          <div>
-            <Image
-              src={
-                require("../../../../assets/Imagenes/Mantencion.jpg").default
-              }
-            />
-            <span>{Preparacion.nombre}</span>
-          </div>
-          <Button primary icon onClick={() => agregarCarro(Preparacion)}>
-            <Icon name="add" />
-          </Button>
-        </div>
+        <ItemsComanda Preparacion={Preparacion} />
+      ))} */}
+      <TitleItems Titulo="Platos" />
+      {map(Preparaciones, (Preparacion) => (
+        <ItemsComanda Preparacion={Preparacion} agregarCarro={agregarCarro} />
       ))}
+      {/* <TitleItems Titulo="Postres" />
+      {map(Preparaciones, (Preparacion) => (
+        <ItemsComanda Preparacion={Preparacion} />
+      ))}
+      <TitleItems Titulo="Bebestibles" />
+      {map(Preparaciones, (Preparacion) => (
+        <ItemsComanda Preparacion={Preparacion} />
+      ))} */}
     </div>
   );
 }

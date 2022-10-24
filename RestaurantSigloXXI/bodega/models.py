@@ -6,7 +6,7 @@ from django.db import models
 class Producto(models.Model):
     nombre = models.CharField(max_length=100)
     proveedor = models.ForeignKey(
-        'Proveedores.Proveedor', on_delete=models.SET_NULL, null=True, blank=True
+        'Proveedores.Proveedor', on_delete=models.CASCADE, null=True, blank=True
     )
     stock_critico = models.IntegerField()
     stock_actual = models.IntegerField()

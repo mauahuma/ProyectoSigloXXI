@@ -22,7 +22,7 @@ export function CocinaWorker() {
 
   switch (auth.me.cargo) {
     case "Administrador":
-    case "Garzon":
+    case "Cocina":
       return (
         <>
           {loading ? (

@@ -18,3 +18,5 @@ export * from "./DetallesMesa";
 export * from "./Pedidos";
 
 export * from "./Pagos";
+
+export * from "./Proveedores";
