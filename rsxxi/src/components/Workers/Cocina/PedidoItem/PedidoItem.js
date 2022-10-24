@@ -10,13 +10,16 @@ import "./PedidoItem.scss";
 export function PedidoItem(props) {
   const { pedido, onReloadPedidos } = props;
   const { nombre } = pedido.preparacion_Data;
-  const { checkPedidoEntregado } = usePedidos();
+  const { checkPedidoPreparado, checkPedidoPreparando } = usePedidos();
 
-  const onCheckPedidoEntregado = async () => {
-    await checkPedidoEntregado(pedido.id);
+  const onCheckPedidoPreparando = async () => {
+    await checkPedidoPreparando(pedido.id);
     onReloadPedidos();
   };
-
+  const onCheckPedidoPreparado = async () => {
+    await checkPedidoPreparado(pedido.id);
+    onReloadPedidos();
+  };
   return (
     <div
       className={classNames("order-item-admin", {
@@ -32,17 +35,19 @@ export function PedidoItem(props) {
         <Image
           src={require("../../../../assets/Imagenes/Mantencion.jpg").default}
         />
-        <p>{nombre}</p>
+        <p>
+          {nombre} - Mesa: {pedido.mesa_Data.numero_mesa}
+        </p>
       </div>
 
-      {pedido.estado === ORDER_STATUS.PREPARADO && (
-        <Button primary onClick={onCheckPedidoEntregado}>
-          Marcar entregado
+      {pedido.estado === ORDER_STATUS.PENDIENTE && (
+        <Button primary onClick={onCheckPedidoPreparando}>
+          Marcar Preparando
         </Button>
       )}
-      {pedido.estado != ORDER_STATUS.PREPARADO && (
-        <Button disabled primary onClick={onCheckPedidoEntregado}>
-          Marcar entregado
+      {pedido.estado === ORDER_STATUS.PREPARANDO && (
+        <Button primary onClick={onCheckPedidoPreparado}>
+          Marcar Preparado
         </Button>
       )}
     </div>

@@ -16,3 +16,5 @@ export * from "./Ingredientes";
 export * from "./DetallesMesa";
 
 export * from "./Pedidos";
+
+export * from "./Pagos";

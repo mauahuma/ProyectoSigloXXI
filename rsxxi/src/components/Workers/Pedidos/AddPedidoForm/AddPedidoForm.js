@@ -118,12 +118,12 @@ function formatDropdownData(data) {
 
 function initialValues() {
   return {
-    products: [],
+    preparaciones: [],
   };
 }
 
 function validationSchema() {
   return {
-    products: Yup.array().required(true),
+    preparaciones: Yup.array().required(true),
   };
 }

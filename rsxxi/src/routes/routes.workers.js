@@ -4,10 +4,11 @@ import {
   UsersWorker,
   MesasWorker,
   PreparacionesWorker,
-  IngredientesWorker,
+  PagosWorker,
   PedidosWorker,
   DetallesMesaWorker,
   BodegaWorker,
+  CocinaWorker,
 } from "../Pages/Workers";
 const routesWorkers = [
   {
@@ -35,9 +36,9 @@ const routesWorkers = [
     exact: true,
   },
   {
-    path: "/Workers/Ingredientes",
+    path: "/Workers/Pagos",
     layout: WorkersLayout,
-    component: IngredientesWorker,
+    component: PagosWorker,
     exact: true,
   },
   {
@@ -56,6 +57,12 @@ const routesWorkers = [
     path: "/Workers/Mesa/:id",
     layout: WorkersLayout,
     component: DetallesMesaWorker,
+    exact: true,
+  },
+  {
+    path: "/Workers/Cocina",
+    layout: WorkersLayout,
+    component: CocinaWorker,
     exact: true,
   },
 ];

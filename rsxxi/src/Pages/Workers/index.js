@@ -7,3 +7,5 @@ export * from "./IngredientesWorker";
 export * from "./PedidosWorker";
 export * from "./DetallesMesaWorker";
 export * from "./BodegaWorker";
+export * from "./PagosWorker";
+export * from "./CocinaWorker";

@@ -47,7 +47,7 @@ export async function cerrarPagosApi(idPago) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        statusPayment: PAYMENT_STATUS.PAGADO,
+        estadoPago: PAYMENT_STATUS.PAGADO,
       }),
     };
     await fetch(url, params);

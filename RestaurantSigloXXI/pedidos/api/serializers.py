@@ -12,5 +12,5 @@ class PedidoSerializer(ModelSerializer):
 
     class Meta:
         model = pedidos
-        fields = ['Mesa', 'mesa_Data', 'preparacion', 'preparacion_Data',
+        fields = ['id', 'Mesa', 'mesa_Data', 'preparacion', 'preparacion_Data',
                   'pago', 'estado', 'created_at', 'close']

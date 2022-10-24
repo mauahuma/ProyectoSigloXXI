@@ -4,7 +4,9 @@ from bodega.models import Producto
 
 
 class ProductSerializer(ModelSerializer):
+    Proveedor_data = ...
 
     class Meta:
         model = Producto
-        fields = ['id', 'nombre', 'stock_critico', 'stock_actual']
+        fields = ['id', 'nombre', 'stock_critico',
+                  'proveedor', 'Proveedor_data', 'stock_actual']

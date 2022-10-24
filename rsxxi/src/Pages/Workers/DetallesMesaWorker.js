@@ -56,7 +56,7 @@ export function DetallesMesaWorker() {
       const paymentData = {
         mesa: id,
         total_Pago: totalPayment.toFixed(0),
-        tipoPago: resultTypePayment ? "CARD" : "CASH",
+        tipoPago: resultTypePayment ? "TARJETA" : "EFECTIVO",
         estadoPago: "PENDIENTE",
       };
 

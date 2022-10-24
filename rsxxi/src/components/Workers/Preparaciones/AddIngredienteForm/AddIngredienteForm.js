@@ -85,8 +85,8 @@ export function AddIngredienteForm(props) {
             <Table.Row key={index}>
               <Table.Cell hidden>{ingrediente.id}</Table.Cell>
               <Table.Cell>{ingrediente.product_data.nombre}</Table.Cell>
-
               <Table.Cell>{ingrediente.cantidad_ingrediente}</Table.Cell>
+              <Table.Cell></Table.Cell>
             </Table.Row>
           ))}
         </Table.Body>
@@ -97,6 +97,8 @@ export function AddIngredienteForm(props) {
                 Agregar
               </Button>
             </Table.HeaderCell>
+            <Table.HeaderCell></Table.HeaderCell>
+            <Table.HeaderCell></Table.HeaderCell>
           </Table.Row>
         </Table.Footer>
       </Table>

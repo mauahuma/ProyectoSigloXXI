@@ -1,4 +1,4 @@
-import { BASE_API } from "../utils/constants";
+import { BASE_API, MESA_STATUS } from "../utils/constants";
 
 export async function getMesasApi(token) {
   try {
@@ -91,6 +91,26 @@ export async function getMesaByNumeroApi(numeroMesa) {
 
     const url = `${BASE_API}/api/mesas/?${tableFilter}`;
     const response = await fetch(url);
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export async function setMesaDisponibleApi(id, token) {
+  try {
+    const url = `${BASE_API}/api/mesas/${id}/`;
+    const params = {
+      method: "PATCH",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ estado: MESA_STATUS.DISPONIBLE }),
+    };
+
+    const response = await fetch(url, params);
     const result = await response.json();
     return result;
   } catch (error) {

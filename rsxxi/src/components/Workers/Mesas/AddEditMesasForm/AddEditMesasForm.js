@@ -8,8 +8,9 @@ const estados = [
   { key: "d", text: "Disponible", value: "Disponible" },
   { key: "r", text: "Reservado", value: "Reservado" },
   { key: "o", text: "Ocupado", value: "Ocupado" },
-  { key: "n", text: "Deshabilitado", Value: "Deshabilitado" },
+  { key: "n", text: "Deshabilitado", value: "Deshabilitado" },
 ];
+
 export function AddEditMesasForm(props) {
   const { onClose, onRefetch, mesa } = props;
   const { addMesa, updateMesa } = useMesas();
@@ -68,7 +69,10 @@ function initialValues(data) {
 
 function newSchema() {
   return {
-    numero_mesa: Yup.number().required(true),
+    numero_mesa: Yup.number()
+      .positive("Numero debe de ser positivo")
+      .integer("Numero debe de ser entero")
+      .required(true),
     estado: Yup.string().required(true),
   };
 }
