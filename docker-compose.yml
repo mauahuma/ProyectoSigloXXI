@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  django:
+    container_name: api
+    build:
+      context: ./api
+    env_file:
+      - ./api/.env
+    ports:
+      - 8000:8000
+    volumes:
+      - ./api:/api
+
+
+  react:
+    container_name: app
+    build:
+      context: ./app
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    ports:
+      - 3000:3000
+    volumes:
+      - ./app/src:/app/src
