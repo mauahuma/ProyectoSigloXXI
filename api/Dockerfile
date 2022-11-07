@@ -24,7 +24,7 @@ RUN pipenv sync
 
 COPY . .
 
-COPY ./entrypoint.sh /entrypoint.sh
-RUN chmod o+x /entrypoint.sh
+COPY ./Entrypoint.sh /Entrypoint.sh
+RUN chmod o+x /Entrypoint.sh
 
-ENTRYPOINT ["sh", "-c", "/entrypoint.sh"]
+ENTRYPOINT ["sh", "-c", "/Entrypoint.sh"]
