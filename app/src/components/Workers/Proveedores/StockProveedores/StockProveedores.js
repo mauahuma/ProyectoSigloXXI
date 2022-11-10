@@ -28,12 +28,6 @@ export function StockProveedores(props) {
               <Table.Cell>{producto.medida}</Table.Cell>
               <Table.Cell>{producto.stock_actual}</Table.Cell>
               <Table.Cell>{producto.stock_critico}</Table.Cell>
-
-              <Actions
-                proveedores={producto}
-                updateProveedores={updateProveedores}
-                onDeleteProveedores={onDeleteProveedores}
-              />
             </Table.Row>
           ))}
         </Table.Body>

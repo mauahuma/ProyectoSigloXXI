@@ -21,9 +21,23 @@ export function AddEditBodegaForm(props) {
     validateOnChange: false,
     onSubmit: async (formValue) => {
       try {
-        if (producto) await updateProducto(producto.id, formValue);
-        else await addProducto(formValue);
-
+        if (producto) {
+          if (formValue.stock_actual > formValue.stock_critico) {
+            formValue.necesita_Stock = false;
+            await updateProducto(producto.id, formValue);
+          } else {
+            formValue.necesita_Stock = true;
+            await updateProducto(producto.id, formValue);
+          }
+        } else {
+          if (formValue.stock_actual > formValue.stock_critico) {
+            formValue.necesita_Stock = false;
+            await addProducto(formValue);
+          } else {
+            formValue.necesita_Stock = true;
+            await addProducto(formValue);
+          }
+        }
         onRefetch();
         onClose();
       } catch (error) {
@@ -73,8 +87,8 @@ export function AddEditBodegaForm(props) {
         selection
         search
         options={proveedoresFormato}
-        value={formik.values.category}
-        error={formik.errors.category}
+        value={formik.values.proveedor}
+        error={formik.errors.proveedor}
         onChange={(_, data) => formik.setFieldValue("proveedor", data.value)}
       />
       <Button

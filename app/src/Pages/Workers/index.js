@@ -11,3 +11,4 @@ export * from "./PagosWorker";
 export * from "./CocinaWorker";
 export * from "./ProveedoresWorker";
 export * from "./FinanzasWorker";
+export * from "./ReportesWorker";

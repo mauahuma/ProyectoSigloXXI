@@ -4,9 +4,11 @@ import { HeaderPage, TablaPagos } from "../../components/Workers";
 import { usePagos } from "../../hooks";
 
 export function PagosWorker() {
-  const { loading, pagos, getPagos } = usePagos();
+  const { loading, pagos, getPagos, getPagosFiltered, pagosFiltered } =
+    usePagos();
 
   useEffect(() => getPagos(), []);
+  useEffect(() => getPagosFiltered(), []);
 
   return (
     <>

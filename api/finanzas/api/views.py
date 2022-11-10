@@ -1,7 +1,7 @@
 from rest_framework.viewsets import ModelViewSet
-
+from django.db.models import Max, Sum
 from finanzas.models import Pago, Finanzas
-from finanzas.api.serializers import PagoSerializer, FinanzasSerializer
+from finanzas.api.serializers import PagoSerializer, FinanzasSerializer, PagoGroupSerializer
 from rest_framework.filters import OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
 
@@ -12,6 +12,13 @@ class PagoApiViewSet(ModelViewSet):
     filter_backends = [DjangoFilterBackend, OrderingFilter]
     filterset_fields = ['mesa', 'estadoPago']
     ordering_fields = '__all__'
+
+
+class PagoGroupedApiViewSet(ModelViewSet):
+    serializer_class = PagoGroupSerializer
+
+    queryset = Pago.objects.values('estadoPago').annotate(
+        total_Pago=Sum('total_Pago'))
 
 
 class FinanzasApiViewSet(ModelViewSet):

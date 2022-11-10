@@ -1,6 +1,7 @@
 import { useState } from "react";
 import {
   getMesasApi,
+  getMesasDisponiblesApi,
   addMesaApi,
   updateMesaApi,
   deleteMesaApi,
@@ -16,7 +17,7 @@ export function useMesas() {
   const [error, setError] = useState(null);
   const [mesas, setMesas] = useState(null);
   const [mesa, setMesa] = useState(null);
-
+  const [mesaId, setMesaId] = useState(null);
   const { auth } = useAuth();
 
   const getMesas = async () => {
@@ -31,7 +32,18 @@ export function useMesas() {
       setError(error);
     }
   };
-
+  const getMesasDisponibles = async () => {
+    try {
+      setLoading(true);
+      const response = await getMesasDisponiblesApi(auth.token);
+      console.log(response);
+      setLoading(false);
+      setMesas(response);
+    } catch (error) {
+      setLoading(false);
+      setError(error);
+    }
+  };
   const addMesa = async (data) => {
     try {
       setLoading(true);
@@ -90,6 +102,7 @@ export function useMesas() {
   const getMesaPorNumero = async (numeromesa) => {
     try {
       const response = await getMesaByNumeroApi(numeromesa);
+      setMesaId(response);
       return response;
     } catch (error) {
       setError(error);
@@ -117,5 +130,7 @@ export function useMesas() {
     isExistMesa,
     getMesaPorNumero,
     setMesaDisponible,
+    getMesasDisponibles,
+    mesaId,
   };
 }

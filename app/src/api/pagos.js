@@ -1,5 +1,4 @@
 import { BASE_API, PAYMENT_STATUS } from "../utils/constants";
-
 export async function crearPagosApi(pagoData) {
   try {
     const url = `${BASE_API}/api/pagos/`;
@@ -62,6 +61,19 @@ export async function getPagosApi() {
     const orderingFilter = "ordering=created_at";
 
     const url = `${BASE_API}/api/pagos/?${paymentFilter}&${orderingFilter}`;
+
+    const response = await fetch(url);
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    throw error;
+  }
+}
+export async function getPagosFilterApi() {
+  try {
+    const orderingFilter = "ordering=created_at";
+
+    const url = `${BASE_API}/api/pagos/?${orderingFilter}`;
 
     const response = await fetch(url);
     const result = await response.json();

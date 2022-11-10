@@ -1,5 +1,4 @@
 import React from "react";
-import { Grid, Segment, Button, ButtonGroup } from "semantic-ui-react";
 import { map } from "lodash";
 import "./ShowMesas.scss";
 import { SegmentoMesas } from "../SegmentoMesas";

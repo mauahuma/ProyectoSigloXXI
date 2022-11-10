@@ -32,3 +32,4 @@ class Finanzas(models.Model):
     tipo = models.CharField(max_length=255, choices=TipoFinanzas)
     monto = models.IntegerField()
     fecha = models.DateTimeField(auto_now_add=True)
+    detalle = models.CharField(max_length=255, null=True, default="")

@@ -1,7 +1,6 @@
 import { ClientLayout, HomeLayout, PedidosLayout } from "../layouts";
 import {
   Home,
-  Preparaciones,
   Carrito,
   HistorialPedidos,
   Registrarse,

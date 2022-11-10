@@ -22,3 +22,5 @@ export * from "./Pagos";
 export * from "./Proveedores";
 
 export * from "./Finanzas";
+
+export * from "./Dashboard";
