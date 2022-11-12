@@ -14,6 +14,7 @@ import datetime
 from pathlib import Path
 import os
 from os import environ
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 #os.environ['SECRET_KEY'] = 'd69ps55v0d3cn7x395y6dev-28cj*&@+okq5a%0@k0$chb&s1t'
