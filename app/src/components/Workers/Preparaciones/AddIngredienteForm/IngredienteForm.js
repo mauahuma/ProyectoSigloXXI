@@ -15,9 +15,9 @@ export function IngredienteForm(props) {
       const response = await fetch(`${BASE_API}/api/productos`);
       const body = await response.json();
       setBodegaOptions(
-        body.map(({ id, nombre }) => ({
+        body.map(({ id, nombre, medida }) => ({
           value: id,
-          text: nombre,
+          text: nombre + " " + medida,
         }))
       );
     }

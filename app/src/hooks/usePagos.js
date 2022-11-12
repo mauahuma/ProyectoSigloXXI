@@ -4,12 +4,15 @@ import {
   getPagosPorMesaApi,
   cerrarPagosApi,
   getPagosApi,
+  getPagosFilterApi,
 } from "../api/pagos";
 
 export function usePagos() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [pagos, setPagos] = useState(null);
+  const groupBy = require("group-by-with-sum");
+  const [pagosFiltered, setPagosFiltered] = useState(null);
 
   const crearPagos = async (dataPago) => {
     try {
@@ -46,6 +49,19 @@ export function usePagos() {
       setError(error);
     }
   };
+  const getPagosFiltered = async () => {
+    try {
+      setLoading(true);
+      const response = await getPagosFilterApi();
+      setLoading(false);
+      const result = groupBy(response, "estadoPago", "total_Pago");
+      setPagosFiltered(result);
+      console.log(result);
+    } catch (error) {
+      setLoading(false);
+      setError(error);
+    }
+  };
 
   return {
     error,
@@ -55,5 +71,7 @@ export function usePagos() {
     getPagosPorMesa,
     cerrarPagos,
     getPagos,
+    pagosFiltered,
+    getPagosFiltered,
   };
 }

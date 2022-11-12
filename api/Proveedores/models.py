@@ -5,10 +5,10 @@ from django.db import models
 
 
 class Proveedor(models.Model):
-    nombre = models.CharField(max_length=100)
-    numero_Contacto = models.IntegerField()
-    email = models.CharField(max_length=255, default="")
-    Empresa = models.CharField(max_length=255, default="")
+    nombre = models.CharField(max_length=100, unique=True)
+    numero_Contacto = models.IntegerField(unique=True)
+    email = models.CharField(max_length=255, default="", unique=True)
+    Empresa = models.CharField(max_length=255, default="", unique=True)
     direccion = models.CharField(max_length=100, default="")
 
     def __str__(self):

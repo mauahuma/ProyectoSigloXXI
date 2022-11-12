@@ -4,26 +4,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    top: 25px;
-    margin-left: 10px;
-    margin-right: 10px;
+  
     &:hover{
         opacity: 0.5;
         cursor: pointer;
     }
-   
-
-    &__pending{
+    .ui.label {
         margin: 0;
         font-size: 20px;
         position: absolute;
-    }
-
-    &__preparing{
-        margin: 0;
-        font-size: 20px;
-        position: absolute;
-    }
+      }
     svg{
         height: 150px;
         width: 150px;
@@ -34,9 +24,11 @@
             fill: #0094e3
         }
         &.preparing{
-            fill: green
+            fill: rgb(234, 255, 0)
         }
-
+        &.pending-payment {
+            fill: #008000;
+          }
         
     }
 }

@@ -8,3 +8,4 @@ export * from "./usePedidos";
 export * from "./usePagos";
 export * from "./useProveedores";
 export * from "./useFinanzas";
+export * from "./useCarrito";

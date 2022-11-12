@@ -15,6 +15,21 @@ export async function getMesasApi(token) {
     throw error;
   }
 }
+export async function getMesasDisponiblesApi(token) {
+  try {
+    const url = `${BASE_API}/api/mesas/?negated_field__not=Deshabilitado`;
+    const params = {
+      headers: {
+        Authorization: `${token}`,
+      },
+    };
+    const response = await fetch(url, params);
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    throw error;
+  }
+}
 
 export async function addMesaApi(data, token) {
   try {

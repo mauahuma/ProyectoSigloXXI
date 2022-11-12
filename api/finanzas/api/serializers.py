@@ -12,6 +12,13 @@ class PagoSerializer(ModelSerializer):
         fields = '__all__'
 
 
+class PagoGroupSerializer(ModelSerializer):
+
+    class Meta:
+        model = Pago
+        fields = ['total_Pago', 'estadoPago']
+
+
 class FinanzasSerializer(ModelSerializer):
 
     class Meta:

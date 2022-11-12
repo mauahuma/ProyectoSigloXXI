@@ -14,6 +14,7 @@ export function useIngredientes() {
   const [error, setError] = useState(null);
   const [ingredientes, setIngredientes] = useState(null);
   const [ingrediente, setIngrediente] = useState(null);
+  const [ingred, setIngred] = useState({});
 
   const { auth } = useAuth();
 
@@ -73,7 +74,7 @@ export function useIngredientes() {
   const getIngredientesByPreparacion = async (preparacion) => {
     try {
       const response = await getIngredientesByPreparacionApi(preparacion);
-      setIngrediente(response);
+      setIngred(response);
     } catch (error) {
       console.log(error);
     }
@@ -88,5 +89,6 @@ export function useIngredientes() {
     deleteIngrediente,
     getIngrediente,
     getIngredientesByPreparacion,
+    ingred,
   };
 }

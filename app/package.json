@@ -3,12 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@react-pdf/font": "2.2.0",
+    "@react-pdf/renderer": " 2.1.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.1.3",
     "bootstrap": "^5.2.2",
+    "chart.js": "^3.9.1",
     "classnames": "^2.3.2",
+    "emailjs": "^4.0.1",
     "formik": "^2.2.9",
+    "group-by-with-sum": "^2.0.0",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.1",
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
     "qrcode.react": "^3.1.0",
@@ -27,6 +35,9 @@
     "yarn": "^1.22.19",
     "yup": "0.32.9"
   },
+  "resolutions": {
+    "@react-pdf/font": "2.2.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -36,7 +47,6 @@
   "eslintConfig": {
     "extends": [
       "react-app"
-
     ]
   },
   "browserslist": {

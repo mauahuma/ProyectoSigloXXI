@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useFinanzas, useAuth } from "../../hooks";
 import { Loader } from "semantic-ui-react";
-import { HeaderPage, TableFinanzas } from "../../components/Workers";
+import {
+  HeaderPage,
+  TableFinanzas,
+  AddEditFinanzasForm,
+} from "../../components/Workers";
 import { ModalBasic } from "../../components/Common";
 
 export function FinanzasWorker() {
@@ -16,13 +20,13 @@ export function FinanzasWorker() {
   const openCloseModal = () => setShowModal((prev) => !prev);
   const onRefetch = () => setRefetch((prev) => !prev);
 
-  //   const addProducto = () => {
-  //     setTitleModal("Nuevo producto");
-  //     setContentModal(
-  //       <AddEditBodegaForm onClose={openCloseModal} onRefetch={onRefetch} />
-  //     );
-  //     openCloseModal();
-  //   };
+  const addFinanzas = () => {
+    setTitleModal("Nuevo ingreso/egreso");
+    setContentModal(
+      <AddEditFinanzasForm onClose={openCloseModal} onRefetch={onRefetch} />
+    );
+    openCloseModal();
+  };
 
   //   const updateProducto = (data) => {
   //     setTitleModal("Actualizar producto");
@@ -54,9 +58,9 @@ export function FinanzasWorker() {
       return (
         <>
           <HeaderPage
-            title="Productos"
-            // btnTitle="Nuevo producto"
-            // btnClick={addProducto}
+            title="Finanzas"
+            btnTitle="Nuevo ingreso/egreso"
+            btnClick={addFinanzas}
           />
           {loading ? (
             <Loader active inline="centered">

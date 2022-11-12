@@ -10,12 +10,11 @@ export function TableFinanzas(props) {
       <Table className="table-bodega-workers ">
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell>Nombre</Table.HeaderCell>
-            <Table.HeaderCell>Medida</Table.HeaderCell>
-            <Table.HeaderCell>Proveedor</Table.HeaderCell>
+            <Table.HeaderCell>Tipo transacción</Table.HeaderCell>
+            <Table.HeaderCell>Fecha</Table.HeaderCell>
+            <Table.HeaderCell>Monto</Table.HeaderCell>
 
-            <Table.HeaderCell>Stock actual</Table.HeaderCell>
-            <Table.HeaderCell>Stock crítico</Table.HeaderCell>
+            <Table.HeaderCell>Detalle</Table.HeaderCell>
             <Table.HeaderCell></Table.HeaderCell>
           </Table.Row>
         </Table.Header>
@@ -25,8 +24,7 @@ export function TableFinanzas(props) {
               <Table.Cell>{registro.tipo}</Table.Cell>
               <Table.Cell>{registro.fecha}</Table.Cell>
               <Table.Cell>{registro.monto ? registro.monto : " "}</Table.Cell>
-              <Table.Cell>{registro.monto}</Table.Cell>
-              <Table.Cell>{registro.monto}</Table.Cell>
+              <Table.Cell>{registro.detalle}</Table.Cell>
 
               {/* <Actions
                 producto={producto}

@@ -7,8 +7,11 @@ import "./ComandCa.scss";
 
 export function ComandCa() {
   const { numero_mesa } = useParams();
+  const [refetch, setRefetch] = useState(false);
+  const onRefetch = () => setRefetch((prev) => !prev);
+
   const { loading, preparaciones, getPreparaciones } = usePreparaciones();
-  useEffect(() => getPreparaciones(), []);
+  useEffect(() => getPreparaciones(), [refetch]);
   return (
     <div>
       <Link to={`/`}>Volver al inicio</Link>
@@ -16,7 +19,11 @@ export function ComandCa() {
       {loading ? (
         <p>Cargando...</p>
       ) : (
-        <PreparacionCarta Preparaciones={preparaciones} />
+        <PreparacionCarta
+          Preparaciones={preparaciones}
+          numero_mesa={numero_mesa}
+          onRefetch={onRefetch}
+        />
       )}
     </div>
   );

@@ -51,6 +51,7 @@ export async function updateProductoApi(id, data, token) {
 
     const response = await fetch(url, params);
     const result = await response.json();
+
     return result;
   } catch (error) {
     throw error;

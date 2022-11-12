@@ -5,7 +5,7 @@ from django.db import models
 
 
 class Producto(models.Model):
-    nombre = models.CharField(max_length=100)
+    nombre = models.CharField(max_length=100, unique=True)
     proveedor = models.ForeignKey(
         'Proveedores.Proveedor', on_delete=models.CASCADE, null=True, blank=True
     )

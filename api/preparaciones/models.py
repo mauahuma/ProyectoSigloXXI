@@ -4,7 +4,7 @@ from django.db import models
 
 
 class Preparacion(models.Model):
-    nombre = models.CharField(max_length=100)
+    nombre = models.CharField(max_length=100, unique=True)
     stock = models.IntegerField(default=0)
     activo = models.BooleanField()
     receta = models.CharField(max_length=255, default="")
@@ -14,3 +14,10 @@ class Preparacion(models.Model):
 
     def __str__(self):
         return self.nombre
+
+
+class Carrito(models.Model):
+    idprep = models.ForeignKey(
+        "preparaciones.Preparacion", on_delete=models.SET_NULL, null=True)
+    mesa = models.ForeignKey(
+        "mesas.Mesa", on_delete=models.SET_NULL, null=True)

@@ -8,10 +8,10 @@ import {
 import { useMesas } from "../../hooks";
 
 export function HomeAdmin() {
-  const { loading, mesas, getMesas, deleteMesa } = useMesas();
+  const { mesas, getMesasDisponibles } = useMesas();
   const [refetch, setRefetch] = useState(false);
 
   const onRefetch = () => setRefetch((prev) => !prev);
-  useEffect(() => getMesas(), [refetch]);
+  useEffect(() => getMesasDisponibles(), [refetch]);
   return <ShowMesas mesas={mesas} onRefetch={onRefetch} />;
 }

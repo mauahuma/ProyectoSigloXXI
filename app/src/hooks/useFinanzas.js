@@ -1,18 +1,12 @@
 import { useState } from "react";
-import {
-  getFinanzasApi,
+import { getFinanzasApi, addFinanzasApi } from "../api/finanzas";
+import { useAuth } from ".";
 
-} from "../api/finanzas";
-
-export  function useFinanzas() {
-
+export function useFinanzas() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [finanzas, setFinanzas] = useState(null);
-
-
-
-
+  const { auth } = useAuth();
 
   const getFinanzas = async () => {
     try {
@@ -25,11 +19,18 @@ export  function useFinanzas() {
       setError(error);
     }
   };
-
+  const addFinanzas = async (data) => {
+    try {
+      await addFinanzasApi(data, auth.token);
+    } catch (error) {
+      setError(error);
+    }
+  };
   return {
     error,
     loading,
     finanzas,
-    getFinanzas
+    getFinanzas,
+    addFinanzas,
   };
 }

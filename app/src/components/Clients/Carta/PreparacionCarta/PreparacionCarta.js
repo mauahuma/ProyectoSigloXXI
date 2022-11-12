@@ -14,7 +14,6 @@ export function PreparacionCarta(props) {
   return (
     <div className="Preparacion-carta">
       {/* <TitleItems Titulo="Entradas" />
-
       {map(Preparaciones, (Preparacion) => (
         <ItemsComanda Preparacion={Preparacion} />
       ))} */}

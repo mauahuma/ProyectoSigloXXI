@@ -29,17 +29,30 @@ export function ItemsComanda(props) {
                 <Item.Header as="a">{Preparacion.nombre}</Item.Header>
                 <Item.Meta>
                   <span className="cinema">${Preparacion.Valor}</span>
+                  <span className="cinema">{Preparacion.stock}</span>
                 </Item.Meta>
                 <Item.Description></Item.Description>
                 <Item.Extra>
-                  <Button
-                    primary
-                    floated="right"
-                    onClick={() => agregarCarro(Preparacion)}
-                  >
-                    Pedir
-                    <Icon name="right chevron" />
-                  </Button>
+                  {Preparacion.stock > 0 ? (
+                    <Button
+                      primary
+                      floated="right"
+                      onClick={() => agregarCarro(Preparacion)}
+                    >
+                      Pedir
+                      <Icon name="right chevron" />
+                    </Button>
+                  ) : (
+                    <Button
+                      primary
+                      disabled
+                      floated="right"
+                      onClick={() => agregarCarro(Preparacion)}
+                    >
+                      Pedir
+                      <Icon name="right chevron" />
+                    </Button>
+                  )}
                 </Item.Extra>
               </Item.Content>
             </Item>

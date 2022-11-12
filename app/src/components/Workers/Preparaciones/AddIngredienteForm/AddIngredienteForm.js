@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Table, Button } from "semantic-ui-react";
+import { Table, Button, Icon } from "semantic-ui-react";
 import { map } from "lodash";
-import { useAuth, useBodega } from "../../../../hooks";
+import { useAuth, useIngredientes } from "../../../../hooks";
 import { BASE_API } from "../../../../utils/constants";
 import { ModalBasic } from "../../../Common";
 import { IngredienteForm } from "./IngredienteForm";
@@ -9,12 +9,11 @@ import { IngredienteForm } from "./IngredienteForm";
 export function AddIngredienteForm(props) {
   const { preparacion } = props;
   const { auth } = useAuth();
-  const [ingredientes, setIngredientes] = useState({});
-  const [producto, setProducto] = useState({});
+  const { getIngredientesByPreparacion, ingred, deleteIngrediente } =
+    useIngredientes();
 
   const [refetch, setRefetch] = useState(false);
   const onRefetch = () => setRefetch((prev) => !prev);
-  const { getProducto } = useBodega();
   const [showModal2, setShowModal2] = useState(false);
   const [titleModal2, setTitleModal2] = useState(null);
   const [contentModal2, setContentModal2] = useState(null);
@@ -31,6 +30,29 @@ export function AddIngredienteForm(props) {
     );
     openCloseModal2();
   };
+  const updateIngrediente = (data, data2) => {
+    setTitleModal2("Actualizar proveedor");
+    setContentModal2(
+      <IngredienteForm
+        onRefetch={onRefetch}
+        onClose={openCloseModal2}
+        preparacion={data}
+        producto={data2}
+      />
+    );
+    openCloseModal2();
+  };
+  const onDeleteIngrediente = async (data) => {
+    const result = window.confirm(`¿Eliminar proveedor ${data.nombre}`);
+    if (result) {
+      try {
+        await deleteIngrediente(data.id);
+        onRefetch();
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  };
   useEffect(() => {
     // async function getOptions() {
     //   const response = await fetch(`${BASE_API}/api/productos`);
@@ -41,33 +63,7 @@ export function AddIngredienteForm(props) {
     // }
     // getOptions();
 
-    async function getIngredientes() {
-      const params = {
-        headers: {
-          Authorization: `Bearer ${auth.token}`,
-        },
-      };
-      const url = `${BASE_API}/api/ingredientespreparacion/?Preparacion=${preparacion.id}`;
-      const response = await fetch(url, params);
-      const result = await response.json();
-
-      setIngredientes(result);
-    }
-    getIngredientes();
-
-    async function getProductos() {
-      const params = {
-        headers: {
-          Authorization: `Bearer ${auth.token}`,
-        },
-      };
-      const url = `${BASE_API}/api/productos/`;
-      const response = await fetch(url, params);
-      const result = await response.json();
-
-      setProducto(result);
-    }
-    getProductos();
+    getIngredientesByPreparacion(preparacion.id);
   }, [refetch]);
 
   return (
@@ -76,19 +72,24 @@ export function AddIngredienteForm(props) {
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell>Nombre</Table.HeaderCell>
-            <Table.HeaderCell>Nombre</Table.HeaderCell>
+            <Table.HeaderCell>Medida</Table.HeaderCell>
             <Table.HeaderCell>Cantidad</Table.HeaderCell>
             <Table.HeaderCell></Table.HeaderCell>
           </Table.Row>
         </Table.Header>
         <Table.Body>
-          {map(ingredientes, (ingrediente, index) => (
+          {map(ingred, (ingrediente, index) => (
             <Table.Row key={index}>
               <Table.Cell hidden>{ingrediente.id}</Table.Cell>
               <Table.Cell>{ingrediente.product_data.nombre}</Table.Cell>
               <Table.Cell>{ingrediente.product_data.medida}</Table.Cell>
               <Table.Cell>{ingrediente.cantidad_ingrediente}</Table.Cell>
-              <Table.Cell></Table.Cell>
+              <Actions
+                preparacion={preparacion}
+                ingrediente={ingrediente}
+                updateIngrediente={updateIngrediente}
+                onDeleteIngrediente={onDeleteIngrediente}
+              />
             </Table.Row>
           ))}
         </Table.Body>
@@ -101,6 +102,7 @@ export function AddIngredienteForm(props) {
             </Table.HeaderCell>
             <Table.HeaderCell></Table.HeaderCell>
             <Table.HeaderCell></Table.HeaderCell>
+            <Table.HeaderCell></Table.HeaderCell>
           </Table.Row>
         </Table.Footer>
       </Table>
@@ -111,5 +113,19 @@ export function AddIngredienteForm(props) {
         children={contentModal2}
       />
     </>
+  );
+}
+function Actions(props) {
+  const { preparacion, ingrediente, updateIngrediente, onDeleteIngrediente } =
+    props;
+  return (
+    <Table.Cell textAlign="right">
+      <Button icon onClick={() => updateIngrediente(preparacion, ingrediente)}>
+        <Icon name="pencil" />
+      </Button>
+      <Button icon negative onClick={() => onDeleteIngrediente(ingrediente)}>
+        <Icon name="close" />
+      </Button>
+    </Table.Cell>
   );
 }
