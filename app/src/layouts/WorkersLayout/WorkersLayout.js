@@ -10,14 +10,12 @@ export function WorkersLayout(props) {
 
   if (!auth) return <LoginWorker />;
   return (
-    <div className="Worker-layout">
-      <div className="Worker-layout__menu">
+    <div>
+      <div>
         <TopMenu />
       </div>
 
-      <div className="Worker-layout__main-content">
-        <SideMenu>{children}</SideMenu>
-      </div>
+      <div>{children}</div>
     </div>
   );
 }

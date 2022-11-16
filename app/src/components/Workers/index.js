@@ -24,3 +24,5 @@ export * from "./Proveedores";
 export * from "./Finanzas";
 
 export * from "./Dashboard";
+
+export * from "./Reservas";

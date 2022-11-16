@@ -8,7 +8,7 @@ import {
   GridColumn,
   GridRow,
 } from "semantic-ui-react";
-
+// migrar a Card
 export function ItemsComanda(props) {
   const { Preparacion, agregarCarro } = props;
   return (

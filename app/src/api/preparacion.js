@@ -16,7 +16,18 @@ export async function getPreparacionesApi(token) {
     throw error;
   }
 }
+export async function getPreparacionesOrderStockApi() {
+  try {
+    const url = `${BASE_API}/api/preparaciones/?ordering=-stock`;
 
+    const response = await fetch(url);
+    const result = await response.json();
+    console.log(result);
+    return result;
+  } catch (error) {
+    throw error;
+  }
+}
 export async function addPreparacionApi(data, token) {
   try {
     const formData = new FormData();

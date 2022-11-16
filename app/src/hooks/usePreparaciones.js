@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useAuth } from ".";
 import {
   getPreparacionesApi,
+  getPreparacionesOrderStockApi,
   addPreparacionApi,
   updatePreparacionApi,
   deletePreparacionApi,
@@ -29,6 +30,17 @@ export function usePreparaciones() {
     }
   };
 
+  const getPreparacionesOrderedStock = async () => {
+    try {
+      setLoading(true);
+      const response = await getPreparacionesOrderStockApi();
+      setLoading(false);
+      setPreparaciones(response);
+    } catch (error) {
+      setLoading(false);
+      setError(error);
+    }
+  };
   const addPreparacion = async (data) => {
     try {
       setLoading(true);
@@ -91,5 +103,6 @@ export function usePreparaciones() {
     deletePreparacion,
     getPreparacion,
     getPreparacionById,
+    getPreparacionesOrderedStock,
   };
 }

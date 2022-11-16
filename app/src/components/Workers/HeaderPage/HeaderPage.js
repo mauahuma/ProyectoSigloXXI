@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "semantic-ui-react";
+import { Button } from "react-bootstrap";
 import "./HeaderPage.scss";
 
 export function HeaderPage(props) {
@@ -10,12 +10,12 @@ export function HeaderPage(props) {
 
       <div>
         {btnTitle && (
-          <Button positive onClick={btnClick}>
+          <Button variant="success" onClick={btnClick}>
             {btnTitle}
           </Button>
         )}
         {btnTitle2 && (
-          <Button negative onClick={btnClick2}>
+          <Button variant="warning" onClick={btnClick2}>
             {btnTitle2}
           </Button>
         )}

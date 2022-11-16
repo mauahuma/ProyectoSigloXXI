@@ -6,6 +6,7 @@ import {
   Registrarse,
   Ingresar,
   Contactanos,
+  Reservas,
 } from "../Pages/Clients";
 import { Carta } from "../Pages/Clients/Carta";
 import { ComandCa } from "../Pages/Clients/ComandCa";
@@ -50,6 +51,12 @@ const routesClients = [
     path: "/client/:numero_mesa/pedidos",
     layout: PedidosLayout,
     component: HistorialPedidos,
+    exact: true,
+  },
+  {
+    path: "/reservas",
+    layout: HomeLayout,
+    component: Reservas,
     exact: true,
   },
 ];

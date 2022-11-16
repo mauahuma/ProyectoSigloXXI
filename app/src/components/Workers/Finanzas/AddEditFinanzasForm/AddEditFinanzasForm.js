@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Form, Button, Dropdown } from "semantic-ui-react";
+import { Form, Button, Dropdown, Label } from "semantic-ui-react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useFinanzas } from "../../../../hooks";
@@ -58,7 +58,6 @@ export function AddEditFinanzasForm(props) {
         onChange={formik.handleChange}
         error={formik.errors.detalle}
       ></Form.Input>
-
       <Button
         type="submit"
         primary
