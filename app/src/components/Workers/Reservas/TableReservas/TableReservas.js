@@ -3,41 +3,36 @@ import { Icon } from "semantic-ui-react";
 import { map } from "lodash";
 import { Table, Button } from "react-bootstrap";
 
-import "./TableBodega.scss";
-
-export function TableBodega(props) {
-  const { productos, updateProducto, onDeleteProducto } = props;
-
+export function TableReservas(props) {
+  const { reservas } = props;
   return (
     <div>
       <Table striped bordered hover responsive>
         <thead>
           <tr>
             <th>Nombre</th>
-            <th>Medida</th>
-            <th>Proveedor</th>
+            <th>Correo electronico</th>
+            <th>Cantidad comensales</th>
 
-            <th>Stock actual</th>
-            <th>Stock crítico</th>
+            <th>Fecha</th>
+            <th>Hora</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          {map(productos, (producto, index) => (
+          {map(reservas, (reserva, index) => (
             <tr key={index}>
-              <td>{producto.nombre}</td>
-              <td>{producto.medida}</td>
-              <td>
-                {producto.Proveedor_data ? producto.Proveedor_data.nombre : " "}
-              </td>
-              <td>{producto.stock_actual}</td>
-              <td>{producto.stock_critico}</td>
-
-              <Actions
+              <td>{reserva.nombre}</td>
+              <td>{reserva.correo}</td>
+              <td>{reserva.comensales}</td>
+              <td>{reserva.fecha}</td>
+              <td>{reserva.hora}</td>
+              <td></td>
+              {/* <Actions
                 producto={producto}
                 updateProducto={updateProducto}
                 onDeleteProducto={onDeleteProducto}
-              />
+              /> */}
             </tr>
           ))}
         </tbody>

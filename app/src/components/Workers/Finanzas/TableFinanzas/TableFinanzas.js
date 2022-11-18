@@ -23,7 +23,7 @@ export function TableFinanzas(props) {
             <Table.Row key={index}>
               <Table.Cell>{registro.tipo}</Table.Cell>
               <Table.Cell>{registro.fecha}</Table.Cell>
-              <Table.Cell>{registro.monto ? registro.monto : " "}</Table.Cell>
+              <Table.Cell>${registro.monto ? registro.monto : " "}</Table.Cell>
               <Table.Cell>{registro.detalle}</Table.Cell>
 
               {/* <Actions

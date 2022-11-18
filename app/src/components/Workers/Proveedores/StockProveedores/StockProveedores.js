@@ -32,6 +32,7 @@ export function StockProveedores(props) {
           ))}
         </Table.Body>
       </Table>
+      <Button>Solicitar stock</Button>
     </div>
   );
 }

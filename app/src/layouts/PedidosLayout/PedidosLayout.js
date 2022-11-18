@@ -38,9 +38,7 @@ export function PedidosLayout(props) {
           numero_mesa={numero_mesa}
         />
       </div>
-      <div className="Pedidos-layout__main-content">
-        <SideB numero_mesa={numero_mesa}>{children}</SideB>
-      </div>
+      <div className="Pedidos-layout__main-content">{children}</div>
     </div>
   );
 }

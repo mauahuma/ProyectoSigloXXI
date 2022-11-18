@@ -2,6 +2,8 @@ import React from "react";
 import { Navigation } from "./routes";
 import { ToastContainer } from "react-toastify";
 import { AuthProvider } from "./context";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 export default function App() {
   return (
     <AuthProvider>

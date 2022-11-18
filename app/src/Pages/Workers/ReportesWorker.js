@@ -1,10 +1,10 @@
 import React from "react";
-import { Grid, Button } from "semantic-ui-react";
+import { Grid } from "semantic-ui-react";
 import { Grafico, Dona, Cake, Cards } from "../../components/Workers/Dashboard";
 import "./Reportes.scss";
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
-
+import { Button, Form } from "react-bootstrap";
 export function ReportesWorker() {
   const printRef = React.useRef();
   const date = getCurrentDate("-");
@@ -24,21 +24,24 @@ export function ReportesWorker() {
   };
 
   return (
-    <div className="Dashboard" ref={printRef}>
-      <Button type="button" onClick={handleDownloadPdf}>
-        Descargar PDF
-      </Button>
-      <Cards />
-      <div className="Dashboard__Menu">
-        <Grafico />
+    <div>
+      <Button onClick={handleDownloadPdf}>Descargar PDF</Button>
+      <Form>
+        <Form.Control type="date"></Form.Control>
+      </Form>
+      <div className="Dashboard" ref={printRef}>
+        <Cards />
+        <div className="Dashboard__Menu">
+          <Grafico />
+        </div>
+        <div className="Dashboard__Content">
+          <Grid>
+            <Dona />
+            <Cake />
+          </Grid>
+        </div>
+        <div className="Dashboard__Final"></div>
       </div>
-      <div className="Dashboard__Content">
-        <Grid>
-          <Dona />
-          <Cake />
-        </Grid>
-      </div>
-      <div className="Dashboard__Final"></div>
     </div>
   );
 }

@@ -22,7 +22,7 @@ class Pago(models.Model):
     total_Pago = models.IntegerField()
     tipoPago = models.CharField(max_length=255, choices=TipoPagoEnum)
     estadoPago = models.CharField(max_length=255, choices=EstadoPagoEnum)
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateField(auto_now_add=True)
 
     def __str__(self):
         return str(self.mesa)
@@ -31,5 +31,5 @@ class Pago(models.Model):
 class Finanzas(models.Model):
     tipo = models.CharField(max_length=255, choices=TipoFinanzas)
     monto = models.IntegerField()
-    fecha = models.DateTimeField(auto_now_add=True)
+    fecha = models.DateField(auto_now_add=True)
     detalle = models.CharField(max_length=255, null=True, default="")

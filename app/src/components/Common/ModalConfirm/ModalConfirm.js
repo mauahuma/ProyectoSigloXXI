@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Modal } from "semantic-ui-react";
+import { Button, Modal } from "react-bootstrap";
 import "./ModalConfirm.scss";
 
 export function ModalConfirm(props) {
@@ -9,14 +9,14 @@ export function ModalConfirm(props) {
     <Modal className="modal-confirm" open={show} size="mini">
       {title && <Modal.Header>{title}</Modal.Header>}
 
-      <Modal.Actions>
+      <Modal.Footer>
         <Button negative onClick={onClose}>
           {onCloseText || "Cancelar"}
         </Button>
         <Button positive onClick={onConfirm}>
           {onConfirmText || "Aceptar"}
         </Button>
-      </Modal.Actions>
+      </Modal.Footer>
     </Modal>
   );
 }

@@ -8,6 +8,8 @@ from preparaciones.api.serializers import PreparacionSerializer, CarritoSerializ
 class PreparacionApiViewSet(ModelViewSet):
     serializer_class = PreparacionSerializer
     queryset = Preparacion.objects.all()
+    filter_backends = [DjangoFilterBackend, OrderingFilter]
+    ordering_fields = '__all__'
 
 
 class CarritoApiViewSet(ModelViewSet):

@@ -1,17 +1,25 @@
 import React from "react";
 import "./SideMenu.scss";
-import { Menu, Icon } from "semantic-ui-react";
+import { Icon } from "semantic-ui-react";
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../../../hooks";
-
+import { Nav, Container, Row, Col } from "react-bootstrap";
 export function SideMenu(props) {
   const { children } = props;
   const { pathname } = useLocation();
   return (
-    <div className="side-menu-worker">
-      <MenuLeft pathname={pathname} />
-      <div className="content">{children}</div>
-    </div>
+    <>
+      <Container fluid>
+        <Row>
+          <Col xs={2} id="sidebar-wrapper">
+            <MenuLeft pathname={pathname} />
+          </Col>
+          <Col xs={10} id="page-content-wrapper">
+            {children}{" "}
+          </Col>
+        </Row>
+      </Container>
+    </>
   );
 }
 
@@ -25,163 +33,172 @@ function MenuLeft(props) {
 
     case "Administrador":
       return (
-        <Menu fixed="left" borderless className="side" vertical>
-          <Menu.Item as={Link} to={"/workers"} active={pathname === "/workers"}>
+        <Nav className="justify-content-end flex-grow-1 pe-3">
+          <Nav.Link as={Link} to={"/workers"} active={pathname === "/workers"}>
             <Icon name="home" />
             Home
-          </Menu.Item>
-          <Menu.Item
+          </Nav.Link>
+
+          <Nav.Link
             as={Link}
             to={"/workers/Mesas"}
             active={pathname === "/workers/Mesas"}
           >
             <Icon name="home" />
             Mesas
-          </Menu.Item>
-          <Menu.Item
+          </Nav.Link>
+          <Nav.Link
+            as={Link}
+            to={"/workers/Reservas"}
+            active={pathname === "/workers/Reservas"}
+          >
+            <Icon name="home" />
+            Reservas
+          </Nav.Link>
+          <Nav.Link
             as={Link}
             to={"/workers/Finanzas"}
             active={pathname === "/workers/Finanzas"}
           >
             <Icon name="home" />
             Finanzas
-          </Menu.Item>
-          <Menu.Item
+          </Nav.Link>
+          <Nav.Link
             as={Link}
             to={"/workers/Pedidos"}
             active={pathname === "/workers/Pedidos"}
           >
             <Icon name="home" />
             Pedidos
-          </Menu.Item>
-          <Menu.Item
+          </Nav.Link>
+          <Nav.Link
             as={Link}
             to={"/workers/Preparaciones"}
             active={pathname === "/workers/Preparaciones"}
           >
             <Icon name="home" />
             Preparaciones
-          </Menu.Item>
-          <Menu.Item
+          </Nav.Link>
+          <Nav.Link
             as={Link}
             to={"/workers/Pagos"}
             active={pathname === "/workers/Pagos"}
           >
             <Icon name="food" />
             Pagos
-          </Menu.Item>
-          <Menu.Item
+          </Nav.Link>
+          <Nav.Link
             as={Link}
             to={"/workers/Reportes"}
             active={pathname === "/workers/Reportes"}
           >
             <Icon name="home" />
             Reportes
-          </Menu.Item>
-          <Menu.Item
+          </Nav.Link>
+          <Nav.Link
             as={Link}
             to={"/workers/Bodega"}
             active={pathname === "/workers/Bodega"}
           >
             <Icon name="users" />
             Bodega
-          </Menu.Item>
-          <Menu.Item
+          </Nav.Link>
+          <Nav.Link
             as={Link}
             to={"/workers/Usuarios"}
             active={pathname === "/workers/Usuarios"}
           >
             <Icon name="users" />
             Usuarios
-          </Menu.Item>
-          <Menu.Item
+          </Nav.Link>
+          <Nav.Link
             as={Link}
             to={"/workers/Proveedores"}
             active={pathname === "/workers/Proveedores"}
           >
             <Icon name="users" />
             Proveedores
-          </Menu.Item>
-          <Menu.Item
+          </Nav.Link>
+          <Nav.Link
             as={Link}
             to={"/workers/Cocina"}
             active={pathname === "/workers/Cocina"}
           >
             <Icon name="users" />
             Cocina
-          </Menu.Item>
-        </Menu>
+          </Nav.Link>
+        </Nav>
       );
 
     case "Bodega":
       return (
-        <Menu fixed="left" borderless className="side" vertical>
-          <Menu.Item as={Link} to={"/workers"} active={pathname === "/workers"}>
+        <Nav className="justify-content-end flex-grow-1 pe-3">
+          <Nav.Link as={Link} to={"/workers"} active={pathname === "/workers"}>
             <Icon name="home" />
             Home
-          </Menu.Item>
-          <Menu.Item
+          </Nav.Link>
+          <Nav.Link
             as={Link}
             to={"/workers/Bodega"}
             active={pathname === "/workers/Bodega"}
           >
             <Icon name="users" />
             Bodega
-          </Menu.Item>
-        </Menu>
+          </Nav.Link>
+        </Nav>
       );
     case "Recepcion":
       return (
-        <Menu fixed="left" borderless className="side" vertical>
-          <Menu.Item as={Link} to={"/workers"} active={pathname === "/workers"}>
+        <Nav className="justify-content-end flex-grow-1 pe-3">
+          <Nav.Link as={Link} to={"/workers"} active={pathname === "/workers"}>
             <Icon name="home" />
             Home
-          </Menu.Item>
-          <Menu.Item
+          </Nav.Link>
+          <Nav.Link
             as={Link}
             to={"/workers/Mesas"}
             active={pathname === "/workers/Mesas"}
           >
             <Icon name="home" />
             Mesas
-          </Menu.Item>
-        </Menu>
+          </Nav.Link>
+        </Nav>
       );
     case "Cocina":
       return (
-        <Menu fixed="left" borderless className="side" vertical>
-          <Menu.Item as={Link} to={"/workers"} active={pathname === "/workers"}>
+        <Nav className="justify-content-end flex-grow-1 pe-3">
+          <Nav.Link as={Link} to={"/workers"} active={pathname === "/workers"}>
             <Icon name="home" />
             Home
-          </Menu.Item>
+          </Nav.Link>
 
-          <Menu.Item
+          <Nav.Link
             as={Link}
             to={"/workers/Preparaciones"}
             active={pathname === "/workers/Preparaciones"}
           >
             <Icon name="home" />
             Preparaciones
-          </Menu.Item>
-        </Menu>
+          </Nav.Link>
+        </Nav>
       );
     case "Garzon":
       return (
-        <Menu fixed="left" borderless className="side" vertical>
-          <Menu.Item as={Link} to={"/workers"} active={pathname === "/workers"}>
+        <Nav className="justify-content-end flex-grow-1 pe-3">
+          <Nav.Link as={Link} to={"/workers"} active={pathname === "/workers"}>
             <Icon name="home" />
             Home
-          </Menu.Item>
+          </Nav.Link>
 
-          <Menu.Item
+          <Nav.Link
             as={Link}
             to={"/workers/Pedidos"}
             active={pathname === "/workers/Pedidos"}
           >
             <Icon name="home" />
             Pedidos
-          </Menu.Item>
-        </Menu>
+          </Nav.Link>
+        </Nav>
       );
   }
 }
