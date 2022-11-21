@@ -5,8 +5,6 @@ import * as Yup from "yup";
 import { useReservas } from "../../hooks";
 import { Form, Button } from "react-bootstrap";
 import { Icon } from "semantic-ui-react";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 

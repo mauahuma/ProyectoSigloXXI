@@ -4,8 +4,8 @@ import "./Registrarse.scss";
 
 export function Registrarse() {
   return (
-    <div classname="Registrarse">
-      <div classname="Registrarse__content">
+    <div className="Registrarse">
+      <div className="Registrarse__content">
         <FormatoL />
       </div>
     </div>

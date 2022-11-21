@@ -20,6 +20,7 @@ export function TablePreparaciones(props) {
             <Table.HeaderCell>Receta</Table.HeaderCell>
             <Table.HeaderCell>Stock</Table.HeaderCell>
             <Table.HeaderCell>Valor</Table.HeaderCell>
+            <Table.HeaderCell>Categoría</Table.HeaderCell>
 
             <Table.HeaderCell>Ingredientes </Table.HeaderCell>
             <Table.HeaderCell></Table.HeaderCell>
@@ -33,6 +34,8 @@ export function TablePreparaciones(props) {
               <Table.Cell>{preparacion.receta}</Table.Cell>
               <Table.Cell>{preparacion.stock}</Table.Cell>
               <Table.Cell>{preparacion.Valor}</Table.Cell>
+              <Table.Cell>{preparacion.categoria}</Table.Cell>
+
               <Table.Cell>
                 <Button icon onClick={() => addIngredient(preparacion)}>
                   <Icon name="plus square outline" />
