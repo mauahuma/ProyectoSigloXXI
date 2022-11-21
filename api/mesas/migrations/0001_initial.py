@@ -12,15 +12,11 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='reservas',
+            name='Mesa',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('nombre', models.CharField(max_length=255)),
-                ('correo', models.CharField(max_length=255)),
-                ('comensales', models.IntegerField()),
-                ('fecha', models.DateField()),
-                ('hora', models.TimeField()),
-                ('active', models.BooleanField()),
+                ('numero_mesa', models.IntegerField(unique=True)),
+                ('estado', models.CharField(default='Disponible', max_length=100)),
             ],
         ),
     ]

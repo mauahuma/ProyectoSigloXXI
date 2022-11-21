@@ -22,8 +22,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = environ.get('SECRET_KEY')
-#SECRET_KEY = 'd69ps55v0d3cn7x395y6dev-28cj*&@+okq5a%0@k0$chb&s1t'
+# SECRET_KEY = environ.get('SECRET_KEY')
+SECRET_KEY = 'd69ps55v0d3cn7x395y6dev-28cj*&@+okq5a%0@k0$chb&s1t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -88,22 +88,22 @@ WSGI_APPLICATION = 'RestaurantSigloXXI.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.oracle',
+#        'NAME': environ.get('BD_NAME'),
+#        'USER': environ.get('BD_USER'),
+#        'PASSWORD': environ.get('BD_PASSWORD'),
+#        'HOST': environ.get('BD_HOST'),
+#        'PORT': environ.get('BD_PORT'),
+#    }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.oracle',
-        'NAME': environ.get('BD_NAME'),
-        'USER': environ.get('BD_USER'),
-        'PASSWORD': environ.get('BD_PASSWORD'),
-        'HOST': environ.get('BD_HOST'),
-        'PORT': environ.get('BD_PORT'),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 
 
 # Password validation

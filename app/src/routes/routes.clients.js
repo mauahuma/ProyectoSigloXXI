@@ -7,6 +7,7 @@ import {
   Ingresar,
   Contactanos,
   Reservas,
+  Boleta,
 } from "../Pages/Clients";
 import { Carta } from "../Pages/Clients/Carta";
 import { ComandCa } from "../Pages/Clients/ComandCa";
@@ -58,6 +59,11 @@ const routesClients = [
     layout: HomeLayout,
     component: Reservas,
     exact: true,
+  },
+  {
+    path: "/Boleta",
+    layout: HomeLayout,
+    component: Boleta,
   },
 ];
 
