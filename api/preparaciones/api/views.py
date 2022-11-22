@@ -10,6 +10,7 @@ class PreparacionApiViewSet(ModelViewSet):
     queryset = Preparacion.objects.all()
     filter_backends = [DjangoFilterBackend, OrderingFilter]
     ordering_fields = '__all__'
+    filterset_fields = ['categoria']
 
 
 class CarritoApiViewSet(ModelViewSet):

@@ -11,6 +11,7 @@ class Preparacion(models.Model):
     tiempo_preparacion = models.IntegerField(default=0)
     Valor = models.IntegerField(default=0)
     Imagen = models.ImageField(upload_to='preparaciones', null=True)
+    categoria = models.CharField(max_length=100, default="")
 
     def __str__(self):
         return self.nombre

@@ -12,6 +12,14 @@ export function AddEditPreparacionesForm(props) {
   const [previewImage, setPreviewImage] = useState(
     preparacion ? preparacion?.Imagen : null
   );
+
+  const estados = [
+    { key: "E", text: "Entradas", value: "Entradas" },
+    { key: "B", text: "Bebestibles", value: "Bebestibles" },
+    { key: "A", text: "Acompañamientos", value: "Acompañamientos" },
+    { key: "F", text: "Platos", value: "Platos" },
+    { key: "P", text: "Postres", value: "Postres" },
+  ];
   const formik = useFormik({
     initialValues: initialValues(preparacion),
     validationSchema: Yup.object(preparacion ? updateSchema() : newSchema()),
@@ -86,6 +94,14 @@ export function AddEditPreparacionesForm(props) {
         onChange={formik.handleChange}
         error={formik.errors.Valor}
       ></Form.Input>
+      <Form.Select
+        selection
+        placeholder="Categoría"
+        options={estados}
+        value={formik.values.categoria}
+        error={formik.errors.categoria}
+        onChange={(_, data) => formik.setFieldValue("categoria", data.value)}
+      ></Form.Select>
       <div className="add-edit-preparaciones-form__active">
         <Checkbox
           toggle
@@ -125,6 +141,7 @@ function initialValues(data) {
     activo: data?.activo ? true : true,
     Valor: data?.Valor || "",
     Imagen: "",
+    categoria: data?.categoria || "",
   };
 }
 
@@ -137,6 +154,7 @@ function newSchema() {
     activo: Yup.bool().required(true),
     Valor: Yup.number().required(true),
     Imagen: Yup.string(),
+    categoria: Yup.string().required(true),
   };
 }
 function updateSchema() {
@@ -148,5 +166,6 @@ function updateSchema() {
     activo: Yup.bool().required(true),
     Valor: Yup.number().required(true),
     Imagen: Yup.string(),
+    categoria: Yup.string().required(true),
   };
 }

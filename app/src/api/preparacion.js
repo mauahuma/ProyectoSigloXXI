@@ -1,8 +1,10 @@
 import { BASE_API } from "../utils/constants";
 
-export async function getPreparacionesApi(token) {
+export async function getPreparacionesApi(token, categoria = "") {
   try {
-    const url = `${BASE_API}/api/preparaciones/`;
+    const categoriaFilter = `categoria=${categoria}`;
+
+    const url = `${BASE_API}/api/preparaciones/?${categoriaFilter}`;
     const params = {
       headers: {
         Authorization: `${token}`,
@@ -38,6 +40,7 @@ export async function addPreparacionApi(data, token) {
     formData.append("tiempo_preparacion", data.tiempo_preparacion);
     formData.append("Valor", data.Valor);
     formData.append("Imagen", data.Imagen);
+    formData.append("categoria", data.categoria);
 
     const url = `${BASE_API}/api/preparaciones/`;
     const params = {
@@ -65,6 +68,8 @@ export async function updatePreparacionApi(id, data, token) {
     formData.append("receta", data.receta);
     formData.append("tiempo_preparacion", data.tiempo_preparacion);
     formData.append("Valor", data.Valor);
+    formData.append("categoria", data.categoria);
+
     if (data.Imagen) formData.append("Imagen", data.Imagen);
 
     const url = `${BASE_API}/api/preparaciones/${id}/`;
