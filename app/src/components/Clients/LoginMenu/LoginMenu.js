@@ -61,12 +61,19 @@ export function LoginMenu(props) {
         style={{ maxHeight: "100px" }}
         navbarScroll
       >
-        <Navbar.Text onClick={() => gotoreservas()}>Reservar</Navbar.Text>
-        <Navbar.Text onClick={() => opc2click}>{opc2}</Navbar.Text>
-        <Navbar.Text onClick={() => opc3click}>{opc3}</Navbar.Text>
+        <Nav.Link href="#Reservar" onClick={() => gotoreservas()}>
+          Reservar
+        </Nav.Link>
+        <Nav.Link href="#opc2" onClick={() => opc2click}>
+          {opc2}
+        </Nav.Link>
+        <Nav.Link href="#opc3" onClick={() => opc3click}>
+          {opc3}
+        </Nav.Link>
       </Nav>
       <Nav className="me-2">
         <Navbar.Text position="right">
+
           <Navbar.Text>Bienvenido, {renderName()}</Navbar.Text>
           <Button as="a" onClick={() => logout()}>
             Cerrar Sesion

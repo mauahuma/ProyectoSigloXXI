@@ -7,3 +7,4 @@ export * from "./HistorialPedidos";
 export * from "./Contactanos";
 export * from "./Registrarse";
 export * from "./Reservas";
+export * from "./Boleta";
