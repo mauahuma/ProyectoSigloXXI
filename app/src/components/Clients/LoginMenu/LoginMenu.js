@@ -34,10 +34,10 @@ export function LoginMenu(props) {
       </Nav>
       <Nav className="me-2">
         <Navbar.Text position="right">
-          <Button as="a" href="#Regisgtrarse">
+          <Button variant="outline-dark" size="sm" as="a" href="#Regisgtrarse">
             Registrarse
           </Button>
-          <Button as="a" href="#Ingresar">
+          <Button variant="outline-light" size="sm" as="a" href="#Ingresar">
             Ingresar
           </Button>
         </Navbar.Text>

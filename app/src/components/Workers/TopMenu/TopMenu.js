@@ -25,8 +25,13 @@ export function TopMenu() {
           className="mb-3"
         >
           <Container fluid>
-            <Navbar.Brand>rsxxi logo</Navbar.Brand>
-            <Navbar.Text placement="end">Hola, {renderName()}</Navbar.Text>
+            <Navbar.Brand
+              className="Navbar__logo"
+              src={require("../../../assets/Imagenes/SXX1 LOGO.png").default}
+            ></Navbar.Brand>
+            <Navbar.Text className="Navbar__saludo" placement="end">
+              Hola, {renderName()}
+            </Navbar.Text>
             <Navbar.Text placement="end" className="ml-auto" onClick={logout}>
               <Icon name="sign-out" />
             </Navbar.Text>
