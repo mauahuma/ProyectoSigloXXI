@@ -38,7 +38,7 @@ export function useUser() {
   const addUser = async (data) => {
     try {
       setLoading(true);
-      await addUserApi(data, auth.token);
+      await addUserApi(data);
       setLoading(false);
     } catch (error) {
       setLoading(false);
