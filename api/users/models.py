@@ -16,5 +16,5 @@ class User(AbstractUser):
     email = models.EmailField(unique=True)
     cargo = models.CharField(max_length=100,  null=True)
 
-    #USERNAME_FIELD = 'email'
+    USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
