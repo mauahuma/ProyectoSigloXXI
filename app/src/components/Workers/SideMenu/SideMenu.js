@@ -1,9 +1,10 @@
 import React from "react";
 import "./SideMenu.scss";
-import { Icon } from "semantic-ui-react";
+import { Icon, Header, HeaderContent } from "semantic-ui-react";
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../../../hooks";
 import { Nav, Container, Row, Col } from "react-bootstrap";
+import HeaderSubHeader from "semantic-ui-react/dist/commonjs/elements/Header/HeaderSubheader";
 export function SideMenu(props) {
   const { children } = props;
   const { pathname } = useLocation();
@@ -34,99 +35,91 @@ function MenuLeft(props) {
     case "Administrador":
       return (
         <Nav className="justify-content-end flex-grow-1 pe-3">
-          <Nav.Link as={Link} to={"/workers"} active={pathname === "/workers"}>
-            <Icon name="home" />
-            Home
-          </Nav.Link>
+          <Header
+            icon="home"
+            as={Link}
+            to={"/workers"}
+            active={pathname === "/workers"}
+            content="Home"
+          ></Header>
 
-          <Nav.Link
+          <Header
+            icon="block layout"
             as={Link}
             to={"/workers/Mesas"}
             active={pathname === "/workers/Mesas"}
-          >
-            <Icon name="home" />
-            Mesas
-          </Nav.Link>
-          <Nav.Link
+            content="Mesas"
+          ></Header>
+          <Header
+            icon="address card"
             as={Link}
             to={"/workers/Reservas"}
             active={pathname === "/workers/Reservas"}
-          >
-            <Icon name="home" />
-            Reservas
-          </Nav.Link>
-          <Nav.Link
+            content="Reservas"
+          ></Header>
+          <Header
+            icon="money bill alternate"
             as={Link}
             to={"/workers/Finanzas"}
             active={pathname === "/workers/Finanzas"}
-          >
-            <Icon name="home" />
-            Finanzas
-          </Nav.Link>
-          <Nav.Link
+            content="Finanzas"
+          ></Header>
+          <Header
+            icon="calendar check"
             as={Link}
             to={"/workers/Pedidos"}
             active={pathname === "/workers/Pedidos"}
-          >
-            <Icon name="home" />
-            Pedidos
-          </Nav.Link>
-          <Nav.Link
+            content="Pedidos"
+          ></Header>
+          <Header
+            icon="list alternate"
             as={Link}
             to={"/workers/Preparaciones"}
             active={pathname === "/workers/Preparaciones"}
-          >
-            <Icon name="home" />
-            Preparaciones
-          </Nav.Link>
-          <Nav.Link
+            content="Preparaciones"
+          ></Header>
+          <Header
+            icon="credit card"
             as={Link}
             to={"/workers/Pagos"}
             active={pathname === "/workers/Pagos"}
-          >
-            <Icon name="food" />
-            Pagos
-          </Nav.Link>
-          <Nav.Link
+            content="Pagos"
+          ></Header>
+          <Header
+            icon="chart line"
             as={Link}
             to={"/workers/Reportes"}
             active={pathname === "/workers/Reportes"}
-          >
-            <Icon name="home" />
-            Reportes
-          </Nav.Link>
-          <Nav.Link
+            content="Reportes"
+          ></Header>
+          <Header
+            icon="warehouse"
             as={Link}
             to={"/workers/Bodega"}
             active={pathname === "/workers/Bodega"}
-          >
-            <Icon name="users" />
-            Bodega
-          </Nav.Link>
-          <Nav.Link
+            content="Bodega"
+          ></Header>
+          <Header
+            icon="user circle"
             as={Link}
             to={"/workers/Usuarios"}
             active={pathname === "/workers/Usuarios"}
-          >
-            <Icon name="users" />
-            Usuarios
-          </Nav.Link>
-          <Nav.Link
+            content="Usuarios"
+          ></Header>
+          <Header
+            icon="handshake"
             as={Link}
             to={"/workers/Proveedores"}
             active={pathname === "/workers/Proveedores"}
-          >
-            <Icon name="users" />
-            Proveedores
-          </Nav.Link>
-          <Nav.Link
+            content="Proveedores"
+          ></Header>
+          <Header
+            icon="utensils"
             as={Link}
             to={"/workers/Cocina"}
             active={pathname === "/workers/Cocina"}
-          >
-            <Icon name="users" />
-            Cocina
-          </Nav.Link>
+            content="Cocina"
+          ></Header>
         </Nav>
       );
 

@@ -55,7 +55,7 @@ export function ContH(props) {
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src={require("../../../assets/Imagenes/SXII.jpg").default}
+              src={require("../../../assets/Imagenes/MENUSXXI.jpg").default}
               alt="Second slide"
             />
 
@@ -70,7 +70,7 @@ export function ContH(props) {
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src={require("../../../assets/Imagenes/SXII.jpg").default}
+              src={require("../../../assets/Imagenes/RESERVASXXI.jpg").default}
               alt="Third slide"
             />
 
@@ -111,9 +111,7 @@ export function ContH(props) {
                     bordered
                     rounded
                     size="large"
-                    src={
-                      require("../../../assets/Imagenes/Mantencion.jpg").default
-                    }
+                    src={require("../../../assets/Imagenes/45.jpeg").default}
                   />
                 </Grid.Column>
               </Grid.Row>

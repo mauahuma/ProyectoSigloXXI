@@ -44,11 +44,11 @@ export function LoginMenu(props) {
         </Nav>
         <Nav className="me-2">
           <Navbar.Text position="right">
-            <Button as="a" onClick={() => gotoRegistro()}>
-              Registrarse
-            </Button>
-            <Button as="a" onClick={() => gotoLogin()}>
-              Ingresar
+            <Button variant="outline-dark" size="sm" as="a" onClick={() => gotoRegistro()} href="#Regisgtrarse">
+            Registrarse
+          </Button>
+          <Button variant="outline-light" onClick={() => gotoLogin()} size="sm" as="a" href="#Ingresar">
+            Ingresar
             </Button>
           </Navbar.Text>
         </Nav>
@@ -73,7 +73,6 @@ export function LoginMenu(props) {
       </Nav>
       <Nav className="me-2">
         <Navbar.Text position="right">
-
           <Navbar.Text>Bienvenido, {renderName()}</Navbar.Text>
           <Button as="a" onClick={() => logout()}>
             Cerrar Sesion
