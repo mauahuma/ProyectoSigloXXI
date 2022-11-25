@@ -6,7 +6,7 @@ export function ModalConfirm(props) {
   const { title, show, onClose, onCloseText, onConfirm, onConfirmText } = props;
 
   return (
-    <Modal className="modal-confirm" open={show} size="mini">
+    <Modal className="modal-confirm" show={show} size="mini">
       {title && <Modal.Header>{title}</Modal.Header>}
 
       <Modal.Footer>

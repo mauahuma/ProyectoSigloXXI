@@ -10,6 +10,7 @@ import {
   Icon,
   Label,
 } from "semantic-ui-react";
+import Carousel from "react-bootstrap/Carousel";
 import { ModalBasic } from "../../Common/ModalBasic";
 import { usePreparaciones } from "../../../hooks";
 export function ContH(props) {
@@ -28,7 +29,7 @@ export function ContH(props) {
           src={
             preparaciones[0].Imagen
               ? preparaciones[0].Imagen
-              : require("../../../assets/Imagenes/Mantencion.jpg").default
+              : require("../../../assets/Imagenes/blue.jpg").default
           }
         />
         <Label>${preparaciones[0].Valor}</Label>
@@ -39,34 +40,49 @@ export function ContH(props) {
   return (
     <>
       <div>
-        <Container fluid>
-          <Segment inverted>
-            <Header
-              as="h1"
-              content="Siglo XXI"
-              textAlign="center"
-              style={{
-                fontSize: props ? "4em" : "6em",
-                fontWeight: "normal",
-                marginBottom: 0,
-                marginTop: props ? "1.5em" : "3em",
-              }}
+        <Carousel>
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src={require("../../../assets/Imagenes/SXII.jpg").default}
+              alt="First slide"
             />
-            <Header
-              as="h2"
-              content="Tradicionalmente sabroso"
-              textAlign="center"
-              style={{
-                fontSize: props ? "1.5em" : "2em",
-                fontWeight: "normal",
-                marginBottom: 0,
-                marginTop: props ? "0.5em" : "1.5em",
-              }}
+            <Carousel.Caption>
+              <h1>Restaurant Siglo XXI</h1>
+              <p>Un sabor tradicional, cómo en casa.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src={require("../../../assets/Imagenes/MENUSXXI.jpg").default}
+              alt="Second slide"
             />
-            <Segment inverted></Segment>
-            <Divider horizontal section />
-          </Segment>
-        </Container>
+
+            <Carousel.Caption>
+              <h1>Selección de platos</h1>
+              <p>
+                Revisa nuestra selección de platos, insipirados en la
+                gastronomía tradicional chilena.
+              </p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src={require("../../../assets/Imagenes/RESERVASXXI.jpg").default}
+              alt="Third slide"
+            />
+
+            <Carousel.Caption>
+              <h1>Reserva Ya</h1>
+              <p>
+                Podrás hacer una reservación de nuestras mesas, para llegar y
+                disfrutar!!.
+              </p>
+            </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel>
         <Container>
           <Segment style={{ padding: "8em 0em" }} vertical>
             <Grid container stackable verticalAlign="middle">
@@ -95,9 +111,7 @@ export function ContH(props) {
                     bordered
                     rounded
                     size="large"
-                    src={
-                      require("../../../assets/Imagenes/Mantencion.jpg").default
-                    }
+                    src={require("../../../assets/Imagenes/45.jpeg").default}
                   />
                 </Grid.Column>
               </Grid.Row>
