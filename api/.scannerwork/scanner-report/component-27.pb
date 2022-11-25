@@ -1,0 +1,1 @@
+#finanzas/migrations/0001_initial.py 2pyX&hr#finanzas/migrations/0001_initial.py

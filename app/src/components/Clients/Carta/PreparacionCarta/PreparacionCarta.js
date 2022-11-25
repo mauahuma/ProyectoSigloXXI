@@ -3,7 +3,7 @@ import { map } from "lodash";
 import { toast } from "react-toastify";
 import { addProductCart } from "../../../../api/carrito";
 import { ItemsComanda, TitleItems } from "../../";
-
+import { CategoriaCarta } from "./";
 export function PreparacionCarta(props) {
   const { Preparaciones } = props;
 
@@ -14,36 +14,31 @@ export function PreparacionCarta(props) {
 
   return (
     <div className="Preparacion-carta">
-      <TitleItems Titulo="Entradas" />
-      {map(Preparaciones, (Preparacion) =>
-        Preparacion.categoria === "Entradas" ? (
-          <ItemsComanda Preparacion={Preparacion} agregarCarro={agregarCarro} />
-        ) : null
-      )}
-      <TitleItems Titulo="Bebestibles" />
-      {map(Preparaciones, (Preparacion) =>
-        Preparacion.categoria === "Bebestibles" ? (
-          <ItemsComanda Preparacion={Preparacion} agregarCarro={agregarCarro} />
-        ) : null
-      )}
-      <TitleItems Titulo="Platos" />
-      {map(Preparaciones, (Preparacion) =>
-        Preparacion.categoria === "Platos" ? (
-          <ItemsComanda Preparacion={Preparacion} agregarCarro={agregarCarro} />
-        ) : null
-      )}
-      <TitleItems Titulo="Acompañamientos" />
-      {map(Preparaciones, (Preparacion) =>
-        Preparacion.categoria === "Acompañamientos" ? (
-          <ItemsComanda Preparacion={Preparacion} agregarCarro={agregarCarro} />
-        ) : null
-      )}
-      <TitleItems Titulo="Postres" />
-      {map(Preparaciones, (Preparacion) =>
-        Preparacion.categoria === "Acompañamientos" ? (
-          <ItemsComanda Preparacion={Preparacion} agregarCarro={agregarCarro} />
-        ) : null
-      )}
+      <CategoriaCarta
+        Preparaciones={Preparaciones}
+        categoria="Entradas"
+        agregarCarro={agregarCarro}
+      />
+      <CategoriaCarta
+        Preparaciones={Preparaciones}
+        categoria="Bebestibles"
+        agregarCarro={agregarCarro}
+      />
+      <CategoriaCarta
+        Preparaciones={Preparaciones}
+        categoria="Platos"
+        agregarCarro={agregarCarro}
+      />
+      <CategoriaCarta
+        Preparaciones={Preparaciones}
+        categoria="Acompañamientos"
+        agregarCarro={agregarCarro}
+      />
+      <CategoriaCarta
+        Preparaciones={Preparaciones}
+        categoria="Postres"
+        agregarCarro={agregarCarro}
+      />
     </div>
   );
 }

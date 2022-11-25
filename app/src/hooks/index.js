@@ -10,3 +10,4 @@ export * from "./useProveedores";
 export * from "./useFinanzas";
 export * from "./useCarrito";
 export * from "./useReservas";
+export * from "./usePedidoProveedor";

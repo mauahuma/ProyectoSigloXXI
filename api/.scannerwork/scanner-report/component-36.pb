@@ -1,0 +1,1 @@
+$(IngredientePreparacion/api/serializer.py 2pyXhr(IngredientePreparacion/api/serializer.py

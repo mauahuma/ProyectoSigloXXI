@@ -1,0 +1,1 @@
+mProveedores/views.py 2pyXhrProveedores/views.py
