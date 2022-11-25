@@ -17,13 +17,14 @@ export function usePreparaciones() {
 
   const { auth } = useAuth();
 
-  const getPreparaciones = async () => {
+  const getPreparaciones = async (categoria) => {
     try {
       setLoading(true);
-      const response = await getPreparacionesApi(auth.token);
+      const response = await getPreparacionesApi(auth.token, categoria);
       console.log(response);
       setLoading(false);
       setPreparaciones(response);
+      return response;
     } catch (error) {
       setLoading(false);
       setError(error);
