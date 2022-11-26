@@ -35,7 +35,7 @@ const routesClients = [
   },
   {
     path: "/Carta",
-    layout: ClientLayout,
+    layout: HomeLayout,
     component: Carta,
   },
   {

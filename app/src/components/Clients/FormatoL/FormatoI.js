@@ -30,10 +30,10 @@ export function FormatoI() {
   });
   return (
     <div className="FormatoL">
-      <Header textAlign="center">
+      <Header textAlign="center" stackable>
         <h1>Ingresar</h1>
       </Header>
-      <Segment raised>
+      <Segment raised stackable>
         <Form onSubmit={formik.handleSubmit}>
           <label>Correo electrónico</label>
           <Form.Input
