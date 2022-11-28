@@ -1,12 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import {
   getPedidosPorProveedorApi,
   addPedidoProveedorApi,
+  updatePedidoProveedorApi,
 } from "../api/pedidoProveedor";
 export function usePedidoProveedor() {
-  const [loading, setLoading] = useEffect(true);
-  const [pedidos, setPedidos] = useEffect(null);
-  const [error, setError] = useEffect(false);
+  const [loading, setLoading] = useState(true);
+  const [pedidos, setPedidos] = useState(null);
+  const [error, setError] = useState(false);
 
   const getPedidosPorProveedor = async (proveedor) => {
     try {
@@ -20,19 +21,27 @@ export function usePedidoProveedor() {
     }
   };
 
-  const addPedidoProveedor = async (data) => {
+  const addPedidoProveedor = async (idprod, idprov, cant, val) => {
     try {
-      await addPedidoProveedorApi(data);
+      await addPedidoProveedorApi(idprod, idprov, cant, val);
     } catch (error) {
       setError(error);
     }
   };
 
+  const updatePedidoProveedor = async (idpedido, data) => {
+    try {
+      await updatePedidoProveedorApi(idpedido, data);
+    } catch (error) {
+      setError(error);
+    }
+  };
   return {
     loading,
     error,
     pedidos,
     getPedidosPorProveedor,
     addPedidoProveedor,
+    updatePedidoProveedor,
   };
 }

@@ -14,7 +14,7 @@ export function MesasWorker() {
   const [titleModal, setTitleModal] = useState(null);
   const [contentModal, setContentModal] = useState(null);
   const [refetch, setRefetch] = useState(false);
-  const { loading, mesas, getMesas, deleteMesa } = useMesas();
+  const { loading, mesas, getMesas, deleteMesa, error } = useMesas();
   const { auth } = useAuth();
   useEffect(() => getMesas(), [refetch]);
 
@@ -24,7 +24,11 @@ export function MesasWorker() {
   const addMesa = () => {
     setTitleModal("Nueva Mesa");
     setContentModal(
-      <AddEditMesasForm onClose={openCloseModal} onRefetch={onRefetch} />
+      <AddEditMesasForm
+        onClose={openCloseModal}
+        onRefetch={onRefetch}
+        error={error}
+      />
     );
     openCloseModal();
   };

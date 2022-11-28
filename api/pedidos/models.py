@@ -38,3 +38,4 @@ class pedidosProveedores(models.Model):
     valorSolicitado = models.IntegerField()
     valorRecibido = models.IntegerField(null=True)
     activo = models.BooleanField(default=True)
+    fechaRecepcion = models.DateField(null=True)

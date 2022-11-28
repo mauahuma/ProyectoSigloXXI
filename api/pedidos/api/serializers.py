@@ -20,10 +20,10 @@ class PedidoSerializer(ModelSerializer):
 
 class PedidosProveedoresSerializer(ModelSerializer):
     producto_Data = ProductSerializer(
-        source='Producto', read_only=True)
-    proveedor_Data = ProveedorSerializer(source='Proveedor', read_only=True)
+        source='idProducto', read_only=True)
+    proveedor_Data = ProveedorSerializer(source='idProveedor', read_only=True)
 
     class Meta:
         model = pedidosProveedores
         fields = ['id', 'idProducto', 'producto_Data', 'idProveedor', 'proveedor_Data',
-                  'cantidadSolicitada', 'cantidadRecibida', 'valorSolicitado', 'valorRecibido','activo']
+                  'cantidadSolicitada', 'cantidadRecibida', 'valorSolicitado', 'valorRecibido', 'activo', 'fechaRecepcion']
