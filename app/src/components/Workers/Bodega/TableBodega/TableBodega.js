@@ -19,6 +19,8 @@ export function TableBodega(props) {
 
             <th>Stock actual</th>
             <th>Stock crítico</th>
+            <th>Valor</th>
+
             <th></th>
           </tr>
         </thead>
@@ -32,6 +34,7 @@ export function TableBodega(props) {
               </td>
               <td>{producto.stock_actual}</td>
               <td>{producto.stock_critico}</td>
+              <td>${producto.valor}</td>
 
               <Actions
                 producto={producto}

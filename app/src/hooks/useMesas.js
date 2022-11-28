@@ -18,15 +18,16 @@ export function useMesas() {
   const [mesas, setMesas] = useState(null);
   const [mesa, setMesa] = useState(null);
   const [mesaId, setMesaId] = useState(null);
+  const [response, setResponse] = useState(null);
   const { auth } = useAuth();
 
   const getMesas = async () => {
     try {
       setLoading(true);
       const response = await getMesasApi(auth.token);
-      console.log(response);
       setLoading(false);
       setMesas(response);
+      return response;
     } catch (error) {
       setLoading(false);
       setError(error);
@@ -36,7 +37,6 @@ export function useMesas() {
     try {
       setLoading(true);
       const response = await getMesasDisponiblesApi(auth.token);
-      console.log(response);
       setLoading(false);
       setMesas(response);
     } catch (error) {
@@ -47,8 +47,9 @@ export function useMesas() {
   const addMesa = async (data) => {
     try {
       setLoading(true);
-      await addMesaApi(data, auth.token);
+      const response = await addMesaApi(data, auth.token);
       setLoading(false);
+      return response;
     } catch (error) {
       setLoading(false);
       setError(error);
@@ -58,8 +59,9 @@ export function useMesas() {
   const updateMesa = async (id, data) => {
     try {
       setLoading(true);
-      await updateMesaApi(id, data, auth.token);
+      const response = await updateMesaApi(id, data, auth.token);
       setLoading(false);
+      return response;
     } catch (error) {
       setLoading(false);
       setError(error);

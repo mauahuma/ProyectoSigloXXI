@@ -4,7 +4,8 @@ import { map } from "lodash";
 import { Table, Button } from "react-bootstrap";
 
 export function TableReservas(props) {
-  const { reservas } = props;
+  const { reservas, cerrarReserva } = props;
+
   return (
     <div>
       <Table striped bordered hover responsive>
@@ -27,7 +28,11 @@ export function TableReservas(props) {
               <td>{reserva.comensales}</td>
               <td>{reserva.fecha}</td>
               <td>{reserva.hora}</td>
-              <td></td>
+              <td>
+                <Button onClick={() => cerrarReserva(reserva.id)}>
+                  Cerrar
+                </Button>
+              </td>
               {/* <Actions
                 producto={producto}
                 updateProducto={updateProducto}

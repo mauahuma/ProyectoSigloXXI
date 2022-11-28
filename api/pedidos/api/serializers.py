@@ -1,8 +1,10 @@
 from rest_framework.serializers import ModelSerializer
 
-from pedidos.models import pedidos
+from pedidos.models import pedidos, pedidosProveedores
 from preparaciones.api.serializers import PreparacionSerializer
 from mesas.api.serializers import MesaSerializer
+from bodega.api.serializers import ProductSerializer
+from Proveedores.api.serializers import ProveedorSerializer
 
 
 class PedidoSerializer(ModelSerializer):
@@ -14,3 +16,14 @@ class PedidoSerializer(ModelSerializer):
         model = pedidos
         fields = ['id', 'Mesa', 'mesa_Data', 'preparacion', 'preparacion_Data',
                   'pago', 'estado', 'created_at', 'close']
+
+
+class PedidosProveedoresSerializer(ModelSerializer):
+    producto_Data = ProductSerializer(
+        source='idProducto', read_only=True)
+    proveedor_Data = ProveedorSerializer(source='idProveedor', read_only=True)
+
+    class Meta:
+        model = pedidosProveedores
+        fields = ['id', 'idProducto', 'producto_Data', 'idProveedor', 'proveedor_Data',
+                  'cantidadSolicitada', 'cantidadRecibida', 'valorSolicitado', 'valorRecibido', 'activo', 'fechaRecepcion']

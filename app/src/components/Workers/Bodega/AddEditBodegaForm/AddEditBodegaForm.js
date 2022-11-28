@@ -80,6 +80,15 @@ export function AddEditBodegaForm(props) {
         onChange={formik.handleChange}
         error={formik.errors.stock_critico}
       ></Form.Input>
+      <label>Valor:</label>
+
+      <Form.Input
+        name="valor"
+        placeholder="Valor"
+        value={formik.values.valor}
+        onChange={formik.handleChange}
+        error={formik.errors.valor}
+      ></Form.Input>
       <label>Proveedor</label>
       <Dropdown
         placeholder="Proveedor"
@@ -114,6 +123,8 @@ function initialValues(data) {
     medida: data?.medida || "",
     stock_actual: data?.stock_actual || "",
     stock_critico: data?.stock_critico || "",
+    valor: data?.valor || "",
+
     proveedor: data?.proveedor || "",
   };
 }
@@ -124,6 +135,8 @@ function newSchema() {
     medida: Yup.string().required(true),
     stock_actual: Yup.number().required(true),
     stock_critico: Yup.number().required(true),
+    valor: Yup.number().required(true),
+
     proveedor: Yup.number().required(true),
   };
 }
@@ -133,6 +146,8 @@ function updateSchema() {
     medida: Yup.string().required(true),
     stock_actual: Yup.number().required(true),
     stock_critico: Yup.number().required(true),
+    valor: Yup.number().required(true),
+
     proveedor: Yup.number().required(true),
   };
 }

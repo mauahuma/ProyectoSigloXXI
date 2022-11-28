@@ -36,3 +36,21 @@ export async function getReservasApi(fecha = "", ordering = "") {
     throw error;
   }
 }
+
+export async function updateStatusReservaApi(idReserva) {
+  try {
+    const url = `${BASE_API}/api/reservas/${idReserva}/`;
+    const params = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        active: false,
+      }),
+    };
+    await fetch(url, params);
+  } catch (error) {
+    throw error;
+  }
+}

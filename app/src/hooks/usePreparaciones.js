@@ -20,7 +20,7 @@ export function usePreparaciones() {
   const getPreparaciones = async (categoria) => {
     try {
       setLoading(true);
-      const response = await getPreparacionesApi(auth.token, categoria);
+      const response = await getPreparacionesApi(categoria);
       console.log(response);
       setLoading(false);
       setPreparaciones(response);
