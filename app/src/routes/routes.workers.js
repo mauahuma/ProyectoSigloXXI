@@ -14,6 +14,8 @@ import {
   ReportesWorker,
   ReservasWorker,
 } from "../Pages/Workers";
+import { Reportes } from "../Pages/Clients";
+
 const routesWorkers = [
   {
     path: "/Workers",
@@ -84,7 +86,19 @@ const routesWorkers = [
   {
     path: "/Workers/Reportes",
     layout: WorkersLayout,
-    component: ReportesWorker,
+    component: Reportes,
+    exact: true,
+  },
+  {
+    path: "/Workers/Reportes/Semanal",
+    layout: WorkersLayout,
+    component: Reportes,
+    exact: true,
+  },
+  {
+    path: "/Workers/Reportes/Mensual",
+    layout: WorkersLayout,
+    component: Reportes,
     exact: true,
   },
   {

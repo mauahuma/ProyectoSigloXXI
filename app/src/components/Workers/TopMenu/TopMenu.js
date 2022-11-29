@@ -1,6 +1,12 @@
 import React from "react";
 import { Icon } from "semantic-ui-react";
-import { Navbar, Container, NavDropdown, Offcanvas } from "react-bootstrap";
+import {
+  Navbar,
+  Container,
+  NavDropdown,
+  Offcanvas,
+  Image,
+} from "react-bootstrap";
 import { useAuth } from "../../../hooks";
 import "./TopMenu.scss";
 import { SideMenu } from "../SideMenu";
@@ -25,10 +31,12 @@ export function TopMenu() {
           className="mb-3"
         >
           <Container fluid>
-            <Navbar.Brand
-              className="Navbar__logo"
-              src={require("../../../assets/Imagenes/SXX1 LOGO.png").default}
-            ></Navbar.Brand>
+            <Navbar.Brand className="Navbar__logo">
+              <Image
+                style={{ width: "100px", height: "60px" }}
+                src={require("../../../assets/Imagenes/SXX1 LOGO.png").default}
+              ></Image>
+            </Navbar.Brand>
             <Navbar.Text className="Navbar__saludo" placement="end">
               Hola, {renderName()}
             </Navbar.Text>

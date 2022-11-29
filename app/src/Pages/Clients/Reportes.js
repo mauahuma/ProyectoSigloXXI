@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ChartistGraph from "react-chartist";
 import {
   Badge,
@@ -14,6 +14,8 @@ import {
   OverlayTrigger,
   Tooltip,
 } from "react-bootstrap";
+import html2canvas from "html2canvas";
+import { jsPDF } from "jspdf";
 import "./Reportes.scss";
 import { Icon } from "semantic-ui-react";
 import {
@@ -22,12 +24,117 @@ import {
   Grafico,
   Barras,
 } from "../../components/Workers/Dashboard";
+import axios from "axios";
 
 export function Reportes() {
+  const today = getCurrentDatelf("-");
+  const printRef = React.useRef();
+  const date = getCurrentDate("-");
+
+  const handleDownloadPdf = async () => {
+    const element = printRef.current;
+    const canvas = await html2canvas(element);
+    const data = canvas.toDataURL("image/png");
+
+    const pdf = new jsPDF();
+    const imgProperties = pdf.getImageProperties(data);
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
+
+    pdf.addImage(data, "PNG", 0, 0, pdfWidth, pdfHeight);
+    pdf.save(`Reporte Diario ${date}.pdf`);
+  };
+
+  const [total_pago, setTotal_pago] = useState([]);
+  const [totalIngresos, setTotalIngresos] = useState([]);
+  const [totalEgresos, setTotalEgresos] = useState([]);
+
+  const peticionApi3 = async () => {
+    await axios
+      .get(
+        `http://127.0.0.1:8000/api/finanzas/?tipo=INGRESO&fecha__gte=${today}`
+      )
+      .then((Response) => {
+        var respuesta = Response.data;
+        var auxTotal_pago = 0;
+        respuesta.map((elemento) => {
+          auxTotal_pago = auxTotal_pago + elemento.monto;
+        });
+
+        setTotalIngresos(auxTotal_pago);
+      });
+  };
+  const peticionApi2 = async () => {
+    await axios
+      .get(
+        `http://127.0.0.1:8000/api/pedidos/?close=true&created_at__gte=${today}`
+      )
+      .then((Response) => {
+        var respuesta = Response.data;
+        var auxTotal_pago = 0;
+        respuesta.map((elemento) => {
+          auxTotal_pago = auxTotal_pago + 1;
+        });
+        setTotal_pago(auxTotal_pago);
+      });
+  };
+  const peticionApi4 = async () => {
+    await axios
+      .get(
+        `http://127.0.0.1:8000/api/finanzas/?tipo=EGRESO&fecha__gte=${today}`
+      )
+      .then((Response) => {
+        var respuesta = Response.data;
+        var auxTotal_pago = 0;
+        respuesta.map((elemento) => {
+          auxTotal_pago = auxTotal_pago + elemento.monto;
+        });
+
+        setTotalEgresos(auxTotal_pago);
+      });
+  };
+  useEffect(() => {
+    peticionApi2();
+    peticionApi3();
+    peticionApi4();
+  }, []);
+
   return (
     <div className="Reportes">
-      <>
-        <Container fluid>
+      <div
+        className="header-page-worker"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        <div>
+          {" "}
+          <Button onClick={handleDownloadPdf}>Descargar PDF</Button>
+        </div>
+
+        <div>
+          <Button onClick={handleDownloadPdf} disabled>
+            Reporte diario
+          </Button>
+          <Button onClick={handleDownloadPdf}>Reporte semanal</Button>
+          <Button onClick={handleDownloadPdf}>Reporte mensual</Button>
+        </div>
+      </div>
+      <div
+        ref={printRef}
+        style={{
+          padding: "10px",
+        }}
+      >
+        <h2 style={{ paddingLeft: "7%" }}>Reporte diario</h2>
+        <Container
+          style={{
+            padding: "40px",
+          }}
+          fluid
+        >
           <Row>
             <Col lg="3" sm="6">
               <Card className="card-stats">
@@ -43,19 +150,12 @@ export function Reportes() {
                     </Col>
                     <Col xs="7">
                       <div className="numbers">
-                        <p className="card-category">Number</p>
-                        <Card.Title as="h4">150GB</Card.Title>
+                        <p className="card-category">Total de ventas</p>
+                        <Card.Title as="h4">{total_pago}</Card.Title>
                       </div>
                     </Col>
                   </Row>
                 </Card.Body>
-                <Card.Footer>
-                  <hr></hr>
-                  <div className="stats">
-                    <i className="fas fa-redo mr-1"></i>
-                    Update Now
-                  </div>
-                </Card.Footer>
               </Card>
             </Col>
             <Col lg="3" sm="6">
@@ -72,19 +172,12 @@ export function Reportes() {
                     </Col>
                     <Col xs="7">
                       <div className="numbers">
-                        <p className="card-category">Revenue</p>
-                        <Card.Title as="h4">$ 1,345</Card.Title>
+                        <p className="card-category">Ingresos</p>
+                        <Card.Title as="h4">$ {totalIngresos}</Card.Title>
                       </div>
                     </Col>
                   </Row>
                 </Card.Body>
-                <Card.Footer>
-                  <hr></hr>
-                  <div className="stats">
-                    <i className="far fa-calendar-alt mr-1"></i>
-                    Last day
-                  </div>
-                </Card.Footer>
               </Card>
             </Col>
             <Col lg="3" sm="6">
@@ -101,19 +194,12 @@ export function Reportes() {
                     </Col>
                     <Col xs="7">
                       <div className="numbers">
-                        <p className="card-category">Errors</p>
-                        <Card.Title as="h4">23</Card.Title>
+                        <p className="card-category">Egresos</p>
+                        <Card.Title as="h4">$ {totalEgresos}</Card.Title>
                       </div>
                     </Col>
                   </Row>
                 </Card.Body>
-                <Card.Footer>
-                  <hr></hr>
-                  <div className="stats">
-                    <i className="far fa-clock-o mr-1"></i>
-                    In the last hour
-                  </div>
-                </Card.Footer>
               </Card>
             </Col>
             <Col lg="3" sm="6">
@@ -130,19 +216,14 @@ export function Reportes() {
                     </Col>
                     <Col xs="7">
                       <div className="numbers">
-                        <p className="card-category">Followers</p>
-                        <Card.Title as="h4">+45K</Card.Title>
+                        <p className="card-category">Balance</p>
+                        <Card.Title as="h4">
+                          $ {totalIngresos - totalEgresos}
+                        </Card.Title>
                       </div>
                     </Col>
                   </Row>
                 </Card.Body>
-                <Card.Footer>
-                  <hr></hr>
-                  <div className="stats">
-                    <i className="fas fa-redo mr-1"></i>
-                    Update now
-                  </div>
-                </Card.Footer>
               </Card>
             </Col>
           </Row>
@@ -158,44 +239,19 @@ export function Reportes() {
                     <Barras />
                   </div>
                 </Card.Body>
-                <Card.Footer>
-                  <div className="legend">
-                    <i className="fas fa-circle text-info"></i>
-                    Open <i className="fas fa-circle text-danger"></i>
-                    Click <i className="fas fa-circle text-warning"></i>
-                    Click Second Time
-                  </div>
-                  <hr></hr>
-                  <div className="stats">
-                    <i className="fas fa-history"></i>
-                    Updated 3 minutes ago
-                  </div>
-                </Card.Footer>
               </Card>
             </Col>
             <Col md="4">
               <Card>
                 <Card.Header>
-                  <Card.Title as="h4">Email Statistics</Card.Title>
-                  <p className="card-category">Last Campaign Performance</p>
+                  <Card.Title as="h4">Productos mas vendidos</Card.Title>
                 </Card.Header>
                 <Card.Body>
                   <div
                     className="ct-chart ct-perfect-fourth"
                     id="chartPreferences"
                   >
-                    <Cake />
-                  </div>
-                  <div className="legend">
-                    <i className="fas fa-circle text-info"></i>
-                    Open <i className="fas fa-circle text-danger"></i>
-                    Bounce <i className="fas fa-circle text-warning"></i>
-                    Unsubscribe
-                  </div>
-                  <hr></hr>
-                  <div className="stats">
-                    <i className="far fa-clock"></i>
-                    Campaign sent 2 days ago
+                    <Dona today={today} />
                   </div>
                 </Card.Body>
               </Card>
@@ -544,7 +600,28 @@ export function Reportes() {
             </Col>
           </Row>
         </Container>
-      </>
+      </div>
     </div>
   );
+}
+export function getCurrentDate(separator = "") {
+  let newDate = new Date();
+  let date = newDate.getDate();
+  let month = newDate.getMonth() + 1;
+  let year = newDate.getFullYear();
+
+  return `${date}${separator}${
+    month < 10 ? `0${month}` : `${month}`
+  }${separator}${year}`;
+}
+
+export function getCurrentDatelf(separator = "") {
+  let newDate = new Date();
+  let date = newDate.getDate();
+  let month = newDate.getMonth() + 1;
+  let year = newDate.getFullYear();
+
+  return `${year}${separator}${
+    month < 10 ? `0${month}` : `${month}`
+  }${separator}${date}`;
 }
