@@ -1,0 +1,1 @@
+@pedidos/admin.py 2pyXhrpedidos/admin.py

@@ -49,6 +49,8 @@ export function ProveedoresWorker() {
         onRefetch={onRefetch}
         onClose={openCloseModal}
         proveedor={data}
+        refetch={refetch}
+        loading={loading}
       />
     );
     openCloseModal();

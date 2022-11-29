@@ -26,3 +26,16 @@ class pedidos(models.Model):
 
     def __str__(self):
         return str(self.Mesa)
+
+
+class pedidosProveedores(models.Model):
+    idProducto = models.ForeignKey(
+        'bodega.Producto', on_delete=models.SET_NULL, null=True, blank=True)
+    idProveedor = models.ForeignKey(
+        'Proveedores.Proveedor', on_delete=models.SET_NULL, null=True, blank=True)
+    cantidadSolicitada = models.IntegerField()
+    cantidadRecibida = models.IntegerField(null=True)
+    valorSolicitado = models.IntegerField()
+    valorRecibido = models.IntegerField(null=True)
+    activo = models.BooleanField(default=True)
+    fechaRecepcion = models.DateField(null=True)

@@ -90,6 +90,7 @@ WSGI_APPLICATION = 'RestaurantSigloXXI.wsgi.application'
 
 DATABASES = {
    'default': {
+
        'ENGINE': 'django.db.backends.oracle',
        'NAME': environ.get('BD_NAME'),
        'USER': environ.get('BD_USER'),
@@ -104,7 +105,6 @@ DATABASES = {
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators

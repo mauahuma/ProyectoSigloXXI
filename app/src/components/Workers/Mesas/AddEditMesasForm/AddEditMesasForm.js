@@ -4,6 +4,7 @@ import "./AddEditMesasForm.scss";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useMesas } from "../../../../hooks";
+import { toast } from "react-toastify";
 const estados = [
   { key: "d", text: "Disponible", value: "Disponible" },
   { key: "r", text: "Reservado", value: "Reservado" },
@@ -12,7 +13,7 @@ const estados = [
 ];
 
 export function AddEditMesasForm(props) {
-  const { onClose, onRefetch, mesa } = props;
+  const { onClose, onRefetch, mesa, error } = props;
   const { addMesa, updateMesa } = useMesas();
 
   const formik = useFormik({
@@ -21,13 +22,25 @@ export function AddEditMesasForm(props) {
     validateOnChange: false,
     onSubmit: async (formValue) => {
       try {
-        if (mesa) await updateMesa(mesa.id, formValue);
-        else await addMesa(formValue);
-
-        onRefetch();
-        onClose();
-      } catch (error) {
-        console.log(error);
+        if (mesa) {
+          const response = await updateMesa(mesa.id, formValue);
+          if (!response.id) {
+            toast.error(response.numero_mesa);
+          } else {
+            onRefetch();
+            onClose();
+          }
+        } else {
+          const response = await addMesa(formValue);
+          if (!response.id) {
+            toast.error(response.numero_mesa);
+          } else {
+            onRefetch();
+            onClose();
+          }
+        }
+      } catch (e) {
+        console.log(e);
       }
     },
   });

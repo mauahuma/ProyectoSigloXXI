@@ -1,0 +1,151 @@
+Environment variables:
+  - =::=::\
+  - =D:=D:\RSigloXXI\ProyectoSigloXXI\ProyectoSigloXXI\api
+  - ALLUSERSPROFILE=C:\ProgramData
+  - ANDROID_HOME=C:\Users\meahu\AppData\Local\Android\Sdk
+  - APPDATA=C:\Users\meahu\AppData\Roaming
+  - COMPUTERNAME=ZADDPC
+  - ChocolateyInstall=C:\ProgramData\chocolatey
+  - ChocolateyLastPathUpdate=133126016741103020
+  - ComSpec=C:\Windows\system32\cmd.exe
+  - CommonProgramFiles=C:\Program Files\Common Files
+  - CommonProgramFiles(x86)=C:\Program Files (x86)\Common Files
+  - CommonProgramW6432=C:\Program Files\Common Files
+  - DriverData=C:\Windows\System32\Drivers\DriverData
+  - ERROR_CODE=0
+  - HOMEDRIVE=C:
+  - HOMEPATH=\Users\meahu
+  - JAVA_EXEC="C:\Users\meahu\Desktop\sonar-scanner-4.3.0.2102-windows\bin\..\jre\bin\java.exe"
+  - JAVA_HOME=C:\Users\meahu\Desktop\sonar-scanner-4.3.0.2102-windows\bin\..\jre
+  - JD2_HOME=C:\Users\meahu\AppData\Local\JDownloader 2.0
+  - LOCALAPPDATA=C:\Users\meahu\AppData\Local
+  - LOGONSERVER=\\ZADDPC
+  - NUMBER_OF_PROCESSORS=8
+  - OS=Windows_NT
+  - OneDrive=C:\Users\meahu\OneDrive - Fundacion Instituto Profesional Duoc UC
+  - OneDriveCommercial=C:\Users\meahu\OneDrive - Fundacion Instituto Profesional Duoc UC
+  - OneDriveConsumer=C:\Users\meahu\OneDrive
+  - PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+  - PROCESSOR_ARCHITECTURE=AMD64
+  - PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 158 Stepping 9, GenuineIntel
+  - PROCESSOR_LEVEL=6
+  - PROCESSOR_REVISION=9e09
+  - PROJECT_HOME=D:\RSigloXXI\ProyectoSigloXXI\ProyectoSigloXXI\api
+  - PROMPT=$P$G
+  - PSModulePath=C:\Program Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules
+  - PUBLIC=C:\Users\Public
+  - Path=C:\Program Files\Eclipse Adoptium\jdk-11.0.17.8-hotspot\bin;C:\app\meahu\product\21c\dbhomeXE\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Users\meahu\Downloads\WINDOWS.X64_193000_db_home\bin;C:\Program Files (x86)\VMware\VMware Player\bin\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\PuTTY\;C:\Program Files\remoteit\resources\x64;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Users\meahu\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\meahu\AppData\Local\Programs\Python\Python310\;C:\Users\meahu\AppData\Local\Microsoft\WindowsApps;C:\Users\meahu\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\meahu\AppData\Roaming\npm;C:\Users\meahu\AppData\Local\Android\Sdk\platform-tools;C:\Users\meahu\Desktop\sonar-scanner-4.3.0.2102-windows\bin;
+  - ProgramData=C:\ProgramData
+  - ProgramFiles=C:\Program Files
+  - ProgramFiles(x86)=C:\Program Files (x86)
+  - ProgramW6432=C:\Program Files
+  - SECRET_KEY=d69ps55v0d3cn7x395y6dev-28cj*&@+okq5a%0@k0$chb&s1t
+  - SESSIONNAME=Console
+  - SONAR_SCANNER_HOME=C:\Users\meahu\Desktop\sonar-scanner-4.3.0.2102-windows\bin\..
+  - SystemDrive=C:
+  - SystemRoot=C:\Windows
+  - TEMP=C:\Users\meahu\AppData\Local\Temp
+  - TMP=C:\Users\meahu\AppData\Local\Temp
+  - USERDOMAIN=ZADDPC
+  - USERDOMAIN_ROAMINGPROFILE=ZADDPC
+  - USERNAME=meahu
+  - USERPROFILE=C:\Users\meahu
+  - scriptdir=C:\Users\meahu\Desktop\sonar-scanner-4.3.0.2102-windows\bin
+  - use_embedded_jre=true
+  - windir=C:\Windows
+System properties:
+  - awt.toolkit=sun.awt.windows.WToolkit
+  - file.encoding=Cp1252
+  - file.separator=\
+  - java.awt.graphicsenv=sun.awt.Win32GraphicsEnvironment
+  - java.awt.headless=true
+  - java.awt.printerjob=sun.awt.windows.WPrinterJob
+  - java.class.path=C:\Users\meahu\Desktop\sonar-scanner-4.3.0.2102-windows\bin\..\lib\sonar-scanner-cli-4.3.0.2102.jar
+  - java.class.version=55.0
+  - java.home=C:\Users\meahu\Desktop\sonar-scanner-4.3.0.2102-windows\jre
+  - java.io.tmpdir=C:\Users\meahu\AppData\Local\Temp\
+  - java.library.path=C:\Users\meahu\Desktop\sonar-scanner-4.3.0.2102-windows\jre\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Eclipse Adoptium\jdk-11.0.17.8-hotspot\bin;C:\app\meahu\product\21c\dbhomeXE\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Users\meahu\Downloads\WINDOWS.X64_193000_db_home\bin;C:\Program Files (x86)\VMware\VMware Player\bin\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\PuTTY\;C:\Program Files\remoteit\resources\x64;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Users\meahu\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\meahu\AppData\Local\Programs\Python\Python310\;C:\Users\meahu\AppData\Local\Microsoft\WindowsApps;C:\Users\meahu\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\meahu\AppData\Roaming\npm;C:\Users\meahu\AppData\Local\Android\Sdk\platform-tools;C:\Users\meahu\Desktop\sonar-scanner-4.3.0.2102-windows\bin;;.
+  - java.runtime.name=OpenJDK Runtime Environment
+  - java.runtime.version=11.0.3+7
+  - java.specification.name=Java Platform API Specification
+  - java.specification.vendor=Oracle Corporation
+  - java.specification.version=11
+  - java.vendor=AdoptOpenJDK
+  - java.vendor.url=https://adoptopenjdk.net/
+  - java.vendor.url.bug=https://github.com/AdoptOpenJDK/openjdk-build/issues
+  - java.vendor.version=AdoptOpenJDK
+  - java.version=11.0.3
+  - java.version.date=2019-04-16
+  - java.vm.compressedOopsMode=Zero based
+  - java.vm.info=mixed mode
+  - java.vm.name=OpenJDK 64-Bit Server VM
+  - java.vm.specification.name=Java Virtual Machine Specification
+  - java.vm.specification.vendor=Oracle Corporation
+  - java.vm.specification.version=11
+  - java.vm.vendor=AdoptOpenJDK
+  - java.vm.version=11.0.3+7
+  - jdk.debug=release
+  - line.separator=
+
+  - os.arch=amd64
+  - os.name=Windows 10
+  - os.version=10.0
+  - path.separator=;
+  - project.home=D:\RSigloXXI\ProyectoSigloXXI\ProyectoSigloXXI\api
+  - scanner.home=C:\Users\meahu\Desktop\sonar-scanner-4.3.0.2102-windows\bin\..
+  - sun.arch.data.model=64
+  - sun.boot.library.path=C:\Users\meahu\Desktop\sonar-scanner-4.3.0.2102-windows\jre\bin
+  - sun.cpu.endian=little
+  - sun.cpu.isalist=amd64
+  - sun.desktop=windows
+  - sun.io.unicode.encoding=UnicodeLittle
+  - sun.java.command=org.sonarsource.scanner.cli.Main -X
+  - sun.java.launcher=SUN_STANDARD
+  - sun.jnu.encoding=Cp1252
+  - sun.management.compiler=HotSpot 64-Bit Tiered Compilers
+  - sun.os.patch.level=
+  - sun.stderr.encoding=cp850
+  - sun.stdout.encoding=cp850
+  - user.country=CL
+  - user.dir=D:\RSigloXXI\ProyectoSigloXXI\ProyectoSigloXXI\api
+  - user.home=C:\Users\meahu
+  - user.language=es
+  - user.name=meahu
+  - user.script=
+  - user.timezone=America/Santiago
+  - user.variant=
+SonarQube plugins:
+  - SonarPython 1.10.0.2131 (python)
+  - SonarCSS 1.0.3.724 (cssfamily)
+  - JaCoCo 1.0.1.143 (jacoco)
+  - SonarGo 1.1.0.1612 (go)
+  - SonarKotlin 1.4.0.155 (kotlin)
+  - Svn 1.9.0.1295 (scmsvn)
+  - SonarJS 5.0.0.6962 (javascript)
+  - SonarRuby 1.4.0.155 (ruby)
+  - SonarScala 1.4.0.155 (sonarscala)
+  - SonarC# 7.9.1.7622 (csharp)
+  - SonarJava 5.9.2.16552 (java)
+  - LDAP 2.2.0.608 (ldap)
+  - Git 1.6.0.1349 (scmgit)
+  - SonarFlex 2.4.0.1222 (flex)
+  - SonarXML 1.5.1.1452 (xml)
+  - SonarPHP 2.15.0.4060 (php)
+  - SonarTS 1.8.0.3332 (typescript)
+  - SonarVB 7.9.1.7622 (vbnet)
+Global properties:
+  - sonar.core.id=BF41A1F2-AYSSGvy0qZIGddJY0Jak
+  - sonar.core.startTime=2022-11-22T18:10:37-0300
+Settings for module: Backend
+  - sonar.host.url=http://localhost:9000
+  - sonar.language=py
+  - sonar.projectBaseDir=D:\RSigloXXI\ProyectoSigloXXI\ProyectoSigloXXI\api
+  - sonar.projectKey=Backend
+  - sonar.projectName=Backend
+  - sonar.projectVersion=0.1
+  - sonar.scanner.app=ScannerCli
+  - sonar.scanner.appVersion=4.3.0.2102
+  - sonar.sourceEncoding=windows-1252
+  - sonar.sources=D:/RSigloXXI/ProyectoSigloXXI/ProyectoSigloXXI/api
+  - sonar.verbose=true
+  - sonar.working.directory=D:\RSigloXXI\ProyectoSigloXXI\ProyectoSigloXXI\api\.scannerwork

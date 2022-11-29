@@ -1,16 +1,12 @@
 import { BASE_API } from "../utils/constants";
 
-export async function getPreparacionesApi(token, categoria = "") {
+export async function getPreparacionesApi(categoria = "") {
   try {
     const categoriaFilter = `categoria=${categoria}`;
 
     const url = `${BASE_API}/api/preparaciones/?${categoriaFilter}`;
-    const params = {
-      headers: {
-        Authorization: `${token}`,
-      },
-    };
-    const response = await fetch(url, params);
+
+    const response = await fetch(url);
     const result = await response.json();
     console.log(result);
     return result;

@@ -29,6 +29,7 @@ export function Dona() {
       result.map((elemento) => {
         auxEstado.push(elemento.name);
         auxNumero_mesa.push(elemento.value);
+        return null;
       });
       setEstado(auxEstado);
       setNumero_mesa(auxNumero_mesa);

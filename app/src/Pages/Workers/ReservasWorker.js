@@ -9,11 +9,20 @@ export function ReservasWorker() {
   const [titleModal, setTitleModal] = useState(null);
   const [contentModal, setContentModal] = useState(null);
   const [refetch, setRefetch] = useState(false);
-  const { loading, getReservas, reservas } = useReservas();
+  const { loading, getReservas, reservas, updateStatusReserva } = useReservas();
   const { auth } = useAuth();
   useEffect(() => getReservas("", "ordering=+fecha,+hora"), [refetch]);
   const openCloseModal = () => setShowModal((prev) => !prev);
   const onRefetch = () => setRefetch((prev) => !prev);
+
+  const cerrarReserva = async (id) => {
+    try {
+      await updateStatusReserva(id);
+      onRefetch();
+    } catch (error) {
+      console.log(error);
+    }
+  };
   switch (auth.me.cargo) {
     case "Administrador":
     case "Recepcion":
@@ -25,7 +34,7 @@ export function ReservasWorker() {
               Cargando...
             </Loader>
           ) : (
-            <TableReservas reservas={reservas} />
+            <TableReservas reservas={reservas} cerrarReserva={cerrarReserva} />
           )}
 
           <ModalBasic

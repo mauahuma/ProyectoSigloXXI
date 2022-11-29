@@ -1,5 +1,9 @@
 import { useState } from "react";
-import { addReservaApi, getReservasApi } from "../api/reservas";
+import {
+  addReservaApi,
+  getReservasApi,
+  updateStatusReservaApi,
+} from "../api/reservas";
 import { useAuth } from ".";
 
 export function useReservas() {
@@ -30,5 +34,14 @@ export function useReservas() {
       setError(error);
     }
   };
-  return { addReserva, getReservas, reservas };
+
+  const updateStatusReserva = async (id) => {
+    try {
+      await updateStatusReservaApi(id);
+    } catch (error) {
+      setLoading(false);
+      setError(error);
+    }
+  };
+  return { addReserva, updateStatusReserva, getReservas, reservas };
 }

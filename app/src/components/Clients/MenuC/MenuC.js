@@ -27,11 +27,7 @@ export function MenuC(props) {
                   <Card.Description textAlign="center">{Des1}</Card.Description>
                 </Card.Content>
                 <Card.Content extra>
-                  <a>
-                    <Button color="black" attached="top">
-                      Pedir
-                    </Button>
-                  </a>
+                  <a></a>
                 </Card.Content>
               </Card>
             </Grid.Column>
@@ -50,11 +46,7 @@ export function MenuC(props) {
                   <Card.Description textAlign="center">{Des2}</Card.Description>
                 </Card.Content>
                 <Card.Content extra>
-                  <a>
-                    <Button color="black" attached="top">
-                      Pedir
-                    </Button>
-                  </a>
+                  <a></a>
                 </Card.Content>
               </Card>
             </Grid.Column>
@@ -73,11 +65,7 @@ export function MenuC(props) {
                   <Card.Description textAlign="center">{Des3}</Card.Description>
                 </Card.Content>
                 <Card.Content extra>
-                  <a>
-                    <Button color="black" attached="top">
-                      Pedir
-                    </Button>
-                  </a>
+                  <a></a>
                 </Card.Content>
               </Card>
             </Grid.Column>

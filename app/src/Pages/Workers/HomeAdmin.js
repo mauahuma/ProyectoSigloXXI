@@ -6,10 +6,9 @@ import {
   ShowMesas,
 } from "../../components/Workers";
 import { map } from "lodash";
-
 import { ModalBasic } from "../../components/Common";
 import { useMesas, useReservas } from "../../hooks";
-import { Table } from "react-bootstrap";
+import { Table, Button } from "react-bootstrap";
 export function HomeAdmin() {
   const { mesas, getMesasDisponibles } = useMesas();
   const [showModal, setShowModal] = useState(false);
@@ -17,12 +16,20 @@ export function HomeAdmin() {
   const [contentModal, setContentModal] = useState(null);
   const [refetch, setRefetch] = useState(false);
   var fecha = new Date().toISOString().split("T")[0];
-  const { loading, getReservas, reservas } = useReservas();
+  const { loading, getReservas, reservas, updateStatusReserva } = useReservas();
 
   const openCloseModal = () => setShowModal((prev) => !prev);
   const onRefetch = () => setRefetch((prev) => !prev);
   useEffect(() => getReservas(fecha, "ordering=+fecha,+hora"), [refetch]);
 
+  const cerrarReserva = async (id) => {
+    try {
+      await updateStatusReserva(id);
+      onRefetch();
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const showReservas = () => {
     setTitleModal("Reservas del día");
     setContentModal(
@@ -40,6 +47,11 @@ export function HomeAdmin() {
               <td>{reserva.hora}</td>
               <td>{reserva.nombre}</td>
               <td>{reserva.comensales}</td>
+              <td>
+                <Button onClick={() => cerrarReserva(reserva.id)}>
+                  Cerrar
+                </Button>
+              </td>
             </tr>
           ))}
         </tbody>

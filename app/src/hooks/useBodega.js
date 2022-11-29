@@ -77,6 +77,7 @@ export function useBodega() {
       const response = await getProductosByProveedorApi(idproveedor);
       setLoading(false);
       setProductos(response);
+      return response;
     } catch (error) {
       setLoading(false);
       setError(error);
