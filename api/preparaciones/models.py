@@ -10,6 +10,7 @@ class Preparacion(models.Model):
     receta = models.CharField(max_length=255, default="")
     tiempo_preparacion = models.IntegerField(default=0)
     Valor = models.IntegerField(default=0)
+    Valor_preparacion = models.IntegerField(default=0)
     Imagen = models.ImageField(upload_to='preparaciones', null=True)
     categoria = models.CharField(max_length=100, default="")
 

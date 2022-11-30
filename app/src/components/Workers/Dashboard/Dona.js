@@ -6,34 +6,39 @@ import { Label } from "semantic-ui-react";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export function Dona() {
+export function Dona(props) {
+  const { today } = props;
   const [estado, setEstado] = useState([]);
   const [numero_mesa, setNumero_mesa] = useState([]);
 
   const peticionApi = async () => {
-    await axios.get("http://127.0.0.1:8000/api/pedidos/").then((Response) => {
-      var respuesta = Response.data;
-      var auxEstado = [],
-        auxNumero_mesa = [];
-      let result = Object.values(
-        respuesta.reduce((c, { preparacion_Data, preparacion }) => {
-          c[preparacion] = c[preparacion] || {
-            name: preparacion_Data.nombre,
-            value: 0,
-          };
-          c[preparacion].value++;
-          return c;
-        }, {})
-      );
+    await axios
+      .get(
+        `http://127.0.0.1:8000/api/pedidos/?close=true&created_at__gte=${today}`
+      )
+      .then((Response) => {
+        var respuesta = Response.data;
+        var auxEstado = [],
+          auxNumero_mesa = [];
+        let result = Object.values(
+          respuesta.reduce((c, { preparacion_Data, preparacion }) => {
+            c[preparacion] = c[preparacion] || {
+              name: preparacion_Data.nombre,
+              value: 0,
+            };
+            c[preparacion].value++;
+            return c;
+          }, {})
+        );
 
-      result.map((elemento) => {
-        auxEstado.push(elemento.name);
-        auxNumero_mesa.push(elemento.value);
-        return null;
+        result.map((elemento) => {
+          auxEstado.push(elemento.name);
+          auxNumero_mesa.push(elemento.value);
+          return null;
+        });
+        setEstado(auxEstado);
+        setNumero_mesa(auxNumero_mesa);
       });
-      setEstado(auxEstado);
-      setNumero_mesa(auxNumero_mesa);
-    });
   };
   useEffect(() => {
     peticionApi();

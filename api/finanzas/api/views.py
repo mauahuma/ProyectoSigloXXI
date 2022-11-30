@@ -25,5 +25,6 @@ class FinanzasApiViewSet(ModelViewSet):
     serializer_class = FinanzasSerializer
     queryset = Finanzas.objects.all()
     filter_backends = [DjangoFilterBackend, OrderingFilter]
-    filterset_fields = ['tipo', 'fecha']
+    filterset_fields = {'tipo': ['exact'], 'fecha': [
+        'gte', 'lte', 'gt', 'lt', 'exact']}
     ordering_fields = '__all__'
