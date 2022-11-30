@@ -9,7 +9,7 @@ export function PedidosWorker() {
   useEffect(() => getMesas(), []);
   switch (auth.me.cargo) {
     case "Administrador":
-    case "Garzon":
+    case "Garzón":
       return (
         <>
           <HeaderPage title="Pedidos" />

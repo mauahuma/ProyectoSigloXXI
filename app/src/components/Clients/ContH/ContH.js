@@ -62,8 +62,8 @@ export function ContH(props) {
             <Carousel.Caption>
               <h1>Selección de platos</h1>
               <p>
-                Revisa nuestra selección de platos, insipirados en la
-                gastronomía tradicional chilena.
+                Revisa nuestra selección de platos, inspirados en la gastronomía
+                tradicional chilena.
               </p>
             </Carousel.Caption>
           </Carousel.Item>

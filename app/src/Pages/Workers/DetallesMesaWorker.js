@@ -40,7 +40,7 @@ export function DetallesMesaWorker() {
 
   const onCreatePayment = async () => {
     const result = window.confirm(
-      "¿Estas seguro de generar la cuenta de la mesa?"
+      "¿Estás seguro de generar la cuenta de la mesa?"
     );
 
     if (result) {
@@ -50,7 +50,7 @@ export function DetallesMesaWorker() {
       });
 
       const resultTypePayment = window.confirm(
-        "¿Pago con tarjeta pulsa ACEPTAR con efectivo pusa CANCELAR"
+        "¿Pago con tarjeta pulsa ACEPTAR con efectivo pulsa CANCELAR"
       );
 
       const paymentData = {
@@ -70,7 +70,7 @@ export function DetallesMesaWorker() {
   };
   switch (auth.me.cargo) {
     case "Administrador":
-    case "Garzon":
+    case "Garzón":
       return (
         <>
           <HeaderPage

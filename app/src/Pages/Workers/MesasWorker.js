@@ -82,7 +82,7 @@ export function MesasWorker() {
           />
         </>
       );
-    case "Recepcion":
+    case "Recepción":
       return <ShowMesas mesas={mesas} onRefetch={onRefetch} />;
 
     default:

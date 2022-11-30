@@ -43,7 +43,7 @@ export function ProveedoresWorker() {
     openCloseModal();
   };
   const checkStock = (data) => {
-    setTitleModal("Revision de stock");
+    setTitleModal("Revisión de stock");
     setContentModal(
       <StockProveedores
         onRefetch={onRefetch}
