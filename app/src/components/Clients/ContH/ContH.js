@@ -48,7 +48,7 @@ export function ContH(props) {
               alt="First slide"
             />
             <Carousel.Caption>
-              <h1>Restaurant Siglo XXI</h1>
+              <h1>Restaurante Siglo XXI</h1>
               <p>Un sabor tradicional, cómo en casa.</p>
             </Carousel.Caption>
           </Carousel.Item>
@@ -89,10 +89,10 @@ export function ContH(props) {
               <Grid.Row>
                 <Grid.Column width={8}>
                   <Header as="h3" style={{ fontSize: "2em" }}>
-                    ¿Que es Siglo XXI?
+                    ¿Qué es Siglo XXI?
                   </Header>
                   <p style={{ fontSize: "1.33em" }}>
-                    Siglo XXI es un restaurant con más de 50 años de
+                    Siglo XXI es un restaurante con más de 50 años de
                     experiencia, ubicado en una zona turística para proporcionar
                     a nustros clientes un deleite visual, como también un buen
                     servicio gastronómico.
@@ -166,7 +166,7 @@ export function ContH(props) {
                 Historia de Siglo XXI
               </Header>
               <p style={{ fontSize: "1.33em" }}>
-                El restaurante siglo XXI, se encuentra en una zona ampliamente
+                El restaurante Siglo XXI, se encuentra en una zona ampliamente
                 turística del país, atiende desde hace 50 años por sus dueños,
                 quienes poco a poco fueron construyendo el local hasta hacerse
                 conocido por su comida casera.

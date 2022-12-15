@@ -75,7 +75,7 @@ export function LoginMenu(props) {
         <Navbar.Text position="right">
           <Navbar.Text>Bienvenido, {renderName()}</Navbar.Text>
           <Button as="a" onClick={() => logout()}>
-            Cerrar Sesion
+            Cerrar Sesión
           </Button>
         </Navbar.Text>
       </Nav>

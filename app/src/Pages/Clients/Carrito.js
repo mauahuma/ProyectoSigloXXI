@@ -34,7 +34,7 @@ export function Carrito() {
         <p>Cargando...</p>
       ) : size(preparaciones) === 0 ? (
         <div style={{ textAlign: "center" }}>
-          <p>Tu carrito esta vacio</p>
+          <p>Tu carrito esta vacío</p>
           <Link to={`/client/${numero_mesa}/pedidos`}>
             <Button primary>Ver pedidos</Button>
           </Link>

@@ -16,6 +16,6 @@ export function CartaMesa() {
   };
 
   return (
-    <div>{ValidateMesa ? <h1>mesa válida</h1> : <h1>mesa inválida</h1>}</div>
+    <div>{ValidateMesa ? <h1>Mesa válida</h1> : <h1>Mesa inválida</h1>}</div>
   );
 }

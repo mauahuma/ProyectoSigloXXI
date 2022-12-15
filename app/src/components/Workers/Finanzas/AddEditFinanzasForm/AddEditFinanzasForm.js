@@ -29,7 +29,7 @@ export function AddEditFinanzasForm(props) {
   });
   return (
     <Form className="add-edit-bodega-form" onSubmit={formik.handleSubmit}>
-      <label>ingreso/egreso</label>
+      <label>Ingreso/Egreso</label>
 
       <Dropdown
         placeholder="ingreso/egreso"

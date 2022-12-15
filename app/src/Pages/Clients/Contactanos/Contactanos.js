@@ -18,7 +18,7 @@ export function Contactanos() {
       <div className="Contactanos__Content">
         <Segment>
           <h4>
-            Deja aquí tus comentarios para saber tu experiencia con SigloXXI, te
+            Deja aquí tus comentarios para saber tu experiencia con Siglo XXI, te
             enviaremos los comentarios correspondientes, con esto nos ayudas a
             obtener otra perspectiva para mejorar los servicios.
           </h4>
