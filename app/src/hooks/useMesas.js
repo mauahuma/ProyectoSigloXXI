@@ -100,6 +100,15 @@ export function useMesas() {
       setError(error);
     }
   };
+  const isOccupiedMesa = async (numeroMesa) => {
+    try {
+      const response = await getMesaByNumeroApi(numeroMesa);
+      if (response[0].estado !== "Ocupado") return false;
+      return true;
+    } catch (error) {
+      setError(error);
+    }
+  };
 
   const getMesaPorNumero = async (numeromesa) => {
     try {
@@ -133,6 +142,7 @@ export function useMesas() {
     getMesaPorNumero,
     setMesaDisponible,
     getMesasDisponibles,
+    isOccupiedMesa,
     mesaId,
   };
 }

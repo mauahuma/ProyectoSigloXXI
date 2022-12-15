@@ -26,7 +26,7 @@ export function Barras() {
 
   const peticionApi = async () => {
     await axios
-      .get(`http://127.0.0.1:8000/api/preparaciones/`)
+      .get(`http://127.0.0.1:8000/api/preparaciones/?ordering=-utilidades`)
       .then((Response) => {
         var respuesta = Response.data;
         var auxLabel = [];

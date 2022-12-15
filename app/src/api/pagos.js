@@ -55,6 +55,21 @@ export async function cerrarPagosApi(idPago) {
   }
 }
 
+export async function getPagoApi(id) {
+  try {
+    const paymentFilter = `estadoPago=${PAYMENT_STATUS.PAGADO}`;
+    const orderingFilter = "ordering=created_at";
+
+    const url = `${BASE_API}/api/pagos/${id}/?${paymentFilter}&${orderingFilter}`;
+
+    const response = await fetch(url);
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    throw error;
+  }
+}
+
 export async function getPagosApi() {
   try {
     const paymentFilter = `estadoPago=${PAYMENT_STATUS.PAGADO}`;

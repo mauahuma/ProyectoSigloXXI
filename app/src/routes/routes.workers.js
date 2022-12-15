@@ -14,7 +14,12 @@ import {
   ReportesWorker,
   ReservasWorker,
 } from "../Pages/Workers";
-import { Reportes } from "../Pages/Clients";
+import {
+  Reportes,
+  ReportesSemana,
+  ReportesMes,
+  Boleta,
+} from "../Pages/Clients";
 
 const routesWorkers = [
   {
@@ -66,6 +71,12 @@ const routesWorkers = [
     exact: true,
   },
   {
+    path: "/Workers/Boleta/:id",
+    layout: WorkersLayout,
+    component: Boleta,
+    exact: true,
+  },
+  {
     path: "/Workers/Cocina",
     layout: WorkersLayout,
     component: CocinaWorker,
@@ -92,13 +103,13 @@ const routesWorkers = [
   {
     path: "/Workers/Reportes/Semanal",
     layout: WorkersLayout,
-    component: Reportes,
+    component: ReportesSemana,
     exact: true,
   },
   {
     path: "/Workers/Reportes/Mensual",
     layout: WorkersLayout,
-    component: Reportes,
+    component: ReportesMes,
     exact: true,
   },
   {

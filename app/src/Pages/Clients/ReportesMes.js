@@ -23,12 +23,17 @@ import {
   Dona,
   Grafico,
   Barras,
-} from "../../components/Workers/Dashboard/Diario";
+} from "../../components/Workers/Dashboard/Semanal";
 import axios from "axios";
+import moment from "moment";
 import { useNavigate } from "react-router-dom";
 
-export function Reportes() {
-  const today = getCurrentDatelf("-");
+export function ReportesMes() {
+  const navigate = useNavigate();
+
+  const startOfWeek = moment().startOf("month").toDate();
+
+  const lunes = conveertDateQ("-", startOfWeek);
   const printRef = React.useRef();
   const date = getCurrentDate("-");
 
@@ -43,7 +48,7 @@ export function Reportes() {
     const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
 
     pdf.addImage(data, "PNG", 0, 0, pdfWidth, pdfHeight);
-    pdf.save(`Reporte Diario ${date}.pdf`);
+    pdf.save(`Reporte mensual ${date}.pdf`);
   };
 
   const [total_pago, setTotal_pago] = useState([]);
@@ -53,7 +58,7 @@ export function Reportes() {
   const peticionApi3 = async () => {
     await axios
       .get(
-        `http://127.0.0.1:8000/api/finanzas/?tipo=INGRESO&fecha__gte=${today}`
+        `http://127.0.0.1:8000/api/finanzas/?tipo=INGRESO&fecha__gte=${lunes}`
       )
       .then((Response) => {
         var respuesta = Response.data;
@@ -68,7 +73,7 @@ export function Reportes() {
   const peticionApi2 = async () => {
     await axios
       .get(
-        `http://127.0.0.1:8000/api/pedidos/?close=true&created_at__gte=${today}`
+        `http://127.0.0.1:8000/api/pedidos/?close=true&created_at__gte=${lunes}`
       )
       .then((Response) => {
         var respuesta = Response.data;
@@ -82,7 +87,7 @@ export function Reportes() {
   const peticionApi4 = async () => {
     await axios
       .get(
-        `http://127.0.0.1:8000/api/finanzas/?tipo=EGRESO&fecha__gte=${today}`
+        `http://127.0.0.1:8000/api/finanzas/?tipo=EGRESO&fecha__gte=${lunes}`
       )
       .then((Response) => {
         var respuesta = Response.data;
@@ -99,7 +104,6 @@ export function Reportes() {
     peticionApi3();
     peticionApi4();
   }, []);
-  const navigate = useNavigate();
 
   const goToDay = () => {
     navigate(`/workers/Reportes`);
@@ -126,11 +130,11 @@ export function Reportes() {
         </div>
 
         <div>
-          <Button onClick={goToDay} disabled>
-            Reporte diario
-          </Button>
+          <Button onClick={goToDay}>Reporte diario</Button>
           <Button onClick={goToWeek}>Reporte semanal</Button>
-          <Button onClick={goToMonth}>Reporte mensual</Button>
+          <Button onClick={goToMonth} disabled>
+            Reporte mensual
+          </Button>
         </div>
       </div>
       <div
@@ -139,7 +143,7 @@ export function Reportes() {
           padding: "10px",
         }}
       >
-        <h2 style={{ paddingLeft: "7%" }}>Reporte diario</h2>
+        <h2 style={{ paddingLeft: "7%" }}>Reporte semanal</h2>
         <Container
           style={{
             padding: "40px",
@@ -266,7 +270,7 @@ export function Reportes() {
                     className="ct-chart ct-perfect-fourth"
                     id="chartPreferences"
                   >
-                    <Dona today={today} />
+                    <Dona today={lunes} />
                   </div>
                 </Card.Body>
               </Card>
@@ -291,6 +295,7 @@ export function Reportes() {
     </div>
   );
 }
+
 export function getCurrentDate(separator = "") {
   let newDate = new Date();
   let date = newDate.getDate();
@@ -302,8 +307,8 @@ export function getCurrentDate(separator = "") {
   }${separator}${year}`;
 }
 
-export function getCurrentDatelf(separator = "") {
-  let newDate = new Date();
+export function conveertDateQ(separator = "", fecha) {
+  let newDate = new Date(fecha);
   let date = newDate.getDate();
   let month = newDate.getMonth() + 1;
   let year = newDate.getFullYear();
