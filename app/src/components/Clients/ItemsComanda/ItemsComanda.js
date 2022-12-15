@@ -23,6 +23,7 @@ export function ItemsComanda(props) {
                     ? Preparacion.Imagen
                     : require("../../../assets/Imagenes/Mantencion.jpg").default
                 }
+                style={{ width: "150px", height: "100px" }}
               />
 
               <Item.Content>

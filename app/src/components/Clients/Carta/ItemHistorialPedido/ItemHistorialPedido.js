@@ -23,7 +23,12 @@ export function ItemHistorialPedido(props) {
 
       <div className="order-history-item__product">
         <Image
-          src={require("../../../../assets/Imagenes/Mantencion.jpg").default}
+          src={
+            pedido.preparacion_Data.Imagen
+              ? pedido.preparacion_Data.Imagen
+              : require("../../../../assets/Imagenes/Mantencion.jpg").default
+          }
+          style={{ width: "150px", height: "100px" }}
         />
         <p>{nombre}</p>
       </div>

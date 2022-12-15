@@ -24,23 +24,29 @@ ChartJS.register(
 );
 
 export function Grafico() {
+  const today = getCurrentDatelf("-");
+
   const [nombre, setNombre] = useState([]);
   const [stock_critico, setStock_critico] = useState([]);
   const [stock_actual, setStock_actual] = useState([]);
 
   const peticionApi = async () => {
     await axios
-      .get("http://127.0.0.1:8000/api/productos/?necesita_Stock=true")
+      .get(`http://127.0.0.1:8000/api/pedidos/?created_at__gte=${today}`)
       .then((Response) => {
         var respuesta = Response.data;
         var auxNombre = [],
           auxStock_critico = [],
           auxStock_actual = [];
         respuesta.map((elemento) => {
-          console.log(Response.data);
-          auxNombre.push(elemento.nombre);
-          auxStock_critico.push(elemento.stock_critico);
-          auxStock_actual.push(elemento.stock_actual);
+          if (auxNombre.indexOf(hour(elemento.created_at)) === -1) {
+            auxNombre.push(hour(elemento.created_at));
+            auxStock_critico.push(1);
+          } else {
+            auxStock_critico[auxNombre.indexOf(hour(elemento.created_at))] =
+              auxStock_critico[auxNombre.indexOf(hour(elemento.created_at))] +
+              1;
+          }
         });
         setNombre(auxNombre);
         setStock_critico(auxStock_critico);
@@ -55,7 +61,7 @@ export function Grafico() {
     labels: nombre,
     datasets: [
       {
-        label: "Stock actual de productos",
+        label: "Numero de ventas",
         fill: false,
         backgroundColor: "rgba(80, 155, 243, 1)",
         borderColor: "rgba(80, 155, 243, 1)",
@@ -66,22 +72,22 @@ export function Grafico() {
         pointHoverBorderColor: "rgba(80, 155, 243, 1)",
         pointRadius: "1",
         pointHitRadius: "10",
-        data: stock_actual,
-      },
-      {
-        label: "Stock crítico de productos",
-        fill: false,
-        backgroundColor: "rgba(20, 300, 243, 1)",
-        borderColor: "rgba(20, 300, 243, 1)",
-        pointBorderColor: "rgba(20, 300, 243, 1)",
-        pointBorderWidth: "1",
-        pointHoverRadius: "5",
-        pointHoverBackgroundColor: "rgba(20, 300, 243, 1)",
-        pointHoverBorderColor: "rgba(20, 300, 243, 1)",
-        pointRadius: "1",
-        pointHitRadius: "10",
         data: stock_critico,
       },
+      // {
+      //   label: "Stock crítico de productos",
+      //   fill: false,
+      //   backgroundColor: "rgba(20, 300, 243, 1)",
+      //   borderColor: "rgba(20, 300, 243, 1)",
+      //   pointBorderColor: "rgba(20, 300, 243, 1)",
+      //   pointBorderWidth: "1",
+      //   pointHoverRadius: "5",
+      //   pointHoverBackgroundColor: "rgba(20, 300, 243, 1)",
+      //   pointHoverBorderColor: "rgba(20, 300, 243, 1)",
+      //   pointRadius: "1",
+      //   pointHitRadius: "10",
+      //   data: stock_critico,
+      // },
     ],
   };
 
@@ -90,4 +96,20 @@ export function Grafico() {
       <Line data={data} />
     </div>
   );
+}
+
+export function hour(date) {
+  let fecha = new Date(date);
+  let hour = fecha.getHours();
+  return hour;
+}
+export function getCurrentDatelf(separator = "") {
+  let newDate = new Date();
+  let date = newDate.getDate();
+  let month = newDate.getMonth() + 1;
+  let year = newDate.getFullYear();
+
+  return `${year}${separator}${
+    month < 10 ? `0${month}` : `${month}`
+  }${separator}${date}`;
 }

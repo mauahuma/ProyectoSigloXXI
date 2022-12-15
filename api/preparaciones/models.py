@@ -13,6 +13,7 @@ class Preparacion(models.Model):
     Valor_preparacion = models.IntegerField(default=0)
     Imagen = models.ImageField(upload_to='preparaciones', null=True)
     categoria = models.CharField(max_length=100, default="")
+    utilidades = models.IntegerField(default=0)
 
     def __str__(self):
         return self.nombre

@@ -9,3 +9,5 @@ export * from "./Registrarse";
 export * from "./Reservas";
 export * from "./Boleta";
 export * from "./Reportes";
+export * from "./ReportesSemana";
+export * from "./ReportesMes";

@@ -1,11 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Badge, Image } from "react-bootstrap";
 import { Divider, Grid } from "semantic-ui-react";
 import "./Boleta.scss";
+import { useParams } from "react-router-dom";
+
+import { usePagos, usePedidos } from "../../../hooks";
+import { map } from "lodash";
 
 export function Boleta() {
+  const { id } = useParams();
+  const { getPedidosbyPago } = usePedidos();
+  const { getPago } = usePagos();
+  const [pedidos, setPedidos] = useState([]);
+  const [pago, setPago] = useState(null);
+  useEffect(() => {
+    (async () => {
+      const responsePago = await getPago(id);
+
+      const response = await getPedidosbyPago(responsePago.id);
+      setPedidos(response);
+      setPago(responsePago);
+    })();
+  }, [id]);
   return (
     <div className="Boleta">
+      <button onClick={() => console.log(pago.id)}></button>
       <div className="Boleta__Cont" align="center">
         <img
           width={300}
@@ -30,9 +49,7 @@ export function Boleta() {
               <Grid.Column>
                 <h4>Producto</h4>
               </Grid.Column>
-              <Grid.Column>
-                <h4>Cantidad</h4>
-              </Grid.Column>
+
               <Grid.Column>
                 <h4>Monto</h4>
               </Grid.Column>
@@ -40,27 +57,24 @@ export function Boleta() {
           </Grid>
           <Divider />
           <Grid stackable columns={3} divided>
-            <Grid.Row>
-              <Grid.Column>
-                <h5>Ejemplo1</h5>
-              </Grid.Column>
-              <Grid.Column>
-                <h5>Ejemplo1</h5>
-              </Grid.Column>
-              <Grid.Column>
-                <h5>Ejemplo1</h5>
-              </Grid.Column>
-            </Grid.Row>
+            {map(pedidos, (pedido, index) => (
+              <Grid.Row key={index}>
+                <Grid.Column>
+                  <h5>{pedido.preparacion_Data.nombre}</h5>
+                </Grid.Column>
+
+                <Grid.Column>
+                  <h5>${pedido.preparacion_Data.Valor}</h5>
+                </Grid.Column>
+              </Grid.Row>
+            ))}
           </Grid>
           <Divider />
-          <di align="center">
+          <div align="center">
             <Divider horizontal>Total a pagar</Divider>
-            <h4>TOTAL SIN ADICIONALES:</h4>
-            <h4>PROPINA:</h4>
-            <h4>IVA:</h4>
             <h4>TOTAL A PAGAR:</h4>
             <Divider />
-          </di>
+          </div>
         </div>
       </div>
     </div>

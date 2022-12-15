@@ -5,6 +5,7 @@ import {
   cerrarPagosApi,
   getPagosApi,
   getPagosFilterApi,
+  getPagoApi,
 } from "../api/pagos";
 
 export function usePagos() {
@@ -13,6 +14,7 @@ export function usePagos() {
   const [pagos, setPagos] = useState(null);
   const groupBy = require("group-by-with-sum");
   const [pagosFiltered, setPagosFiltered] = useState(null);
+  const [pago, setPago] = useState(null);
 
   const crearPagos = async (dataPago) => {
     try {
@@ -49,6 +51,19 @@ export function usePagos() {
       setError(error);
     }
   };
+
+  const getPago = async (id) => {
+    try {
+      setLoading(true);
+      const response = await getPagoApi(id);
+      setLoading(false);
+      setPago(response);
+      return response;
+    } catch (error) {
+      setLoading(false);
+      setError(error);
+    }
+  };
   const getPagosFiltered = async () => {
     try {
       setLoading(true);
@@ -73,5 +88,7 @@ export function usePagos() {
     getPagos,
     pagosFiltered,
     getPagosFiltered,
+    getPago,
+    pago,
   };
 }

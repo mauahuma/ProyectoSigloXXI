@@ -133,7 +133,10 @@ function newSchema() {
   return {
     nombre: Yup.string().required(true),
     medida: Yup.string().required(true),
-    stock_actual: Yup.number().required(true),
+    stock_actual: Yup.number()
+      .positive("Stock debe de ser positivo")
+      .integer("Stock debe de ser entero")
+      .required(true),
     stock_critico: Yup.number().required(true),
     valor: Yup.number().required(true),
 
@@ -144,8 +147,14 @@ function updateSchema() {
   return {
     nombre: Yup.string().required(true),
     medida: Yup.string().required(true),
-    stock_actual: Yup.number().required(true),
-    stock_critico: Yup.number().required(true),
+    stock_actual: Yup.number()
+      .positive("Stock debe de ser positivo")
+      .integer("Stock debe de ser entero")
+      .required(true),
+    stock_critico: Yup.number()
+      .positive("Stock debe de ser positivo")
+      .integer("Stock debe de ser entero")
+      .required(true),
     valor: Yup.number().required(true),
 
     proveedor: Yup.number().required(true),

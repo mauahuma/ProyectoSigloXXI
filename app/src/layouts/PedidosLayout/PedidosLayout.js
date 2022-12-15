@@ -6,7 +6,7 @@ import { useMesas } from "../../hooks";
 
 export function PedidosLayout(props) {
   const { children } = props;
-  const { isExistMesa } = useMesas();
+  const { isExistMesa, isOccupiedMesa } = useMesas();
   const { numero_mesa } = useParams();
   const navigate = useNavigate();
 
@@ -14,6 +14,8 @@ export function PedidosLayout(props) {
     (async () => {
       const exist = await isExistMesa(numero_mesa);
       if (!exist) closeTable();
+      const ocuppied = await isOccupiedMesa(numero_mesa);
+      if (!ocuppied) closeTable();
     })();
   }, [numero_mesa]);
   const closeTable = () => {

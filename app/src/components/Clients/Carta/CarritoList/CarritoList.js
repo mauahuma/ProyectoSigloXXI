@@ -48,7 +48,10 @@ export function CarritoList(props) {
           <div>
             <Image
               src={
-                require("../../../../assets/Imagenes/Mantencion.jpg").default
+                preparacion.Imagen
+                  ? preparacion.Imagen
+                  : require("../../../../assets/Imagenes/Mantencion.jpg")
+                      .default
               }
               avatar
             />

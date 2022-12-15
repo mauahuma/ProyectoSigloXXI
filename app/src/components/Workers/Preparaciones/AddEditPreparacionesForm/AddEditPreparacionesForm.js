@@ -149,7 +149,10 @@ function newSchema() {
   return {
     nombre: Yup.string().required(true),
     tiempo_preparacion: Yup.number().required(false),
-    stock: Yup.number().required(false),
+    stock: Yup.number()
+      .positive("Stock debe de ser positivo")
+      .integer("Stock debe de ser entero")
+      .required(false),
     receta: Yup.string().required(true),
     activo: Yup.bool().required(true),
     Valor: Yup.number().required(true),
@@ -161,7 +164,10 @@ function updateSchema() {
   return {
     nombre: Yup.string().required(true),
     tiempo_preparacion: Yup.number().required(false),
-    stock: Yup.number().required(false),
+    stock: Yup.number()
+      .positive("Stock debe de ser positivo")
+      .integer("Stock debe de ser entero")
+      .required(false),
     receta: Yup.string().required(true),
     activo: Yup.bool().required(true),
     Valor: Yup.number().required(true),
