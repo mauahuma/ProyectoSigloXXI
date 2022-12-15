@@ -73,7 +73,7 @@ export function Dona(props) {
   return (
     <div>
       {" "}
-      <Label>Productos mas vendidos</Label>
+      <Label>Productos más vendidos</Label>
       <Doughnut data={data} />
     </div>
   );

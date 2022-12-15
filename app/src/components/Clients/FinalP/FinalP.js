@@ -10,7 +10,7 @@ export function FinalP() {
             <Grid.Column width={3}>
               <Header inverted as="h4" content="Nosotros" />
               <List link inverted>
-                <List.Item as="a">Contactanos</List.Item>
+                <List.Item as="a">Contáctanos</List.Item>
                 <List.Item as="a">Comentarios</List.Item>
                 <List.Item as="a">Evaluaciones</List.Item>
               </List>
@@ -20,7 +20,7 @@ export function FinalP() {
               <List link inverted>
                 <List.Item as="a">Asociaciones</List.Item>
                 <List.Item as="a">Aprobaciones</List.Item>
-                <List.Item as="a">Cómo reservar ?</List.Item>
+                <List.Item as="a">¿Cómo reservar?</List.Item>
               </List>
             </Grid.Column>
             <Grid.Column width={7}>
@@ -29,7 +29,7 @@ export function FinalP() {
               </Header>
               <p>
                 Agradecemos a los comensales y esperamos tus comentarios para
-                mejorar la experiencia
+                mejorar la experiencia.
               </p>
             </Grid.Column>
           </Grid.Row>

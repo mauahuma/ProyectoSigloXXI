@@ -90,7 +90,7 @@ export function StockProveedores(props) {
                     <Table.HeaderCell>Nombre</Table.HeaderCell>
                     <Table.HeaderCell>Medida</Table.HeaderCell>
                     <Table.HeaderCell>Stock Actual</Table.HeaderCell>
-                    <Table.HeaderCell>Stock Critico</Table.HeaderCell>
+                    <Table.HeaderCell>Stock Crítico</Table.HeaderCell>
 
                     <Table.HeaderCell></Table.HeaderCell>
                   </Table.Row>

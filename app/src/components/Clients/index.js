@@ -9,5 +9,4 @@ export * from "./SideA";
 export * from "./FormatoL";
 export * from "./ItemsComanda";
 export * from "./TitleItems";
-
 export * from "./Carta";

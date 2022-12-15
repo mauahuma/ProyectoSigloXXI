@@ -244,7 +244,7 @@ export function Reportes() {
             <Col md="4">
               <Card>
                 <Card.Header>
-                  <Card.Title as="h4">Productos mas vendidos</Card.Title>
+                  <Card.Title as="h4">Productos más vendidos</Card.Title>
                 </Card.Header>
                 <Card.Body>
                   <div

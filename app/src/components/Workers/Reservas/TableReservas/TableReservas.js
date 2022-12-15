@@ -12,7 +12,7 @@ export function TableReservas(props) {
         <thead>
           <tr>
             <th>Nombre</th>
-            <th>Correo electronico</th>
+            <th>Correo electrónico</th>
             <th>Cantidad comensales</th>
 
             <th>Fecha</th>

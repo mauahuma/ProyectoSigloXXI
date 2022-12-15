@@ -66,7 +66,7 @@ export function Cake() {
   };
   return (
     <div>
-      <Label>Numero de ventas segun metodo de pago</Label>
+      <Label>Número de ventas según metodo de pago</Label>
       <Pie data={data} />
     </div>
   );

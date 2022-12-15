@@ -31,7 +31,7 @@ export function AddIngredienteForm(props) {
     openCloseModal2();
   };
   const updateIngrediente = (data, data2) => {
-    setTitleModal2("Actualizar proveedor");
+    setTitleModal2("Actualizar Proveedor");
     setContentModal2(
       <IngredienteForm
         onRefetch={onRefetch}
@@ -43,7 +43,7 @@ export function AddIngredienteForm(props) {
     openCloseModal2();
   };
   const onDeleteIngrediente = async (data) => {
-    const result = window.confirm(`¿Eliminar proveedor ${data.nombre}`);
+    const result = window.confirm(`¿Eliminar Proveedor ${data.nombre}`);
     if (result) {
       try {
         await deleteIngrediente(data.id);
